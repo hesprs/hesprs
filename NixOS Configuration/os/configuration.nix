@@ -99,14 +99,13 @@
     codium
     wtype
     v2rayn
-    stable.qq
+    qq
     wechat
     mission-center
     zen
-    telegram-desktop
-    zoom-us
     gradia
     ripgrep
+    onlyoffice-desktopeditors
 
     loupe # image viewer
     showtime # video viewer
@@ -132,16 +131,10 @@
     gcc
     javaPackages.compiler.openjdk25
     gradle
-    serena
+    opencode
     mycli
 
     awww
-
-    #  Imperative:
-    # ╭───────────────────────────────────────────────────────────────────────────────╮
-    # │ ● pnpm i -g @continuedev/cli                                                  │
-    # │   pnpm uninstall -g @continuedev/cli                                          │
-    # ╰───────────────────────────────────────────────────────────────────────────────╯
   ];
 
   fonts.packages = with pkgs; [

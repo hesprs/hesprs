@@ -21,20 +21,28 @@
 	"editor.formatOnPaste": true,
 	"editor.defaultFormatter": "biomejs.biome",
 	"cSpell.userWords": [
-		"frontmatter",
-		"frontmatters",
-		"Hēsperus",
-		"Hesprs",
-		"Libertas",
-		"lifecycles",
-		"lovership",
-		"microkernel",
-		"omnikernel",
-		"Shadcn",
-		"subfolders",
-		"Tauri",
-		"Techstack"
-	],
+        "consensia",
+        "Enneagram",
+        "frontmatter",
+        "frontmatters",
+        "Hēsperus",
+        "Hesprs",
+        "Libertas",
+        "lifecycles",
+        "lovership",
+        "microkernel",
+        "omnikernel",
+        "Pointeract",
+        "prerender",
+        "prerendered",
+        "prerendering",
+        "Shadcn",
+        "subfolders",
+        "Tauri",
+        "Techstack",
+        "techstacks",
+        "Vite"
+    ],
 	"terminal.integrated.stickyScroll.enabled": false,
 	"[nix]": {
 		"editor.defaultFormatter": "jnoortheen.nix-ide"
@@ -45,6 +53,12 @@
 	"[java]": {
 		"editor.defaultFormatter": "redhat.java"
 	},
+    "[vue]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.biome": "never"
+        },
+        "editor.formatOnPaste": false
+    },
 	"security.workspace.trust.untrustedFiles": "open",
 	"workbench.navigationControl.enabled": false,
 	"chat.disableAIFeatures": true,
@@ -56,8 +70,7 @@
 	"editor.inlineSuggest.experimental.showOnSuggestConflict": "whenSuggestListIsIncomplete",
 	"editor.inlineSuggest.minShowDelay": 0,
 	"terminal.integrated.enableMultiLinePasteWarning": "never",
-	"terminal.integrated.tabs.location": "left",
-	"terminal.integrated.tabs.enabled": false,
+    "terminal.integrated.tabs.location": "left",
 	"workbench.editor.empty.hint": "hidden",
 	"workbench.secondarySideBar.showLabels": false,
 	"Lingma.DisplayLanguage": "English",
@@ -87,5 +100,12 @@
 	"extensions.experimental.deferredStartupFinishedActivation": true,
 	"typescript.experimental.useTsgo": true,
     "editor.detectIndentation": false,
-    "typescript.updateImportsOnFileMove.enabled": "always"
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.inertialScroll": true,
+    "files.associations": {
+        "*.canvas": "json"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "terminal.integrated.tabs.enabled": false,
+    "editor.selectionClipboard": false,
 }
