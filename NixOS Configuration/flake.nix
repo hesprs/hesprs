@@ -8,7 +8,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     awww.url = "git+https://codeberg.org/LGFae/awww";
-    serena.url = "github:oraios/serena";
     stylix.url = "github:nix-community/stylix";
   };
 
@@ -20,7 +19,6 @@
       home-manager,
       zen-browser,
       awww,
-      serena,
       stylix,
       ...
     }:
@@ -50,9 +48,6 @@
               })
               (final: prev: {
                 awww = inputs.awww.packages.${system}.awww;
-              })
-              (final: prev: {
-                serena = inputs.serena.packages.${system}.default;
               })
             ];
             home-manager = {

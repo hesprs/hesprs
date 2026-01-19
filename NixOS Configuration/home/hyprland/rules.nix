@@ -26,22 +26,18 @@
 
     layerrule = [
       # swaync
-      "blur, swaync-control-center"
-      "blur, swaync-notification-window"
-      "ignorezero, swaync-control-center"
-      "ignorezero, swaync-notification-window"
-      "ignorealpha 0.5, swaync-control-center"
-      "ignorealpha 0.5, swaync-notification-window"
+      "blur on, match:namespace swaync-control-center"
+      "blur on, match:namespace swaync-notification-window"
+      "ignore_alpha 0.5, match:namespace swaync-control-center"
+      "ignore_alpha 0.5, match:namespace swaync-notification-window"
 
       # Waybar
-      "blur, waybar"
-      "ignorezero, waybar"
-      "ignorealpha 0.5, waybar"
+      "blur on, match:namespace waybar"
+      "ignore_alpha 0.5, match:namespace waybar"
 
       # Rofi
-      "blur, rofi"
-      "ignorezero, rofi"
-      "ignorealpha 0.5, rofi"
+      "blur on, match:namespace rofi"
+      "ignore_alpha 0.5, match:namespace rofi"
     ];
   };
 }

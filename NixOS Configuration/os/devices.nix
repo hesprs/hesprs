@@ -43,5 +43,8 @@
   };
 
   # touchpad
-  services.libinput.enable = true;
+  services.libinput = {
+    enable = true;
+    touchpad.additionalOptions = ''Option "ScrollingPixelDistance" "10"'';
+  };
 }

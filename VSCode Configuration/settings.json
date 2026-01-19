@@ -12,14 +12,12 @@
 	"editor.minimap.renderCharacters": false,
 	"explorer.confirmDelete": false,
 	"explorer.confirmDragAndDrop": false,
-	"editor.wordWrap": "on",
-	"files.autoSave": "afterDelay",
+    "editor.wordWrap": "on",
 	"git.confirmSync": false,
 	"git.enableSmartCommit": true,
 	"git.autofetch": true,
-	"editor.formatOnSave": true,
-	"editor.formatOnPaste": true,
-	"editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+	"editor.defaultFormatter": "oxc.oxc-vscode",
 	"cSpell.userWords": [
         "consensia",
         "Enneagram",
@@ -30,8 +28,11 @@
         "Libertas",
         "lifecycles",
         "lovership",
+        "MBTI",
         "microkernel",
         "omnikernel",
+        "oxfmt",
+        "oxlint",
         "Pointeract",
         "prerender",
         "prerendered",
@@ -41,11 +42,13 @@
         "Tauri",
         "Techstack",
         "techstacks",
-        "Vite"
+        "Vite",
+        "vitepress"
     ],
 	"terminal.integrated.stickyScroll.enabled": false,
 	"[nix]": {
-		"editor.defaultFormatter": "jnoortheen.nix-ide"
+		"editor.defaultFormatter": "jnoortheen.nix-ide",
+        "editor.formatOnPaste": false
 	},
 	"[rust]": {
 		"editor.defaultFormatter": "rust-lang.rust-analyzer"
@@ -53,12 +56,6 @@
 	"[java]": {
 		"editor.defaultFormatter": "redhat.java"
 	},
-    "[vue]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll.biome": "never"
-        },
-        "editor.formatOnPaste": false
-    },
 	"security.workspace.trust.untrustedFiles": "open",
 	"workbench.navigationControl.enabled": false,
 	"chat.disableAIFeatures": true,
@@ -73,19 +70,12 @@
     "terminal.integrated.tabs.location": "left",
 	"workbench.editor.empty.hint": "hidden",
 	"workbench.secondarySideBar.showLabels": false,
-	"Lingma.DisplayLanguage": "English",
-	"Lingma.PreferredLanguage for AI Chat": "English",
-	"Lingma.PreferredLanguage forCommitMessage": "English",
 	"terminal.integrated.gpuAcceleration": "on",
 	"editor.codeActionsOnSave": {
 		"source.organizeImports.biome": "explicit",
 		"source.fixAll.biome": "explicit"
 	},
-	"biome.suggestInstallingGlobally": false,
-	"Lingma.aI Chat.webToolsInAsk/AgentMode": "Auto-execute",
-	"redhat.telemetry.enabled": false,
-	"editor.minimap.size": "fill",
-	"Lingma.methodQuickOperation": false,
+    "redhat.telemetry.enabled": false,
 	"explorer.fileNesting.enabled": true,
 	"editor.unicodeHighlight.includeStrings": false,
 	"terminal.integrated.cursorStyle": "line",
@@ -101,11 +91,29 @@
 	"typescript.experimental.useTsgo": true,
     "editor.detectIndentation": false,
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "editor.inertialScroll": true,
     "files.associations": {
         "*.canvas": "json"
     },
     "javascript.updateImportsOnFileMove.enabled": "always",
     "terminal.integrated.tabs.enabled": false,
     "editor.selectionClipboard": false,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "workbench.list.smoothScrolling": true,
+    "terminal.integrated.smoothScrolling": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.minimap.size": "fit",
+    "oxc.typeAware": true,
+    "oxc.requireConfig": true,
+    "editor.autoIndentOnPasteWithinString": false,
+    "editor.indentSize": "tabSize",
+    "editor.tabSize": 4,
+    "json.format.enable": false,
+    "files.autoSave": "afterDelay",
+    "editor.formatOnPaste": true,
+    "codeium.enableCodeLens": false,
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "editor.inertialScroll": true,
+    "editor.smoothScrolling": true,
 }

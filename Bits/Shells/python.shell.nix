@@ -3,9 +3,11 @@ let
 in
 pkgs.mkShell {
   buildInputs = [
-    (pkgs.python3.withPackages (ps: with ps; [
-      # ...
-    ]))
+    (pkgs.python3.withPackages (
+      ps: with ps; [
+        # ...
+      ]
+    ))
   ];
 
   shellHook = ''

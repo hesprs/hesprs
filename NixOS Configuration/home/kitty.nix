@@ -30,6 +30,7 @@
       hide_window_decorations = true;
       background_opacity = 0.7;
       dynamic_background_opacity = true;
+      touch_scroll_multiplier = 7.0;
     };
   };
 }

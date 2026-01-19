@@ -66,6 +66,7 @@
   security.rtkit.enable = true;
   programs.dconf.enable = true; # Gnome APP settings
   programs.nix-ld.enable = true; # run external binaries
+  programs.chromium.enable = true;
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -114,6 +115,7 @@
     snapshot # camera
     nautilus # file manager
     gnome-calculator
+    gnome-characters
     brightnessctl # screen brightness control
 
     zip
@@ -130,17 +132,22 @@
     rustc
     gcc
     javaPackages.compiler.openjdk25
-    gradle
     opencode
-    mycli
+    mycli # MySQL cli
+    google-chrome
 
     awww
   ];
 
-  fonts.packages = with pkgs; [
-    (pkgs.callPackage ./fonts/SFDisplay { })
-    nerd-fonts.jetbrains-mono
-  ];
+  fonts = {
+    fontconfig.enable = true;
+    packages = with pkgs; [
+        (pkgs.callPackage ./fonts/SFDisplay { })
+        nerd-fonts.jetbrains-mono
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
+    ];
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";
