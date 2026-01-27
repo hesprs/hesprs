@@ -1,15 +1,22 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ./animations.nix
     ./decoration.nix
     ./rules.nix
     ./bind.nix
+    ./plugin.nix
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.variables = [ "--all" ];
     xwayland.enable = true;
+
+    plugins = with pkgs; [
+      hyprland-plugins.borders-plus-plus
+    ];
 
     settings = {
       "$terminal" = "kitty";
@@ -75,6 +82,7 @@
         touchpad = {
           natural_scroll = true;
           scroll_factor = 0.3;
+          disable_while_typing = false;
         };
       };
     };

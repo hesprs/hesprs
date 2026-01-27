@@ -5,7 +5,7 @@
       rounding = 12;
       active_opacity = 0.93;
       inactive_opacity = 0.88;
-      fullscreen_opacity = 0.93;
+      fullscreen_opacity = 1;
       dim_inactive = true;
       dim_strength = 0.1;
 

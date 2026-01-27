@@ -116,4 +116,7 @@
     },
     "editor.inertialScroll": true,
     "editor.smoothScrolling": true,
+    "files.exclude": {
+        "**/__pycache__": true
+    },
 }

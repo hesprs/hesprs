@@ -125,6 +125,7 @@
     wl-clipboard
 
     python3
+    uv
     nodePackages_latest.nodejs
     pnpm
     nixfmt

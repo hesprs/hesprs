@@ -9,6 +9,11 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     awww.url = "git+https://codeberg.org/LGFae/awww";
     stylix.url = "github:nix-community/stylix";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs =
@@ -20,6 +25,8 @@
       zen-browser,
       awww,
       stylix,
+      hyprland,
+      hyprland-plugins,
       ...
     }:
     let
@@ -42,12 +49,10 @@
                   config = prev.config;
                   overlays = prev.overlays;
                 };
-              })
-              (final: prev: {
                 zen = inputs.zen-browser.packages.${system}.default;
-              })
-              (final: prev: {
                 awww = inputs.awww.packages.${system}.awww;
+                hyprland = inputs.hyprland.packages.${system}.default;
+                hyprland-plugins = inputs.hyprland-plugins.packages.${pkgs.system};
               })
             ];
             home-manager = {
