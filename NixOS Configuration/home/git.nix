@@ -6,14 +6,15 @@
         name = "Hēsperus";
         email = "hesprs@outlook.com";
       };
-      # FOSS-friendly settings
       fetch.prune = "true";
-      push.default = "simple"; # Match modern push behavior
+      push = {
+        default = "simple";
+        rebase = true;
+      };
       credential.helper = "cache --timeout=7200";
-      init.defaultBranch = "main"; # Set default new branches to 'main'
-      log.decorate = "full"; # Show branch/tag info in git log
-      log.date = "iso"; # ISO 8601 date format
-      # Conflict resolution style for readable diffs
+      init.defaultBranch = "main";
+      log.decorate = "full";
+      log.date = "iso";
       merge.conflictStyle = "diff3";
     };
   };
