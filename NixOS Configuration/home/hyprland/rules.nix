@@ -1,27 +1,14 @@
 {
   wayland.windowManager.hyprland.settings = {
-    windowrulev2 = [
+    windowrulev3 = [
       # Standard App Rules
-      "tile, title:^(Microsoft-edge)$"
-      "tile, title:^(Brave-browser)$"
-      "tile, title:^(Chromium)$"
-      "float, title:^(pavucontrol)$"
-      "float, title:^(blueman-manager)$"
-      "float, title:^(nm-connection-editor)$"
-      "float, title:^(qalculate-gtk)$"
+      "match:title ^(pavucontrol)$, float on"
+      "match:title ^(blueman-manager)$, float on"
+      "match:title ^(nm-connection-editor)$, float on"
+      "match:title ^(qalculate-gtk)$, float on"
 
       # Browser Picture in Picture Rules
-      "float, title:^(Picture-in-Picture)$"
-      "pin, title:^(Picture-in-Picture)$"
-      "move 69.5% 4%, title:^(Picture-in-Picture)$"
-
-      # idleinhibit Rule
-      "idleinhibit fullscreen,class:([window])"
-
-      # file chooser fix
-      "noblur, class:^(Xdg-desktop-portal-gtk)$"
-      "noborder, class:^(Xdg-desktop-portal-gtk)$"
-      "noshadow, class:^(Xdg-desktop-portal-gtk)$"
+      "match:title ^(Picture-in-Picture)$, float on, pin on, move 69.5% 4%"
     ];
 
     layerrule = [

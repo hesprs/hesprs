@@ -52,7 +52,7 @@
                 zen = inputs.zen-browser.packages.${system}.default;
                 awww = inputs.awww.packages.${system}.awww;
                 hyprland = inputs.hyprland.packages.${system}.default;
-                hyprland-plugins = inputs.hyprland-plugins.packages.${pkgs.system};
+                hyprland-plugins = inputs.hyprland-plugins.packages.${system};
               })
             ];
             home-manager = {

@@ -1,22 +1,16 @@
-{ pkgs, ... }:
-
 {
   imports = [
     ./animations.nix
     ./decoration.nix
     ./rules.nix
     ./bind.nix
-    ./plugin.nix
+    ./plugins.nix
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.variables = [ "--all" ];
     xwayland.enable = true;
-
-    plugins = with pkgs; [
-      hyprland-plugins.borders-plus-plus
-    ];
 
     settings = {
       "$terminal" = "kitty";

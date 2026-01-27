@@ -3,8 +3,7 @@
 	"window.controlsStyle": "custom",
 	"workbench.productIconTheme": "fluent-icons",
 	"workbench.iconTheme": "catppuccin-mocha",
-	"editor.fontFamily": "JetBrainsMono Nerd Font",
-	"workbench.layoutControl.enabled": false,
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
 	"editor.renderWhitespace": "none",
 	"editor.renderControlCharacters": false,
 	"editor.stickyScroll.enabled": false,
@@ -37,6 +36,7 @@
         "prerender",
         "prerendered",
         "prerendering",
+        "rgba",
         "Shadcn",
         "subfolders",
         "Tauri",
@@ -56,8 +56,7 @@
 	"[java]": {
 		"editor.defaultFormatter": "redhat.java"
 	},
-	"security.workspace.trust.untrustedFiles": "open",
-	"workbench.navigationControl.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open",
 	"chat.disableAIFeatures": true,
 	"workbench.settings.showAISearchToggle": false,
 	"workbench.editor.editorActionsLocation": "hidden",
@@ -119,4 +118,6 @@
     "files.exclude": {
         "**/__pycache__": true
     },
+    "workbench.layoutControl.enabled": false,
+    "workbench.navigationControl.enabled": false
 }

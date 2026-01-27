@@ -21,7 +21,7 @@
 
       shadow = {
         enabled = true;
-        range = 12;
+        range = 16;
         render_power = 2;
         color = "rgba(0, 0, 0, 0.2)";
         color_inactive = "rgba(0, 0, 0, 0.12)";
