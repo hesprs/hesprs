@@ -4,7 +4,6 @@
     ./decoration.nix
     ./rules.nix
     ./bind.nix
-    ./plugins.nix
   ];
 
   wayland.windowManager.hyprland = {

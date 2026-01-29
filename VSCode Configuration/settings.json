@@ -67,8 +67,7 @@
 	"editor.inlineSuggest.minShowDelay": 0,
 	"terminal.integrated.enableMultiLinePasteWarning": "never",
     "terminal.integrated.tabs.location": "left",
-	"workbench.editor.empty.hint": "hidden",
-	"workbench.secondarySideBar.showLabels": false,
+    "workbench.editor.empty.hint": "hidden",
 	"terminal.integrated.gpuAcceleration": "on",
 	"editor.codeActionsOnSave": {
 		"source.organizeImports.biome": "explicit",
@@ -94,7 +93,6 @@
         "*.canvas": "json"
     },
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "terminal.integrated.tabs.enabled": false,
     "editor.selectionClipboard": false,
     "editor.cursorSmoothCaretAnimation": "on",
     "workbench.list.smoothScrolling": true,
@@ -119,5 +117,7 @@
         "**/__pycache__": true
     },
     "workbench.layoutControl.enabled": false,
-    "workbench.navigationControl.enabled": false
+    "workbench.navigationControl.enabled": false,
+    "workbench.secondarySideBar.showLabels": false,
+    "terminal.integrated.tabs.enabled": false
 }

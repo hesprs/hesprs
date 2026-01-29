@@ -21,10 +21,10 @@
 
       shadow = {
         enabled = true;
-        range = 16;
+        range = 3;
         render_power = 2;
-        color = "rgba(0, 0, 0, 0.2)";
-        color_inactive = "rgba(0, 0, 0, 0.12)";
+        color = "rgba(0, 0, 0, 0.7)";
+        color_inactive = "rgba(0, 0, 0, 0.3)";
       };
     };
   };
