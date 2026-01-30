@@ -11,7 +11,7 @@ Hello 🐱 I'm Hēsperus, a high school student, fervent to turn my ideas into 
   ![JavaScript](https://img.shields.io/badge/JavaScript-black?style=flat&logo=javascript)
   ![SCSS](https://img.shields.io/badge/SCSS-black?style=flat&logo=sass)
   ![Vue.js](https://img.shields.io/badge/Vue-black?style=flat&logo=Vue.js)
-  ![React.js](https://img.shields.io/badge/React-black?style=flat&logo=react&logoColor=673AB8)
+  ![React.js](https://img.shields.io/badge/React-black?style=flat&logo=react)
   ![Three.js](https://img.shields.io/badge/Three.js-black?style=flat&logo=threedotjs)
   ![Python](https://img.shields.io/badge/Python-black?style=flat&logo=python)
   ![FastAPI](https://img.shields.io/badge/FastAPI-black?style=flat&logo=fastapi)
