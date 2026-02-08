@@ -119,5 +119,8 @@
     "workbench.layoutControl.enabled": false,
     "workbench.navigationControl.enabled": false,
     "workbench.secondarySideBar.showLabels": false,
-    "terminal.integrated.tabs.enabled": false
+    "terminal.integrated.tabs.enabled": false,
+    "window.menuStyle": "native",
+    "window.autoDetectColorScheme": true,
+    "window.menuBarVisibility": "visible"
 }

@@ -13,12 +13,18 @@
       wifi.scanRandMacAddress = false;
       wifi.powersave = true;
     };
+    proxy = {
+      httpProxy = "http://127.0.0.1:10808";
+      httpsProxy = "http://127.0.0.1:10808";
+    };
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        5173
+      ];
+    };
   };
   services.resolved.enable = true;
-  networking.proxy = {
-    httpProxy = "http://127.0.0.1:10808";
-    httpsProxy = "http://127.0.0.1:10808";
-  };
 
   # bluetooth
   hardware.bluetooth.enable = true;

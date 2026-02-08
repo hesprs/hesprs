@@ -56,7 +56,7 @@
       ", XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
 
       # Screenshot
-      ", Print, exec, grim -g \"$(slurp)\" - | wl-copy"
+      ", Print, exec, grim -g \"$(slurp -w 0)\" - | wl-copy"
     ];
 
     # Bindl (requires playerctl)

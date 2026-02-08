@@ -11,7 +11,6 @@
     ./devices.nix
     ./greetd.nix
     ./stylix.nix
-    ./mysql.nix
   ];
 
   nix = {
@@ -132,9 +131,10 @@
     cargo
     rustc
     gcc
+    gnumake
     javaPackages.compiler.openjdk25
     opencode
-    mycli # MySQL cli
+    # mycli # MySQL cli
     google-chrome
 
     awww
