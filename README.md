@@ -33,7 +33,7 @@ Hello 🙋 I'm Hēsperus:
 
 🌱 I'm learning:
   ![Web3](https://img.shields.io/badge/Web3-black?style=flat&logo=web3dotjs)
-  ![Backend and AI Workflows](https://img.shields.io/badge/%F0%9F%A6%BE%20AI%20Backend%20and%20Workflow-black?style=flat)
+  ![Backend and AI Workflows](https://img.shields.io/badge/%F0%9F%A6%BE%20Backend%20and%20AI%20Workflow-black?style=flat)
 
 - 📫 Contact Me: **hesprs@outlook.com**
 
