@@ -9,7 +9,6 @@
     ./rofi
     ./gtk.nix
     ./git.nix
-    ./swayosd.nix
     ./kitty.nix
     ./dconf.nix
     ./stylix.nix
@@ -19,11 +18,6 @@
   programs.home-manager.enable = true;
   programs.fastfetch.enable = true;
   services.dunst.enable = true;
-
-  home.file."Pictures/Wallpapers" = {
-    recursive = true;
-    source = ./wallpapers;
-  };
 
   home = {
     username = "hesprs";
@@ -41,6 +35,10 @@
     sessionPath = [
       "\${PNPM_HOME}"
     ];
+    file."Pictures/Wallpapers" = {
+      recursive = true;
+      source = ./wallpapers;
+    };
   };
 
   # Nicely reload system units when changing configs
