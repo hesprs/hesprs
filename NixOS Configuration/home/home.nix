@@ -9,6 +9,7 @@
     ./rofi
     ./gtk.nix
     ./git.nix
+    ./swayosd.nix
     ./kitty.nix
     ./dconf.nix
     ./stylix.nix
@@ -16,6 +17,7 @@
   ];
 
   programs.home-manager.enable = true;
+  programs.fastfetch.enable = true;
   services.dunst.enable = true;
 
   home.file."Pictures/Wallpapers" = {
@@ -33,6 +35,12 @@
       name = "Bibata-Modern-Classic";
       size = 24;
     };
+    sessionVariables = {
+      PNPM_HOME = "\${HOME}/.local/share/pnpm";
+    };
+    sessionPath = [
+      "\${PNPM_HOME}"
+    ];
   };
 
   # Nicely reload system units when changing configs
