@@ -3,28 +3,27 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     awww.url = "git+https://codeberg.org/LGFae/awww";
     stylix.url = "github:nix-community/stylix";
+    opencode.url = "github:anomalyco/opencode";
   };
 
   outputs =
     inputs@{
       self,
       nixpkgs-unstable,
-      nixpkgs-stable,
       home-manager,
       zen-browser,
       awww,
       stylix,
+      opencode,
       ...
     }:
     let
       system = "x86_64-linux";
-      pkgs-stable = import inputs.nixpkgs-stable;
       pkgs = nixpkgs-unstable.legacyPackages.${system};
     in
     {
@@ -37,13 +36,9 @@
           {
             nixpkgs.overlays = [
               (final: prev: {
-                stable = pkgs-stable {
-                  inherit system;
-                  config = prev.config;
-                  overlays = prev.overlays;
-                };
                 zen = inputs.zen-browser.packages.${system}.default;
-                awww = inputs.awww.packages.${system}.awww;
+                awww = inputs.awww.packages.${system}.default;
+                opencode = inputs.opencode.packages.${system}.default;
               })
             ];
             home-manager = {

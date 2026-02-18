@@ -18,12 +18,15 @@
     "editor.formatOnSave": true,
 	"editor.defaultFormatter": "oxc.oxc-vscode",
 	"cSpell.userWords": [
+        "agentic",
+        "bunx",
         "consensia",
         "Enneagram",
         "frontmatter",
         "frontmatters",
         "Hēsperus",
         "Hesprs",
+        "Inarguably",
         "Libertas",
         "lifecycles",
         "lovership",
@@ -42,6 +45,7 @@
         "Tauri",
         "Techstack",
         "techstacks",
+        "trito",
         "Vite",
         "vitepress"
     ],
@@ -49,7 +53,7 @@
 	"[nix]": {
 		"editor.defaultFormatter": "jnoortheen.nix-ide",
         "editor.formatOnPaste": false,
-        "editor.tabSize": 2,
+        "editor.tabSize": 2
 	},
 	"[rust]": {
 		"editor.defaultFormatter": "rust-lang.rust-analyzer"

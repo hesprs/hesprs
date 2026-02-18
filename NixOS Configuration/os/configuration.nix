@@ -124,9 +124,11 @@
     wl-clipboard
 
     python3
+    jupyter
     uv
     nodePackages_latest.nodejs
     pnpm
+    bun
     nixfmt
     cargo
     rustc
@@ -134,8 +136,8 @@
     gnumake
     javaPackages.compiler.openjdk25
     opencode
-    # mycli # MySQL cli
     google-chrome
+    # bunx oh-my-opencode-slim@latest install
 
     awww
   ];
