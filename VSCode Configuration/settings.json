@@ -24,12 +24,16 @@
         "Enneagram",
         "frontmatter",
         "frontmatters",
+        "HESPERI",
         "Hēsperus",
         "Hesprs",
+        "implemental",
         "Inarguably",
+        "LGBTQIA",
         "Libertas",
         "lifecycles",
         "lovership",
+        "loverships",
         "MBTI",
         "microkernel",
         "omnikernel",
@@ -62,9 +66,7 @@
 		"editor.defaultFormatter": "redhat.java"
 	},
     "security.workspace.trust.untrustedFiles": "open",
-	"chat.disableAIFeatures": true,
-	"workbench.settings.showAISearchToggle": false,
-	"workbench.editor.editorActionsLocation": "hidden",
+    "workbench.settings.showAISearchToggle": false,
 	"editor.quickSuggestionsDelay": 0,
 	"search.searchView.keywordSuggestions": true,
 	"diffEditor.experimental.useTrueInlineView": true,
@@ -95,7 +97,9 @@
     "editor.detectIndentation": false,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "files.associations": {
-        "*.canvas": "json"
+        "*.canvas": "json",
+        "*.base": "yaml",
+        "*.excalidraw": "json"
     },
     "javascript.updateImportsOnFileMove.enabled": "always",
     "editor.selectionClipboard": false,
@@ -127,5 +131,19 @@
     "terminal.integrated.tabs.enabled": false,
     "window.menuStyle": "native",
     "window.autoDetectColorScheme": true,
-    "window.menuBarVisibility": "visible"
+    "window.menuBarVisibility": "visible",
+    "workbench.preferredDarkColorTheme": "Expo Dark",
+    "workbench.editor.editorActionsLocation": "hidden",
+    "[json]": {
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    },
+    "cSpell.language": "en,en-GB",
+    "excalidraw.theme": "auto",
+    "workbench.settings.enableNaturalLanguageSearch": true,
+    "Lingma.aI Chat.webToolsInAsk/AgentMode": "Auto-execute",
+    "Lingma.methodQuickOperation": false,
+    "Lingma.aI Chat.memories": false
 }

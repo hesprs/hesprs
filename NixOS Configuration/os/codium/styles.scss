@@ -1,0 +1,366 @@
+:root {
+    --baseBackgroundColor: #0c0d0e;
+}
+
+@mixin s-card {
+	background: var(--main-card-background);
+	transition:
+		outline-color 0.3s,
+		box-shadow 0.3s,
+		background 0.3s;
+	box-shadow:
+		0 4px 16px 2px var(--main-border-shadow),
+		0 2px 4px var(--main-border-shadow),
+		inset 0 1px 2px var(--main-card-highlight);
+}
+
+@mixin card-enhance {
+	background: linear-gradient(
+		var(--main-card-second-background),
+		var(--main-card-background)
+	);
+}
+
+@mixin concave {
+	box-shadow:
+		inset 0 4px 16px 2px var(--main-border-shadow),
+		inset 0 2px 4px 2px var(--main-border-shadow),
+		inset 0 -1px 2px var(--main-card-highlight);
+	background-color: var(--main-card-background);
+}
+
+.monaco-workbench {
+  --backgroundColor: transparent;
+  --borderRadius1: 6px;
+  --borderRadius2: 12px;
+  --padding1: 4px;
+  --padding2: calc(2 * var(--padding1));
+  --selectedColor: rgba(121, 121, 121, 0.4);
+  --centralPanelColor: var(--vscode-editor-background);
+  --main-card-background: #1b1c20;
+  --main-card-second-background: #21232a;
+  --main-border-shadow: #00000050;
+  --main-card-highlight: #ffffff30;
+  --vscode-terminal-background: var(--baseBackgroundColor) !important;
+  --vscode-scrollbar-background: transparent !important;
+  background-color: transparent !important;
+}
+
+/*===== disable all the borders =====*/
+/* activity bar (ribbon) */
+#workbench\.parts\.activitybar {
+  border-color: var(--backgroundColor) !important;
+}
+/* title bar */
+#workbench\.parts\.titlebar {
+  border-color: var(--backgroundColor) !important;
+}
+/* status bar */
+#workbench\.parts\.statusbar {
+  --status-border-top-color: var(--backgroundColor) !important;
+}
+/* "OUTLINE", "TIMELINE" in explorer */
+.monaco-workbench {
+  --vscode-sideBarSectionHeader-border: var(--backgroundColor) !important;
+}
+/* right panel */
+#workbench\.parts\.auxiliarybar {
+  border-color: var(--backgroundColor) !important;
+}
+/* left panel */
+#workbench\.parts\.sidebar {
+  border-color: var(--backgroundColor) !important;
+}
+/* tab split line */
+.tab {
+  border-color: var(--backgroundColor) !important;
+}
+/* editor scroll bar (and its background) */
+.decorationsOverviewRuler {
+  display: none !important;
+}
+#workbench\.parts\.editor
+  > div.content
+  > div
+  > div
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container
+  > div
+  > div
+  > div.editor-container
+  > div
+  > div
+  > div.overflow-guard
+  > div.monaco-scrollable-element.editor-scrollable {
+    > .scrollbar.vertical {
+        opacity: 1 !important;
+        > .slider {
+            transition: opacity 0.8s linear !important;
+        }
+        &.fade > .slider {
+            opacity: 0 !important;
+        }
+    }
+}
+/* integrated terminal scroll bar */
+.xterm-decoration-overview-ruler {
+  display: none !important;
+}
+/* between tab bar and editor */
+.tabs-and-actions-container.tabs-border-bottom {
+  --tabs-border-bottom-color: var(--backgroundColor) !important;
+}
+/* between console panel and editor */
+#workbench\.parts\.panel > div.composite.title.has-composite-bar {
+  border-color: var(--backgroundColor) !important;
+}
+#workbench\.parts\.panel {
+  border-color: var(--backgroundColor) !important;
+}
+
+/*===== disable all the shadows =====*/
+/* minimap */
+.minimap-shadow-visible {
+  display: none !important;
+}
+/* between editor and tab bar */
+.scroll-decoration {
+  display: none !important;
+}
+
+/*===== fix status bar color =====*/
+#workbench\.parts\.statusbar {
+  background-color: var(--backgroundColor) !important;
+}
+
+/*===== indicative elements =====*/
+/* sliders */
+.slider {
+  border-radius: var(--borderRadius1) !important;
+}
+/* minimap slider */
+.minimap-slider-horizontal {
+  border-radius: var(--borderRadius1) !important;
+}
+/* adjust editor vertical slider width */
+#workbench\.parts\.editor
+  > div.content
+  > div
+  > div
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container
+  > div
+  > div
+  > div.editor-container
+  > div
+  > div
+  > div.overflow-guard
+  > div.monaco-scrollable-element.editor-scrollable {
+  > .scrollbar.vertical > div {
+    width: 8px !important;
+    margin: 0 3px;
+  }
+  > .scrollbar.horizontal > div {
+    height: 8px !important;
+    margin: 1px 0 3px 0;
+  }
+}
+/* explorer selected file */
+.monaco-list-row.selected {
+  border-radius: var(--borderRadius1) !important;
+}
+/* activity bar (ribbon) selected option */
+.part.activitybar .checked > .active-item-indicator {
+  z-index: 0 !important;
+  background-color: transparent !important;
+  &::before {
+    @include s-card;
+    @include card-enhance;
+    content: "";
+    position: absolute !important;
+    top: var(--padding1) !important;
+    right: var(--padding1) !important;
+    bottom: var(--padding1) !important;
+    left: var(--padding1) !important;
+    border-radius: var(--borderRadius1) !important;
+    pointer-events: none !important;
+    border: none !important;
+    width: unset !important;
+    height: unset !important;
+  }
+}
+/* panel (terminal) selected option */
+.part.panel .action-label {
+  z-index: 1 !important;
+}
+.part.panel .checked > .active-item-indicator {
+  z-index: 0 !important;
+  overflow: visible !important;
+  &::before {
+    position: absolute !important;
+    top: calc(3 * var(--padding1)) !important;
+    right: calc(0px - var(--padding1)) !important;
+    bottom: var(--padding1) !important;
+    left: calc(0px - var(--padding1)) !important;
+    border-radius: var(--borderRadius1) !important;
+    background: rgb(55, 55, 61) !important;
+    pointer-events: none !important;
+    border: none !important;
+    width: unset !important;
+    height: unset !important;
+    box-shadow:
+		0 1px 3px var(--main-border-shadow),
+		inset 0 1px 2px var(--main-card-highlight) !important;
+  }
+}
+/* remove indicator selected terminal */
+.terminal-tabs-entry::before {
+  display: none !important;
+}
+
+/*===== central panel =====*/
+.title.tabs {
+  padding: 0 !important;
+  background-color: transparent !important;
+  .tab {
+    background-color: transparent !important;
+  }
+}
+html {
+  background-color: var(--baseBackgroundColor) !important;
+}
+/* enable shadow and border radius */
+#workbench\.parts\.editor > .content {
+  background-color: transparent !important;
+}
+#workbench\.parts\.editor > .content > .grid-view-container {
+  @include s-card;
+  border-radius: var(--borderRadius2) !important;
+  background-color: var(--centralPanelColor) !important;
+  overflow: hidden !important;
+}
+#workbench\.parts\.editor div.editor-container {
+    background-color: transparent !important;
+    & .editor-instance {
+        background-color: transparent !important;
+        & .monaco-editor {
+            background-color:  transparent !important;
+            & .margin, & .editor-scrollable {
+                background-color:  transparent !important;
+                > .monaco-editor-background {
+                    background-color:  transparent !important;
+                }
+            }
+        }
+    }
+}
+.monaco-workbench
+  > div.monaco-grid-view
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container
+  > div:nth-child(3)
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container
+  > div:nth-child(3)
+  > div
+  > div
+  > div.monaco-scrollable-element,
+.monaco-workbench
+  > div.monaco-grid-view
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container
+  > div:nth-child(3)
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container,
+.monaco-workbench
+  > div.monaco-grid-view
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container
+  > div:nth-child(3)
+  > div
+  > div
+  > div.monaco-scrollable-element,
+#workbench\.parts\.editor,
+#workbench\.parts\.editor > .content,
+.monaco-workbench
+  > div.monaco-grid-view
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container
+  > div:nth-child(3)
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container
+  > div:nth-child(3)
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container {
+  overflow: visible !important;
+}
+.monaco-workbench
+  > div.monaco-grid-view
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container
+  > div:nth-child(3)
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container
+  > div:nth-child(3)
+  > div
+  > div
+  > div.monaco-scrollable-element
+  > div.split-view-container
+  > div:nth-child(1) {
+  z-index: 1 !important;
+}
+/* fix multimedia preview failure */
+.monaco-workbench > [data-parent-flow-to-element-id] {
+  z-index: 1 !important;
+  border-radius: var(--borderRadius2) !important;
+  overflow: hidden !important;
+}
+/* gap between central panel and left panel */
+#workbench\.parts\.sidebar > div.content {
+  box-sizing: border-box !important;
+  padding-right: var(--padding1) !important;
+}
+/* round tabs */
+.tab-border-top-container {
+  display: none !important;
+}
+.tabs .tab {
+  padding-left: var(--padding2) !important;
+  &.active::before {
+    @include s-card;
+    @include concave;
+    content: "";
+    position: absolute;
+    top: var(--padding1);
+    right: 0;
+    background-color: rgba(100, 100, 120, 0.2) !important;
+    bottom: var(--padding1);
+    left: var(--padding1);
+    border-radius: 8px;
+    pointer-events: none;
+  }
+}

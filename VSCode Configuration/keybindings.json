@@ -44,5 +44,13 @@
     "key": "tab",
     "command": "-acceptSelectedSuggestion",
     "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
-  }
+},
+{
+    "key": "alt+t",
+    "command": "foam-vscode.open-daily-note"
+},
+{
+    "key": "alt+d",
+    "command": "-foam-vscode.open-daily-note"
+}
 ]
