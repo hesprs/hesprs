@@ -14,9 +14,9 @@ codium --install-extension ms-python.python
 codium --install-extension ms-toolsai.jupyter
 codium --install-extension ms-toolsai.jupyter-renderers
 codium --install-extension oxc.oxc-vscode
-codium --install-extension pomdtr.excalidraw-editor
 codium --install-extension redhat.java
 codium --install-extension rust-lang.rust-analyzer
 codium --install-extension sguerri.simple-hide-files
 codium --install-extension streetsidesoftware.code-spell-checker
 codium --install-extension vue.volar
+codium --install-extension yzhang.markdown-all-in-one

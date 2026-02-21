@@ -118,6 +118,7 @@
     brightnessctl # screen brightness control
 
     zip
+    tree
 
     grim
     slurp

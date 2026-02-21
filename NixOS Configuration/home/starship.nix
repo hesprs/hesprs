@@ -30,10 +30,13 @@
           AOSC = "";
           Arch = "󰣇";
           Artix = "󰣇";
+          EndeavourOS = "";
           CentOS = "";
           Debian = "󰣚";
           Redhat = "󱄛";
           RedHatEnterprise = "󱄛";
+          Pop = "";
+          NixOS = "";
         };
       };
 
@@ -137,18 +140,16 @@
         format = "[[  $time ](fg:crust bg:lavender)]($style)";
       };
 
-      line_break = {
-        disabled = true;
-      };
+      line_break.disabled = false;
 
       character = {
         disabled = false;
-        success_symbol = "[❯](bold fg:green)";
-        error_symbol = "[❯](bold fg:red)";
-        vimcmd_symbol = "[❮](bold fg:green)";
-        vimcmd_replace_one_symbol = "[❮](bold fg:lavender)";
-        vimcmd_replace_symbol = "[❮](bold fg:lavender)";
-        vimcmd_visual_symbol = "[❮](bold fg:yellow)";
+        success_symbol = "[](bold fg:green)";
+        error_symbol = "[](bold fg:red)";
+        vimcmd_symbol = "[](bold fg:green)";
+        vimcmd_replace_one_symbol = "[](bold fg:lavender)";
+        vimcmd_replace_symbol = "[](bold fg:lavender)";
+        vimcmd_visual_symbol = "[](bold fg:yellow)";
       };
 
       cmd_duration = {

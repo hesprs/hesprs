@@ -25,7 +25,7 @@
       exec-once = [
         "v2rayN"
         "awww-daemon"
-        "awww img ~/Pictures/Wallpapers/10.jpg"
+        "awww img ~/Pictures/Wallpapers/11.png"
       ];
 
       env = [

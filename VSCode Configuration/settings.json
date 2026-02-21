@@ -21,7 +21,9 @@
         "agentic",
         "bunx",
         "consensia",
+        "decentralizedly",
         "Enneagram",
+        "Excalidraw",
         "frontmatter",
         "frontmatters",
         "HESPERI",
@@ -29,6 +31,7 @@
         "Hesprs",
         "implemental",
         "Inarguably",
+        "ipynb",
         "LGBTQIA",
         "Libertas",
         "lifecycles",
@@ -37,6 +40,7 @@
         "MBTI",
         "microkernel",
         "omnikernel",
+        "Opensource",
         "oxfmt",
         "oxlint",
         "Pointeract",
@@ -145,5 +149,7 @@
     "workbench.settings.enableNaturalLanguageSearch": true,
     "Lingma.aI Chat.webToolsInAsk/AgentMode": "Auto-execute",
     "Lingma.methodQuickOperation": false,
-    "Lingma.aI Chat.memories": false
+    "Lingma.cloudModelAutoTriggerGenerateLength": "short",
+    "markdown.extension.completion.enabled": true,
+    "markdown.extension.print.imgToBase64": true
 }
