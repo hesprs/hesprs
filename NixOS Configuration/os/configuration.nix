@@ -106,6 +106,7 @@
     gradia
     ripgrep
     onlyoffice-desktopeditors
+    cherry-studio
 
     loupe # image viewer
     showtime # video viewer
@@ -130,6 +131,7 @@
     nodePackages_latest.nodejs
     pnpm
     bun
+    deno # Jupyter Notebook TS support
     nixfmt
     cargo
     rustc

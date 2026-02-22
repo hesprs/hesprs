@@ -19,7 +19,7 @@ Hello 🙋 I'm Hēsperus:
   ![Python](https://img.shields.io/badge/Python-black?style=flat&logo=python)
   ![FastAPI](https://img.shields.io/badge/FastAPI-black?style=flat&logo=fastapi)
   ![Browser Extension](https://img.shields.io/badge/Browser%20Extension-black?style=flat&logo=wxt)
-  ![Jupyter](https://img.shields.io/badge/Jupyter-black?style=flat&logo=jupyter)
+  ![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-black?style=flat&logo=jupyter)
   ![Agent Skills](https://img.shields.io/badge/%F0%9F%A4%96%20Agent%20Skills-black?style=flat)
 
 💻 I work with:
@@ -27,6 +27,7 @@ Hello 🙋 I'm Hēsperus:
   ![Git](https://img.shields.io/badge/Git-black?style=flat&logo=git)
   ![Node.js](https://img.shields.io/badge/Node.js-black?style=flat&logo=nodedotjs)
   ![Bun](https://img.shields.io/badge/Bun-black?style=flat&logo=bun)
+  ![Deno](https://img.shields.io/badge/Deno-black?style=flat&logo=deno)
   ![Obsidian](https://img.shields.io/badge/Obsidian-black?style=flat&logo=obsidian&logoColor=7C3AED)
   ![VSCodium](https://img.shields.io/badge/VSCodium-black?style=flat&logo=vscodium)
   ![Figma](https://img.shields.io/badge/Figma-black?style=flat&logo=figma)
