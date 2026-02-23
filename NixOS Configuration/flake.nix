@@ -9,6 +9,7 @@
     awww.url = "git+https://codeberg.org/LGFae/awww";
     stylix.url = "github:nix-community/stylix";
     opencode.url = "github:anomalyco/opencode";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs =
@@ -20,6 +21,7 @@
       awww,
       stylix,
       opencode,
+      sops-nix,
       ...
     }:
     let
@@ -31,6 +33,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           stylix.nixosModules.stylix
+          sops-nix.nixosModules.sops
           ./os/configuration.nix
           home-manager.nixosModules.home-manager
           {

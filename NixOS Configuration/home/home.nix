@@ -7,6 +7,7 @@
     ./hyprland
     ./colours
     ./rofi
+    ./npm.nix
     ./gtk.nix
     ./git.nix
     ./kitty.nix
@@ -31,9 +32,11 @@
     };
     sessionVariables = {
       PNPM_HOME = "\${HOME}/.local/share/pnpm";
+      NPM_HOME = "\${HOME}/.local/share/npm/bin";
     };
     sessionPath = [
       "\${PNPM_HOME}"
+      "\${NPM_HOME}"
     ];
     file."Pictures/Wallpapers" = {
       recursive = true;

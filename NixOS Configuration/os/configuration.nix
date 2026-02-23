@@ -11,6 +11,7 @@
     ./devices.nix
     ./greetd.nix
     ./stylix.nix
+    ./sops.nix
   ];
 
   nix = {
@@ -120,6 +121,7 @@
 
     zip
     tree
+    sops # secrets manager
 
     grim
     slurp

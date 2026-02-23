@@ -50,10 +50,12 @@
         "rgba",
         "Shadcn",
         "subfolders",
+        "synthkernel",
         "Tauri",
         "Techstack",
         "techstacks",
         "trito",
+        "unmaintainability",
         "Vite",
         "vitepress"
     ],
@@ -150,5 +152,6 @@
     "Lingma.cloudModelAutoTriggerGenerateLength": "short",
     "markdown.extension.completion.enabled": true,
     "markdown.extension.print.imgToBase64": true,
-    "jupyter.askForKernelRestart": false
+    "jupyter.askForKernelRestart": false,
+    "workbench.editor.editorActionsLocation": "hidden"
 }

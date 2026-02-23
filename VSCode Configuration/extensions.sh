@@ -6,6 +6,7 @@ codium --install-extension bierner.markdown-mermaid
 codium --install-extension catppuccin.catppuccin-vsc-icons
 codium --install-extension charkoal.charkoal
 codium --install-extension charliermarsh.ruff
+codium --install-extension denoland.vscode-deno
 codium --install-extension expo.vscode-expo-theme
 codium --install-extension foam.foam-vscode
 codium --install-extension jnoortheen.nix-ide
