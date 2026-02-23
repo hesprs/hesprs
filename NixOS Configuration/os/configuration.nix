@@ -11,7 +11,6 @@
     ./devices.nix
     ./greetd.nix
     ./stylix.nix
-    ./sops.nix
   ];
 
   nix = {
@@ -150,10 +149,10 @@
   fonts = {
     fontconfig.enable = true;
     packages = with pkgs; [
-        (pkgs.callPackage ./fonts/SFDisplay { })
-        nerd-fonts.jetbrains-mono
-        noto-fonts-cjk-sans
-        noto-fonts-cjk-serif
+      (pkgs.callPackage ./fonts/SFDisplay { })
+      nerd-fonts.jetbrains-mono
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
     ];
   };
 
