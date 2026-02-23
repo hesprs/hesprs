@@ -45,6 +45,7 @@
               })
             ];
             home-manager = {
+              extraSpecialArgs = { inherit inputs; };
               users.hesprs = import ./home/home.nix;
               useGlobalPkgs = true;
               useUserPackages = true;

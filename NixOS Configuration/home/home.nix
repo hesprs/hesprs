@@ -1,12 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
+    inputs.sops-nix.homeManagerModules.sops
     ./waybar
     ./swaync
     ./hyprland
     ./colours
     ./rofi
+    ./secrets
     ./npm.nix
     ./gtk.nix
     ./git.nix
@@ -30,14 +32,6 @@
       name = "Bibata-Modern-Classic";
       size = 24;
     };
-    sessionVariables = {
-      PNPM_HOME = "\${HOME}/.local/share/pnpm";
-      NPM_HOME = "\${HOME}/.local/share/npm/bin";
-    };
-    sessionPath = [
-      "\${PNPM_HOME}"
-      "\${NPM_HOME}"
-    ];
     file."Pictures/Wallpapers" = {
       recursive = true;
       source = ./wallpapers;
