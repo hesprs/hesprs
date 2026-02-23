@@ -7,7 +7,7 @@
     ./hyprland
     ./colours
     ./rofi
-    ./secrets
+    ./npm.nix
     ./gtk.nix
     ./git.nix
     ./kitty.nix
