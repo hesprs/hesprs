@@ -52,5 +52,13 @@
 {
     "key": "alt+d",
     "command": "-foam-vscode.open-daily-note"
+},
+{
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "\u001b[13;2u"
+    },
+    "when": "terminalFocus"
 }
 ]
