@@ -118,7 +118,6 @@
     gnome-characters
     brightnessctl # screen brightness control
 
-    zip
     tree
     sops # secrets manager
 

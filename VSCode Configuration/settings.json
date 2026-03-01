@@ -41,6 +41,7 @@
         "microkernel",
         "omnikernel",
         "Opensource",
+        "Orchestratable",
         "oxfmt",
         "oxlint",
         "pnpx",
@@ -154,5 +155,6 @@
     "markdown.extension.completion.enabled": true,
     "markdown.extension.print.imgToBase64": true,
     "jupyter.askForKernelRestart": false,
-    "workbench.editor.editorActionsLocation": "hidden"
+    "workbench.editor.editorActionsLocation": "hidden",
+    "explorer.confirmPasteNative": false
 }
