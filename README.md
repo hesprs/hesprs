@@ -16,6 +16,7 @@ Hello 🙋 I'm Hēsperus:
   ![SCSS](https://img.shields.io/badge/SCSS-black?style=flat&logo=sass)
   ![Vue.js](https://img.shields.io/badge/Vue-black?style=flat&logo=Vue.js)
   ![React.js](https://img.shields.io/badge/React-black?style=flat&logo=react)
+  ![Turborepo](https://img.shields.io/badge/Turborepo-black?style=flat&logo=turborepo)
   ![Python](https://img.shields.io/badge/Python-black?style=flat&logo=python)
   ![FastAPI](https://img.shields.io/badge/FastAPI-black?style=flat&logo=fastapi)
   ![Browser Extension](https://img.shields.io/badge/Browser%20Extension-black?style=flat&logo=wxt)
