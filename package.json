@@ -1,0 +1,16 @@
+{
+	"name": "configurations",
+	"private": true,
+	"type": "module",
+	"module": "index.ts",
+	"scripts": {
+		"fmt": "oxfmt"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"oxfmt": "^0.41.0"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	}
+}

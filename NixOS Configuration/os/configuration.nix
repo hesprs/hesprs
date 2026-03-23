@@ -106,7 +106,6 @@
     gradia
     ripgrep
     onlyoffice-desktopeditors
-    cherry-studio
 
     loupe # image viewer
     showtime # video viewer

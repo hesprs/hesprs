@@ -1,64 +1,64 @@
 // Place your key bindings in this file to override the defaults
 [
-  {
-    "key": "alt+v",
-    "command": "markdown.showPreview",
-    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
-  },
-  {
-    "key": "ctrl+/",
-    "command": "-editor.action.accessibleViewAcceptInlineCompletion",
-    "when": "accessibleViewIsShown && accessibleViewCurrentProviderId == 'inlineCompletions'"
-  },
-  {
-    "key": "ctrl+enter",
-    "command": "-workbench.action.chat.applyInEditor",
-    "when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat && !inChatInput"
-  },
-  {
-    "key": "ctrl+enter",
-    "command": "-workbench.action.chat.insertCodeBlock",
-    "when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat && !inChatInput"
-  },
-  {
-    "key": "ctrl+alt+enter",
-    "command": "-workbench.action.chat.runInTerminal",
-    "when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat"
-  },
-  {
-    "key": "shift+tab",
-    "command": "editor.action.inlineSuggest.acceptNextWord",
-    "when": "cursorBeforeGhostText && inlineSuggestionVisible && !accessibilityModeEnabled && !editorReadonly"
-  },
-  {
-    "key": "ctrl+right",
-    "command": "-editor.action.inlineSuggest.acceptNextWord",
-    "when": "cursorBeforeGhostText && inlineSuggestionVisible && !accessibilityModeEnabled && !editorReadonly"
-  },
-  {
-    "key": "enter",
-    "command": "acceptSelectedSuggestion",
-    "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
-  },
-  {
-    "key": "tab",
-    "command": "-acceptSelectedSuggestion",
-    "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
-},
-{
-    "key": "alt+t",
-    "command": "foam-vscode.open-daily-note"
-},
-{
-    "key": "alt+d",
-    "command": "-foam-vscode.open-daily-note"
-},
-{
-    "key": "shift+enter",
-    "command": "workbench.action.terminal.sendSequence",
-    "args": {
-        "text": "\u001b[13;2u"
-    },
-    "when": "terminalFocus"
-}
+	{
+		"key": "alt+v",
+		"command": "markdown.showPreview",
+		"when": "!notebookEditorFocused && editorLangId == 'markdown'"
+	},
+	{
+		"key": "ctrl+/",
+		"command": "-editor.action.accessibleViewAcceptInlineCompletion",
+		"when": "accessibleViewIsShown && accessibleViewCurrentProviderId == 'inlineCompletions'"
+	},
+	{
+		"key": "ctrl+enter",
+		"command": "-workbench.action.chat.applyInEditor",
+		"when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat && !inChatInput"
+	},
+	{
+		"key": "ctrl+enter",
+		"command": "-workbench.action.chat.insertCodeBlock",
+		"when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat && !inChatInput"
+	},
+	{
+		"key": "ctrl+alt+enter",
+		"command": "-workbench.action.chat.runInTerminal",
+		"when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat"
+	},
+	{
+		"key": "shift+tab",
+		"command": "editor.action.inlineSuggest.acceptNextWord",
+		"when": "cursorBeforeGhostText && inlineSuggestionVisible && !accessibilityModeEnabled && !editorReadonly"
+	},
+	{
+		"key": "ctrl+right",
+		"command": "-editor.action.inlineSuggest.acceptNextWord",
+		"when": "cursorBeforeGhostText && inlineSuggestionVisible && !accessibilityModeEnabled && !editorReadonly"
+	},
+	{
+		"key": "enter",
+		"command": "acceptSelectedSuggestion",
+		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "tab",
+		"command": "-acceptSelectedSuggestion",
+		"when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "alt+t",
+		"command": "foam-vscode.open-daily-note"
+	},
+	{
+		"key": "alt+d",
+		"command": "-foam-vscode.open-daily-note"
+	},
+	{
+		"key": "shift+enter",
+		"command": "workbench.action.terminal.sendSequence",
+		"args": {
+			"text": "\u001b[13;2u"
+		},
+		"when": "terminalFocus"
+	}
 ]
