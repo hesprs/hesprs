@@ -11,7 +11,6 @@
     ./devices.nix
     ./greetd.nix
     ./stylix.nix
-    ./symlink.nix
   ];
 
   nix = {
