@@ -1,7 +1,7 @@
 { config, ... }:
 
 let
-  thisDir = "${config.home.homeDirectory}/Documents/Configurations/NixOS Configurations/home/vscode";
+  thisDir = "${config.home.homeDirectory}/Documents/Configurations/NixOS Configuration/home/vscode";
 in
 {
   home.mutableFile = {
