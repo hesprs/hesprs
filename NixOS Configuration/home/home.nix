@@ -8,6 +8,8 @@
     ./hyprland
     ./colours
     ./rofi
+    ./vscode
+    ./opencode
     ./secrets
     ./npm.nix
     ./gtk.nix
