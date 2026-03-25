@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.sops-nix.homeManagerModules.sops
+    ./symlink.nix
     ./waybar
     ./swaync
     ./hyprland
