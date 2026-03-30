@@ -30,7 +30,10 @@
     stateVersion = "25.05";
   };
 
-  stylix.image = ./wallpapers/11.png;
+  stylix = {
+    image = ./wallpapers/11.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-gray.yaml";
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

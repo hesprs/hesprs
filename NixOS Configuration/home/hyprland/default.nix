@@ -2,11 +2,12 @@
   imports = [
     ./animations.nix
     ./decoration.nix
+    ./hyprlock.nix
     ./rules.nix
     ./bind.nix
   ];
 
-  stylix.targets.hyprland.enable = false;
+  stylix.targets.hyprland.colors.enable = false;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -24,7 +25,11 @@
         ",preferred,auto,1.0"
       ];
 
-      exec-once = ["v2rayN"];
+      exec-once = [
+        "v2rayN"
+        "hyprlock"
+        "hyprctl dispatch exit"
+      ];
 
       env = [
         "XCURSOR_SIZE,24"

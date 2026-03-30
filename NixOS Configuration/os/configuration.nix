@@ -66,6 +66,7 @@
   programs.dconf.enable = true; # Gnome APP settings
   programs.nix-ld.enable = true; # run external binaries
   programs.chromium.enable = true;
+  security.pam.services.hyprlock = {};
   xdg.portal = {
     enable = true;
     extraPortals = [

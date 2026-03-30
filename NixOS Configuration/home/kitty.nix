@@ -1,8 +1,7 @@
 {
   stylix.targets.kitty = {
     opacity.enable = false;
-    colors.override = {
-    };
+    colors.override.base00-hex = "080808";
     variant256Colors = true;
   };
   programs.kitty = {
