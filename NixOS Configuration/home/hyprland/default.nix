@@ -26,9 +26,8 @@
       ];
 
       exec-once = [
-        "v2rayN"
         "hyprlock"
-        "hyprctl dispatch exit"
+        "v2rayN"
       ];
 
       env = [

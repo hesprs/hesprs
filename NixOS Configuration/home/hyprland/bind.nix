@@ -65,6 +65,7 @@
       ", XF86AudioPause, exec, playerctl play-pause"
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioPrev, exec, playerctl previous"
+      ", switch:Lid Switch, exec, hyprlock"
     ];
 
     # Bindm (mouse binds)
