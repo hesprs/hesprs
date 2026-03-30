@@ -2,7 +2,6 @@
   stylix.targets.kitty = {
     opacity.enable = false;
     colors.override = {
-      base00 = "#1d1f28";
     };
     variant256Colors = true;
   };

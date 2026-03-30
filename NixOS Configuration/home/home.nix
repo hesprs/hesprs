@@ -30,6 +30,8 @@
     stateVersion = "25.05";
   };
 
+  stylix.image = ./wallpapers/11.png;
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 }

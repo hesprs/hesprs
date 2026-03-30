@@ -11,7 +11,6 @@
       name = "Bibata-Modern-Classic";
       size = 24;
     };
-    image = ./wallpapers/11.png;
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;
