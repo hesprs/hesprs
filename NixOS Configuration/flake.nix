@@ -6,7 +6,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    awww.url = "git+https://codeberg.org/LGFae/awww";
     stylix.url = "github:nix-community/stylix";
     opencode.url = "github:anomalyco/opencode";
     sops-nix.url = "github:Mic92/sops-nix";
@@ -18,7 +17,6 @@
       nixpkgs-unstable,
       home-manager,
       zen-browser,
-      awww,
       stylix,
       opencode,
       sops-nix,
@@ -40,7 +38,6 @@
             nixpkgs.overlays = [
               (final: prev: {
                 zen = inputs.zen-browser.packages.${system}.default;
-                awww = inputs.awww.packages.${system}.default;
                 opencode = inputs.opencode.packages.${system}.default;
               })
             ];

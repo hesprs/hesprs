@@ -105,7 +105,7 @@
     zen
     gradia
     ripgrep
-    onlyoffice-desktopeditors
+    libreoffice-qt-fresh
 
     loupe # image viewer
     showtime # video viewer
@@ -140,15 +140,11 @@
     opencode
     google-chrome
     # bunx oh-my-opencode-slim@latest install
-
-    awww
   ];
 
   fonts = {
     fontconfig.enable = true;
     packages = with pkgs; [
-      (pkgs.callPackage ./fonts/SFDisplay { })
-      nerd-fonts.jetbrains-mono
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
     ];

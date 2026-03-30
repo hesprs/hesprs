@@ -1,4 +1,5 @@
 {
+  stylix.targets.starship.enable = false;
   programs.bash = {
     enable = true;
     bashrcExtra = ''eval -- "$(/etc/profiles/per-user/hesprs/bin/starship init bash --print-full-init)"'';

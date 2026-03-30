@@ -6,6 +6,8 @@
     ./bind.nix
   ];
 
+  stylix.targets.hyprland.enable = false;
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.variables = [ "--all" ];
@@ -22,11 +24,7 @@
         ",preferred,auto,1.0"
       ];
 
-      exec-once = [
-        "v2rayN"
-        "awww-daemon"
-        "awww img ~/Pictures/Wallpapers/11.png"
-      ];
+      exec-once = ["v2rayN"];
 
       env = [
         "XCURSOR_SIZE,24"

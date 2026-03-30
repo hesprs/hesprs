@@ -1,17 +1,14 @@
 {
-  # 1. Enable the Home Manager Kitty module
+  stylix.targets.kitty = {
+    opacity.enable = false;
+    colors.override = {
+      base00 = "#1d1f28";
+    };
+    variant256Colors = true;
+  };
   programs.kitty = {
     enable = true;
 
-    # 2. Configure fonts
-    font = {
-      name = "JetBrainsMono Nerd Font";
-      size = 12;
-    };
-
-    # 3. Configure settings
-    # The 'settings' attribute set directly corresponds to options in kitty.conf
-    # (e.g., setting background_opacity 0.5 in kitty.conf maps to background_opacity = 0.5 in Nix)
     settings = {
       # Set general behavior
       confirm_os_window_close = 0; # Never ask for confirmation

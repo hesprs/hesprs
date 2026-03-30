@@ -22,6 +22,6 @@ pkgs.stdenv.mkDerivation {
 
   meta = with lib; {
     description = "A custom font not in nixpkgs";
-    license = licenses.unfree; # Change this to match the font's actual license
+    license = licenses.unfree;
   };
 }

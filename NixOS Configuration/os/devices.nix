@@ -72,10 +72,7 @@
   # touchpad
   services.libinput = {
     enable = true;
-    touchpad = {
-      additionalOptions = ''Option "ScrollingPixelDistance" "10"'';
-      disableWhileTyping = false;
-    };
+    touchpad.disableWhileTyping = false;
   };
 
   boot.extraModprobeConfig = ''
