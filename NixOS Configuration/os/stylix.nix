@@ -32,6 +32,12 @@
         name = "Noto Color Emoji";
       };
     };
+    icons = {
+      enable = true;
+      package = pkgs.whitesur-icon-theme;
+      light = "WhiteSur";
+      dark = "WhiteSur";
+    };
     targets.chromium.enable = false; # must be placed in System Configuration
   };
 }

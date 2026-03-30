@@ -13,7 +13,6 @@
     ./opencode
     ./secrets
     ./npm.nix
-    ./gtk.nix
     ./git.nix
     ./kitty.nix
     ./dconf.nix
