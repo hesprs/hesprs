@@ -38,9 +38,11 @@
           home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [
+              (import ./packages/codium)
               (final: prev: {
                 zen = inputs.zen-browser.packages.${system}.default;
                 opencode = inputs.opencode.packages.${system}.default;
+                sf-pro-display = final.callPackage ./packages/sf-pro-display { }
                 mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
                   themeVariants = [
                     "default"

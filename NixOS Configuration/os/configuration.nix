@@ -66,7 +66,7 @@
   programs.dconf.enable = true; # Gnome APP settings
   programs.nix-ld.enable = true; # run external binaries
   programs.chromium.enable = true;
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -83,14 +83,9 @@
     };
   };
 
-  nixpkgs = {
-    overlays = [
-      (import ./codium)
-    ];
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (pkg: true);
-    };
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = (pkg: true);
   };
 
   #packages
@@ -146,6 +141,7 @@
   fonts = {
     fontconfig.enable = true;
     packages = with pkgs; [
+      sf-pro-display
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
     ];

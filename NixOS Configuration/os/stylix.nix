@@ -18,7 +18,7 @@
       };
 
       sansSerif = {
-        package = (pkgs.callPackage ./fonts/SFDisplay { });
+        package = pkgs.sf-pro-display;
         name = "SF Pro Display";
       };
 
