@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   stylix.targets.hyprlock.colors.enable = false;
 
@@ -5,6 +7,7 @@
     enable = true;
     settings = {
       background = {
+        path = "${config.home.homeDirectory}/Pictures/Wallpapers/11.png";
         blur_passes = 2;
         blur_size = 2;
         new_optimizations = true;

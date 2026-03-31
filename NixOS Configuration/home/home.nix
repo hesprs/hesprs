@@ -25,12 +25,13 @@
     username = "hesprs";
     homeDirectory = "/home/hesprs";
     stateVersion = "25.05";
+    file."Pictures/Wallpapers" = {
+      source = ./wallpapers;
+      recursive = true;
+    };
   };
 
-  stylix = {
-    image = ./wallpapers/11.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-gray.yaml";
-  };
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-gray.yaml";
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
