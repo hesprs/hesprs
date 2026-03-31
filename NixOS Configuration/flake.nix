@@ -9,6 +9,7 @@
     stylix.url = "github:nix-community/stylix";
     opencode.url = "github:anomalyco/opencode";
     sops-nix.url = "github:Mic92/sops-nix";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
   };
 
   outputs =
@@ -20,6 +21,7 @@
       stylix,
       opencode,
       sops-nix,
+      noctalia,
       ...
     }:
     let
@@ -46,44 +48,7 @@
                   ];
                   boldPanelIcons = false;
                 };
-                mactahoe-gtk-theme = final.callPackage ./packages/mactahoe-gtk-theme.nix {
-                  # Install both light and dark variants
-                  colorVariants = [
-                    "light"
-                    "dark"
-                  ];
-
-                  # Normal opacity only (solid is less transparent)
-                  opacityVariants = [ "normal" ];
-
-                  # Multiple accent colors
-                  themeVariants = [
-                    "default"
-                    "blue"
-                  ];
-
-                  schemeVariants = [ "standard" ];
-
-                  # Apple logo for activities (or "gnome", "ubuntu", "tux", etc.)
-                  iconVariant = "apple";
-
-                  # GNOME shell panel settings
-                  panelOpacity = "default"; # 15% transparency
-                  panelSize = "default"; # 32px height
-
-                  # Visual tweaks
-                  roundedMaxWindow = false; # Square maximized windows
-                  darkerColor = false; # Standard dark theme
-                  noShadow = false; # Keep quickmenu shadows
-
-                  # MacTahoe-specific features
-                  blurVersion = false;
-                  libadwaita = true;
-                  fixedAccent = false;
-                  highDefinition = false;
-                  smallerFont = false;
-                  showAppsNormal = false;
-                };
+                ambxst = inputs.ambxst.packages.${system}.default;
               })
             ];
             home-manager = {

@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.sops-nix.homeManagerModules.sops
+    inputs.noctalia.homeModules.default
     ./symlink.nix
     ./waybar
     ./swaync
@@ -13,8 +14,8 @@
     ./opencode
     ./secrets
     ./npm.nix
-    ./gtk.nix
     ./git.nix
+    ./shell.nix
     ./kitty.nix
     ./dconf.nix
     ./starship.nix
