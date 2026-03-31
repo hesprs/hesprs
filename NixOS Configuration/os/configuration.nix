@@ -102,6 +102,7 @@
     gradia
     ripgrep
     libreoffice-qt-fresh
+    noctalia
 
     loupe # image viewer
     showtime # video viewer

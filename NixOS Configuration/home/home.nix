@@ -7,11 +7,11 @@
     ./symlink.nix
     ./hyprland
     ./vscode
+    ./noctalia
     ./opencode
     ./secrets
     ./npm.nix
     ./git.nix
-    ./shell.nix
     ./kitty.nix
     ./dconf.nix
     ./starship.nix
