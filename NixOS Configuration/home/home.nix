@@ -5,11 +5,7 @@
     inputs.sops-nix.homeManagerModules.sops
     inputs.noctalia.homeModules.default
     ./symlink.nix
-    ./waybar
-    ./swaync
     ./hyprland
-    ./colours
-    ./rofi
     ./vscode
     ./opencode
     ./secrets

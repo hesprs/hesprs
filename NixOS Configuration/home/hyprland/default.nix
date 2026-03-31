@@ -18,7 +18,7 @@
       "$terminal" = "kitty";
       "$fileManager" = "nautilus";
       "$browser" = "zen";
-      "$menu" = "rofi -show drun";
+      "$menu" = "noctalia-shell ipc call launcher toggle";
       "$mainMod" = "SUPER";
 
       monitor = [
@@ -27,6 +27,7 @@
 
       exec-once = [
         "hyprlock"
+        "noctalia-shell"
         "v2rayN"
       ];
 
@@ -37,7 +38,7 @@
 
       general = {
         gaps_in = 6;
-        gaps_out = "0, 12, 12, 12";
+        gaps_out = 12;
         border_size = 1;
         "col.active_border" = "rgba(aaaaaa66)";
         "col.inactive_border" = "rgba(aaaaaa66)";

@@ -107,7 +107,6 @@
     gradia
     ripgrep
     libreoffice-qt-fresh
-    ambxst
 
     loupe # image viewer
     showtime # video viewer

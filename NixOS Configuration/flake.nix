@@ -48,7 +48,6 @@
                   ];
                   boldPanelIcons = false;
                 };
-                ambxst = inputs.ambxst.packages.${system}.default;
               })
             ];
             home-manager = {

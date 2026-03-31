@@ -5,7 +5,7 @@
       # configure noctalia here
       bar = {
         density = "compact";
-        position = "right";
+        position = "left";
         showCapsule = false;
         widgets = {
           left = [

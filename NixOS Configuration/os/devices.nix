@@ -48,6 +48,7 @@
   };
   services.pulseaudio.enable = false;
 
+  # power management
   services.tlp = {
     enable = true;
     settings = {
@@ -64,6 +65,8 @@
   };
   powerManagement.powertop.enable = true;
   services.power-profiles-daemon.enable = false;
+  services.upower.enable = true;
+
   services.printing = {
     enable = true;
     drivers = with pkgs; [ hplip ];
