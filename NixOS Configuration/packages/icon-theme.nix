@@ -36,7 +36,7 @@ lib.checkListOfEnum "${pname}: theme variants"
       owner = "vinceliuice";
       repo = "MacTahoe-icon-theme";
       tag = "${version}";
-      hash = "sha256-0pck2z9nh3r65ssgnyrfjarffj3n30cji9li9wvm1gcwcwzghf6r=";
+      hash = "sha256-2Tj4PmecvVA3T5GmKBkYdkjnspIue/u0LiYPaNMXk10=";
     };
 
     nativeBuildInputs = [

@@ -38,6 +38,9 @@
       light = "MacTahoe";
       dark = "MacTahoe";
     };
-    targets.chromium.enable = false; # must be placed in System Configuration
+    targets = {
+      chromium.enable = false; # must be placed in System Configuration
+      gtk.enable = false;
+    };
   };
 }
