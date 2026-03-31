@@ -39,6 +39,13 @@
               (final: prev: {
                 zen = inputs.zen-browser.packages.${system}.default;
                 opencode = inputs.opencode.packages.${system}.default;
+                mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
+                  themeVariants = [
+                    "default"
+                    "blue"
+                  ];
+                  boldPanelIcons = false;
+                };
               })
             ];
             home-manager = {

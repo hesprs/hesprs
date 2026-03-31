@@ -34,9 +34,9 @@
     };
     icons = {
       enable = true;
-      package = pkgs.whitesur-icon-theme;
-      light = "WhiteSur";
-      dark = "WhiteSur";
+      package = pkgs.mactahoe-icon-theme;
+      light = "MacTahoe";
+      dark = "MacTahoe";
     };
     targets.chromium.enable = false; # must be placed in System Configuration
   };
