@@ -49,7 +49,7 @@
                     "default"
                     "blue"
                   ];
-                  boldPanelIcons = false;
+                  boldPanelIcons = true;
                 };
               })
             ];
