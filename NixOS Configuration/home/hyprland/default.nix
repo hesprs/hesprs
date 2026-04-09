@@ -17,7 +17,7 @@
     settings = {
       "$terminal" = "kitty";
       "$fileManager" = "nautilus";
-      "$browser" = "zen";
+      "$browser" = "zen-beta";
       "$menu" = "noctalia-shell ipc call launcher toggle";
       "$mainMod" = "SUPER";
 

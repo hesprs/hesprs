@@ -157,7 +157,7 @@
 	"markdown.extension.print.imgToBase64": true,
 	"jupyter.askForKernelRestart": false,
 	"workbench.editor.editorActionsLocation": "hidden",
-	"explorer.confirmPasteNative": false,
-	"workbench.secondarySideBar.showLabels": false,
-	"terminal.integrated.tabs.enabled": false
+    "explorer.confirmPasteNative": false,
+    "workbench.secondarySideBar.showLabels": false,
+    "terminal.integrated.tabs.enabled": false
 }

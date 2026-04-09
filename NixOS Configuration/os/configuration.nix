@@ -124,7 +124,7 @@
     python3
     jupyter
     uv
-    nodePackages_latest.nodejs
+    nodejs-slim_25
     pnpm
     bun
     deno # Jupyter Notebook TS support
