@@ -70,14 +70,14 @@
   xdg.portal = {
     enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
     ];
     config = {
       common = {
         default = [
-          "hyprland"
           "gtk"
+          "hyprland"
         ];
       };
     };
@@ -93,6 +93,7 @@
     thunderbird
     obsidian
     codium
+    zed-editor
     wtype
     v2rayn
     qq
