@@ -136,6 +136,7 @@
     javaPackages.compiler.openjdk25
     opencode
     google-chrome
+    gh
     # bunx oh-my-opencode-slim@latest install
   ];
 

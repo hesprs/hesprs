@@ -159,5 +159,15 @@
 	"workbench.editor.editorActionsLocation": "hidden",
     "explorer.confirmPasteNative": false,
     "workbench.secondarySideBar.showLabels": false,
-    "terminal.integrated.tabs.enabled": false
+    "terminal.integrated.tabs.enabled": false,
+    "json.schemaDownload.trustedDomains": {
+        "https://developer.microsoft.com/json-schemas/": true,
+        "https://json-schema.org/": true,
+        "https://json.schemastore.org/": true,
+        "https://raw.githubusercontent.com/devcontainers/spec/": true,
+        "https://raw.githubusercontent.com/microsoft/vscode/": true,
+        "https://schemastore.azurewebsites.net/": true,
+        "https://unpkg.com": true,
+        "https://www.schemastore.org/": true
+    }
 }

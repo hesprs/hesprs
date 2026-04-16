@@ -12,6 +12,7 @@
     ./secrets
     ./npm.nix
     ./git.nix
+    ./zed.nix
     ./kitty.nix
     ./dconf.nix
     ./starship.nix
