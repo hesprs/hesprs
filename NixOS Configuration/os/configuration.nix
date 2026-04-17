@@ -99,6 +99,7 @@
     papers # PDF viewer
     snapshot # camera
     nautilus # file manager
+    gnome-keyring
     seahorse # password manager
     gnome-calculator
     gnome-characters

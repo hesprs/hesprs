@@ -2,7 +2,6 @@
   imports = [
     ./animations.nix
     ./decoration.nix
-    ./hyprlock.nix
     ./rules.nix
     ./bind.nix
   ];
@@ -26,8 +25,7 @@
       ];
 
       exec-once = [
-        "hyprlock"
-        "noctalia-shell"
+        "noctalia-shell && sleep 1 && noctalia-shell ipc call lockScreen lock"
         "v2rayN"
       ];
 

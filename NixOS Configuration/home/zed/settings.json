@@ -17,6 +17,8 @@
     "trust_all_worktrees": true
   },
   "terminal": {
+    "button": false,
+    "dock": "right",
     "cursor_shape": "bar"
   },
   "base_keymap": "VSCode",

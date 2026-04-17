@@ -65,7 +65,7 @@
       ", XF86AudioPause, exec, playerctl play-pause"
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioPrev, exec, playerctl previous"
-      ", switch:Lid Switch, exec, hyprlock"
+      ", switch:Lid Switch, exec, noctalia-shell ipc call lockScreen lock"
     ];
 
     # Bindm (mouse binds)
