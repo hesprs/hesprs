@@ -9,8 +9,8 @@
     ./desktop.nix
     ./hardware.nix
     ./devices.nix
-    ./greetd.nix
     ./stylix.nix
+    ./login.nix
   ];
 
   nix = {
@@ -26,6 +26,11 @@
       options = "--delete-older-than 4d";
     };
     optimise.automatic = true;
+  };
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = (pkg: true);
   };
 
   # Bootloader.
@@ -53,7 +58,7 @@
   users.users = {
     hesprs = {
       isNormalUser = true;
-      description = "Hēsperus";
+      description = "Hēsperus";
       extraGroups = [
         "wheel"
         "networkmanager"
@@ -66,22 +71,16 @@
   programs.dconf.enable = true; # Gnome APP settings
   programs.nix-ld.enable = true; # run external binaries
   programs.chromium.enable = true;
-  security.pam.services.hyprlock = { };
+  services.gnome.gnome-keyring.enable = true;
   environment.pathsToLink = [
     "/share/applications"
     "/share/xdg-desktop-portal"
   ]; # share portals
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = (pkg: true);
-  };
-
   #packages
   environment.systemPackages = with pkgs; [
     thunderbird
     obsidian
-    codium
     zed-editor
     wtype
     v2rayn
@@ -100,6 +99,7 @@
     papers # PDF viewer
     snapshot # camera
     nautilus # file manager
+    seahorse # password manager
     gnome-calculator
     gnome-characters
     brightnessctl # screen brightness control
