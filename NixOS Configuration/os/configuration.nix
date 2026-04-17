@@ -67,21 +67,10 @@
   programs.nix-ld.enable = true; # run external binaries
   programs.chromium.enable = true;
   security.pam.services.hyprlock = { };
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
-    ];
-    config = {
-      common = {
-        default = [
-          "gtk"
-          "hyprland"
-        ];
-      };
-    };
-  };
+  environment.pathsToLink = [
+    "/share/applications"
+    "/share/xdg-desktop-portal"
+  ]; # share portals
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -129,7 +118,8 @@
     pnpm
     bun
     deno # Jupyter Notebook TS support
-    nixfmt
+    nixfmt # Nix formatter
+    nixd # Nix language server
     cargo
     rustc
     gcc

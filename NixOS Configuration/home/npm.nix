@@ -1,5 +1,3 @@
-{ config, ... }:
-
 {
   home = {
     sessionVariables = {

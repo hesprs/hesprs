@@ -65,6 +65,7 @@
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         initial_workspace_tracking = 1;
+        middle_click_paste = false;
       };
 
       input = {

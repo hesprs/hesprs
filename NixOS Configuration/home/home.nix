@@ -6,6 +6,7 @@
     inputs.noctalia.homeModules.default
     ./symlink.nix
     ./hyprland
+    ./codebook
     ./vscode
     ./noctalia
     ./opencode
@@ -30,6 +31,19 @@
       source = ./wallpapers;
       recursive = true;
     };
+    sessionVariables.ELECTRON_DISABLE_PRIMARY_CLIPBOARD = "1";
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config.common.default = [
+      "hyprland"
+      "gtk"
+    ];
   };
 
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-gray.yaml";
