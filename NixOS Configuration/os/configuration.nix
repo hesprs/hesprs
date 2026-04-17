@@ -99,7 +99,6 @@
     papers # PDF viewer
     snapshot # camera
     nautilus # file manager
-    gnome-keyring
     seahorse # password manager
     gnome-calculator
     gnome-characters
@@ -108,9 +107,11 @@
     tree
     sops # secrets manager
 
+    # screenshot utils
     grim
     slurp
     wl-clipboard
+    tuigreet # login interface
 
     python3
     jupyter

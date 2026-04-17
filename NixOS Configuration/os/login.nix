@@ -1,7 +1,7 @@
 {
-  services.getty = {
-    autologinUser = "hesprs";
-    autologinOnce = true;
+  services.greetd = {
+    enable = true;
+    settings.default_session.command = "tuigreet --time --cmd start-hyprland";
   };
-  security.pam.services.login.enableGnomeKeyring = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
 }

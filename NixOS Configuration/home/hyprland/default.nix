@@ -25,7 +25,7 @@
       ];
 
       exec-once = [
-        "noctalia-shell && sleep 1 && noctalia-shell ipc call lockScreen lock"
+        "noctalia-shell"
         "v2rayN"
       ];
 
