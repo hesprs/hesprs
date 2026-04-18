@@ -17,7 +17,7 @@
     "trust_all_worktrees": true
   },
   "terminal": {
-    "button": false,
+    "button": true,
     "dock": "right",
     "cursor_shape": "bar"
   },

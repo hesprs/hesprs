@@ -9,7 +9,7 @@
       fetch.prune = "true";
       push.default = "simple";
       pull.rebase = true;
-      credential.helper = "cache --timeout=7200";
+      credential.helper = "!gh auth git-credential";
       init.defaultBranch = "main";
       log.decorate = "full";
       log.date = "iso";
