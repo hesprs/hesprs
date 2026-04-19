@@ -30,13 +30,13 @@ Hello 🙋 I'm Hēsperus:
 ![Bun](https://img.shields.io/badge/Bun-black?style=flat&logo=bun)
 ![Deno](https://img.shields.io/badge/Deno-black?style=flat&logo=deno)
 ![Obsidian](https://img.shields.io/badge/Obsidian-black?style=flat&logo=obsidian&logoColor=7C3AED)
-![VSCodium](https://img.shields.io/badge/VSCodium-black?style=flat&logo=vscodium)
+![Zen](https://img.shields.io/badge/Zen-black?style=flat&logo=zedindustries)
 ![Figma](https://img.shields.io/badge/Figma-black?style=flat&logo=figma)
 ![Blender](https://img.shields.io/badge/Blender-black?style=flat&logo=blender)
 
 🌱 I'm learning:
-![Web3](https://img.shields.io/badge/Web3-black?style=flat&logo=web3dotjs)
-![Backend and AI Workflows](https://img.shields.io/badge/%F0%9F%A6%BE%20Backend%20and%20AI%20Workflow-black?style=flat)
+![Crypto](https://img.shields.io/badge/Crypto-black?style=flat&logo=web3dotjs)
+![AI Harness](https://img.shields.io/badge/%F0%9F%A6%BE%20AI%20Harness-black?style=flat)
 
 - 📫 Contact Me: **hesprs@outlook.com**
 

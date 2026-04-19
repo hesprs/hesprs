@@ -125,9 +125,9 @@
       };
 
       conda = {
-        symbol = "  ";
+        symbol = " ";
         style = "bg:green";
-        format = "[$symbol$environment ]($style)";
+        format = "[ $symbol$environment ]($style)";
         ignore_base = false;
       };
 

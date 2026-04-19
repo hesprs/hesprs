@@ -79,20 +79,23 @@
 
   #packages
   environment.systemPackages = with pkgs; [
-    thunderbird
-    obsidian
-    zed-editor
-    wtype
-    v2rayn
+    # applications
+    thunderbird # email client
+    obsidian # note-taking
+    zed-editor # code editor
+    v2rayn # VPN client
     qq
     wechat
-    mission-center
-    zen
-    gradia
-    ripgrep
-    libreoffice-qt-fresh
-    noctalia
+    zen # browser
+    google-chrome # browser
+    gradia # image editor
+    libreoffice-qt-fresh # office suite
+    noctalia # desktop UI
+    opencode # agrntic coding
+    gh # GitHub CLI
+    # bunx oh-my-opencode-slim@latest install
 
+    # system utilities
     loupe # image viewer
     showtime # video viewer
     decibels # audio player
@@ -100,37 +103,36 @@
     snapshot # camera
     nautilus # file manager
     seahorse # password manager
-    gnome-calculator
-    gnome-characters
+    gnome-calculator # calculator
+    gnome-characters # character finder
     brightnessctl # screen brightness control
-
-    tree
+    tree # directory tree viewer
+    ripgrep # search tool
     sops # secrets manager
-
-    # screenshot utils
-    grim
-    slurp
-    wl-clipboard
+    grim # screenshot getter
+    slurp # screenshot region selector
+    wl-clipboard # clipboard manager
     tuigreet # login interface
+    mission-center # system monitor
 
-    python3
-    jupyter
-    uv
-    nodejs-slim_25
-    pnpm
-    bun
+    # runtimes / compilers
+    python3 # Python
+    jupyter # Jupyter Notebook
+    nodejs-slim_25 # JavaScript / TypeScript
+    bun # JavaScript / TypeScript
     deno # Jupyter Notebook TS support
+    rustc # Rust
+    javaPackages.compiler.openjdk25 # Java
+    gcc # C/C++
+
+    # package managers / language servers / formatters
+    uv # Python
+    pnpm # JavaScript / TypeScript
+    cargo # Rust
+    gnumake # Make
     nixfmt # Nix formatter
     nixd # Nix language server
-    cargo
-    rustc
-    gcc
-    gnumake
-    javaPackages.compiler.openjdk25
-    opencode
-    google-chrome
-    gh
-    # bunx oh-my-opencode-slim@latest install
+    oxfmt # TypeScript / JavaScript formatter
   ];
 
   fonts = {

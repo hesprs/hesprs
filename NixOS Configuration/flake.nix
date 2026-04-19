@@ -12,31 +12,20 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs-unstable,
-      home-manager,
-      zen-browser,
-      stylix,
-      sops-nix,
-      noctalia,
-      ...
-    }:
+    inputs@{ ... }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs-unstable.legacyPackages.${system};
     in
     {
-      nixosConfigurations.Libertas = nixpkgs-unstable.lib.nixosSystem {
+      nixosConfigurations.Libertas = inputs.nixpkgs-unstable.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          stylix.nixosModules.stylix
-          sops-nix.nixosModules.sops
+          inputs.stylix.nixosModules.stylix
+          inputs.sops-nix.nixosModules.sops
           ./os/configuration.nix
-          home-manager.nixosModules.home-manager
+          inputs.home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [
-              (import ./packages/codium)
               (final: prev: {
                 zen = inputs.zen-browser.packages.${system}.default;
                 sf-pro-display = final.callPackage ./packages/sf-pro-display { };

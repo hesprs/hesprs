@@ -7,10 +7,10 @@
 		"fmt": "oxfmt"
 	},
 	"devDependencies": {
-		"@types/bun": "latest",
-		"oxfmt": "^0.41.0"
+		"@types/bun": "^1.3.12",
+		"oxfmt": "^0.45.0"
 	},
 	"peerDependencies": {
-		"typescript": "^5"
+		"typescript": "^6.0.3"
 	}
 }

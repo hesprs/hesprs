@@ -30,3 +30,5 @@ if (!htmlContent.includes('</head>')) throw new Error('Expected </head> in workb
 
 const patched = htmlContent.replace('</head>', `<style>${cssContent}</style></head>`);
 await Bun.write(workbenchHtmlPath, patched);
+
+export { };
