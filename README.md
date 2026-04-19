@@ -30,7 +30,7 @@ Hello 🙋 I'm Hēsperus:
 ![Bun](https://img.shields.io/badge/Bun-black?style=flat&logo=bun)
 ![Deno](https://img.shields.io/badge/Deno-black?style=flat&logo=deno)
 ![Obsidian](https://img.shields.io/badge/Obsidian-black?style=flat&logo=obsidian&logoColor=7C3AED)
-![Zen](https://img.shields.io/badge/Zen-black?style=flat&logo=zedindustries)
+![Zed](https://img.shields.io/badge/Zed-black?style=flat&logo=zedindustries)
 ![Figma](https://img.shields.io/badge/Figma-black?style=flat&logo=figma)
 ![Blender](https://img.shields.io/badge/Blender-black?style=flat&logo=blender)
 
