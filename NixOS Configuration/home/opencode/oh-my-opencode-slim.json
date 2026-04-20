@@ -39,13 +39,16 @@
 			}
 		}
 	},
+	"todoContinuation": {
+		"autoEnable": false
+	},
 	"balanceProviderUsage": false,
 	"fallback": { "enabled": false },
 	"council": {
 		"master": { "model": "openai/gpt-5.4" },
 		"presets": {
 			"default": {
-				"beta": { "model": "google/gemini-3.1-pro-preview" }
+				"alpha": { "model": "google/gemini-3.1-pro-preview" }
 			}
 		}
 	}

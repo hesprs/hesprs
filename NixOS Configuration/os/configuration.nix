@@ -118,7 +118,7 @@
     # runtimes / compilers
     python3 # Python
     jupyter # Jupyter Notebook
-    nodejs-slim_25 # JavaScript / TypeScript
+    nodejs_25 # JavaScript / TypeScript
     bun # JavaScript / TypeScript
     deno # Jupyter Notebook TS support
     rustc # Rust
