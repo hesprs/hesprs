@@ -1,112 +1,132 @@
 {
-	"language_models": {
-		"openai_compatible": {
-			"Blueshirt AI": {
-				"api_url": "https://coultra.blueshirtmap.com/v1",
-				"available_models": [
-					{
-						"name": "gpt-5-nano",
-						"max_tokens": 200000,
-						"max_output_tokens": 32000,
-						"max_completion_tokens": 200000,
-						"capabilities": {
-							"tools": true,
-							"images": true,
-							"parallel_tool_calls": true,
-							"prompt_cache_key": false,
-							"chat_completions": true
-						}
-					}
-				]
-			}
-		}
-	},
-	"agent": {
-		"commit_message_model": {
-			"provider": "Blueshirt AI",
-			"model": "gpt-5-nano"
-		}
-	},
-	"restore_on_startup": "last_workspace",
-	"close_on_file_delete": true,
-	"auto_update": false,
-	"agent_servers": {},
-	"buffer_line_height": "comfortable",
-	"middle_click_paste": false,
-	"scroll_sensitivity": 2.5,
-	"disable_ai": false,
-	"telemetry": {
-		"diagnostics": false,
-		"metrics": false
-	},
-	"session": {
-		"trust_all_worktrees": true
-	},
-	"terminal": {
-		"button": true,
-		"dock": "right",
-		"cursor_shape": "bar"
-	},
-	"base_keymap": "VSCode",
-	"tab_bar": {
-		"show_tab_bar_buttons": false
-	},
-	"sticky_scroll": {
-		"enabled": false
-	},
-	"cursor_blink": true,
-	"autosave": {
-		"after_delay": {
-			"milliseconds": 1000
-		}
-	},
-	"file_types": {
-		"json": ["*.canvas", "*.excalidraw"],
-		"yaml": ["*.base"]
-	},
-	"auto_indent_on_paste": true,
-	"show_whitespaces": "none",
-	"soft_wrap": "editor_width",
-	"tab_size": 4,
-	"icon_theme": {
-		"mode": "dark",
-		"light": "Catppuccin Latte",
-		"dark": "Catppuccin Mocha"
-	},
-	"auto_install_extensions": {
-		"nix": true,
-		"rust": true,
-		"toml": true,
-		"oxc": true
-	},
-	"buffer_font_family": "JetBrainsMono Nerd Font",
-	"buffer_font_size": 13,
-	"theme": "Base16 Da One Gray",
-	"ui_font_family": "SF Pro Display",
-	"ui_font_size": 16.0,
-	"languages": {
-		"Nix": {
-			"language_servers": ["nixd", "!nil", "..."]
-		},
-		"JavaScript": {
-			"language_servers": ["!eslint", "..."],
-			"formatter": {
-				"language_server": {
-					"name": "oxfmt"
-				}
-			}
-		},
-		"TypeScript": {
-			"language_servers": ["!eslint", "!typescript-language-server", "..."],
-			"formatter": {
-				"language_server": { "name": "oxfmt" }
-			}
-		},
-		"Markdown": {
-			"format_on_save": "on",
-			"formatter": {
-				"language_server": { "name": "oxfmt" }
-			}
-		}
-	}
+  "language_models": {
+    "openai_compatible": {
+      "Blueshirt AI": {
+        "api_url": "https://coultra.blueshirtmap.com/v1",
+        "available_models": [
+          {
+            "name": "gpt-5-nano",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "agent": {
+    "commit_message_model": {
+      "provider": "Blueshirt AI",
+      "model": "gpt-5-nano"
+    }
+  },
+  "restore_on_startup": "last_workspace",
+  "close_on_file_delete": true,
+  "auto_update": false,
+  "agent_servers": {},
+  "buffer_line_height": "comfortable",
+  "middle_click_paste": false,
+  "scroll_sensitivity": 2.5,
+  "disable_ai": false,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "terminal": {
+    "button": true,
+    "dock": "right",
+    "cursor_shape": "bar"
+  },
+  "base_keymap": "VSCode",
+  "tab_bar": {
+    "show_tab_bar_buttons": false
+  },
+  "sticky_scroll": {
+    "enabled": false
+  },
+  "cursor_blink": true,
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "file_types": {
+    "json": [
+      "*.canvas",
+      "*.excalidraw"
+    ],
+    "yaml": [
+      "*.base"
+    ]
+  },
+  "auto_indent_on_paste": true,
+  "show_whitespaces": "none",
+  "soft_wrap": "editor_width",
+  "tab_size": 4,
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha"
+  },
+  "auto_install_extensions": {
+    "nix": true,
+    "rust": true,
+    "toml": true,
+    "oxc": true
+  },
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_size": 13,
+  "theme": "Base16 Da One Gray",
+  "ui_font_family": "SF Pro Display",
+  "ui_font_size": 16.0,
+  "languages": {
+    "Nix": {
+      "language_servers": [
+        "nixd",
+        "!nil",
+        "..."
+      ]
+    },
+    "JavaScript": {
+      "language_servers": [
+        "!eslint",
+        "..."
+      ],
+      "formatter": {
+        "language_server": {
+          "name": "oxfmt"
+        }
+      }
+    },
+    "TypeScript": {
+      "language_servers": [
+        "!eslint",
+        "!typescript-language-server",
+        "..."
+      ],
+      "formatter": {
+        "language_server": {
+          "name": "oxfmt"
+        }
+      }
+    },
+    "Markdown": {
+      "format_on_save": "on",
+      "formatter": {
+        "language_server": {
+          "name": "oxfmt"
+        }
+      }
+    }
+  }
 }

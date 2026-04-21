@@ -5,7 +5,7 @@ description: 'Mandatory workflow to transform vague ideas into validated designs
 
 ## Core Mandate
 
-Every feature request / refactor plan, regardless of perceived simplicity, must pass through this workflow. Shortcuts cause unexamined assumptions and wasted work. Save the final validated plan in `plans/<feature-name>.md` (create if not present).
+Every feature request / refactor plan, regardless of perceived simplicity, must pass through this workflow. Shortcuts cause unexamined assumptions and wasted work. Save the final validated plan in `plans/<feature-name>.md` (create if not present). Do not edit code.
 
 ## Sequential Workflow
 
@@ -19,7 +19,7 @@ Every feature request / refactor plan, regardless of perceived simplicity, must 
 
 - Evaluate scope immediately after initial context gathering.
 - If the request spans multiple independent subsystems, flag it and decompose into sub-projects. Define boundaries, dependencies, and build order.
-- Proceed with this workflow for only **one sub-project at a time**. Each sub-project gets its own design validation → plan cycle + the final plan.
+- Proceed with this workflow for only **one sub-project at a time**. Each sub-project gets its own design validation → plan cycle + the distinct plan Markdown saved in `plans/`.
 
 ### 3. Clarifying Dialogue
 
@@ -47,7 +47,7 @@ Every feature request / refactor plan, regardless of perceived simplicity, must 
   - context (why should we do this)
   - current implementation
   - target implementation
-  - files related and what to change / not change
+  - files related and what to change / not change (**you MUST inspect source files and point to specific file paths and what to change in detail**)
 
 ### 6. Self-Review
 
@@ -60,7 +60,8 @@ Every feature request / refactor plan, regardless of perceived simplicity, must 
 1. **Coverage Mapping**: Cross-reference every design requirement against the plan tasks. Identify and add any missing tasks.
 2. **Placeholder & Ambiguity Scan**: Remove any `TBD`, `TODO`, `handle later`, or vague instructions. Every change must explicitly state what to do, where to do it, and what the expected outcome is.
 3. **Logical & Signature Consistency**: Verify that types, function names, data structures, and file references remain consistent across all tasks. A signature defined in Task 2 must match its usage in Task 5.
-4. **Zero-Knowledge Readability**: Act as an engineer that does not know this at all, can you understand what the plan is describing and immediately find the correct files & make the desired changes? Have you given readers enough context? If not include more context.
+4. **Zero-Knowledge Readability**: Act as an engineer that does not know this at all, can you understand what the plan is describing and immediately find the correct files & make the desired changes? Have you given readers enough context? If not, include more context.
+5. **Specificity**: Have you explicitly written specific files and what to change in detail in the plans?
 
 ---
 
