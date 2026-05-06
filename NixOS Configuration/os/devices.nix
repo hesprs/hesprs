@@ -25,11 +25,7 @@
         5173
       ];
     };
-    interfaces = {
-      wlan0 = {
-        #macAddress = "";
-      };
-    };
+    # interfaces.wlan0.macAddress = "";
   };
   services.resolved.enable = true;
 

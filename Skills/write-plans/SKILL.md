@@ -48,6 +48,7 @@ Every feature request / refactor plan, regardless of perceived simplicity, must 
   - current implementation
   - target implementation
   - files related and what to change / not change (**you MUST inspect source files and point to specific file paths and what to change in detail**)
+  - testing
 
 ### 6. Self-Review
 
