@@ -45,7 +45,7 @@
     ];
   };
 
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-gray.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

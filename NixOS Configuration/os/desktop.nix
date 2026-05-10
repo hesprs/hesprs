@@ -8,5 +8,10 @@
 
   services.gvfs.enable = true; # nautilus dependency
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   hardware.graphics.enable = true;
 }

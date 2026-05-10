@@ -3,7 +3,7 @@
 {
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-gray.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
     polarity = "dark";
     homeManagerIntegration.followSystem = true;
     cursor = {
@@ -38,6 +38,6 @@
       light = "MacTahoe";
       dark = "MacTahoe";
     };
-    targets.chromium.enable = false; # must be placed in System Configuration
+    image = ../home/wallpapers/11.png;
   };
 }
