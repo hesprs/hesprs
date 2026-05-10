@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 pkgs.stdenv.mkDerivation {
   pname = "SF-Display";

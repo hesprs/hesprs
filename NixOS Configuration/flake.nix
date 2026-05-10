@@ -27,6 +27,7 @@
             nixpkgs.overlays = [
               (final: prev: {
                 zen = inputs.zen-browser.packages.${system}.default;
+                obsidian = final.callPackage ./packages/obsidian.nix { };
                 sf-pro-display = final.callPackage ./packages/sf-pro-display { };
                 noctalia = inputs.noctalia.packages.${system}.default;
                 opencode = inputs.opencode.packages.${system}.opencode.overrideAttrs (old: {
