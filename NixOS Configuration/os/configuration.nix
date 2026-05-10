@@ -113,7 +113,6 @@
     slurp # screenshot region selector
     wl-clipboard # clipboard manager
     mission-center # system monitor
-    libsecret # base secret dependency
 
     # runtimes / compilers
     python3 # Python

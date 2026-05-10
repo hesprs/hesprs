@@ -23,38 +23,41 @@
           inputs.sops-nix.nixosModules.sops
           ./os/configuration.nix
           inputs.home-manager.nixosModules.home-manager
-          {
-            nixpkgs.overlays = [
-              (final: prev: {
-                zen = inputs.zen-browser.packages.${system}.default;
-                obsidian = final.callPackage ./packages/obsidian.nix { };
-                sf-pro-display = final.callPackage ./packages/sf-pro-display { };
-                noctalia = inputs.noctalia.packages.${system}.default;
-                opencode = inputs.opencode.packages.${system}.opencode.overrideAttrs (old: {
-                  preBuild = (old.preBuild or "") + ''
-                    substituteInPlace packages/opencode/src/cli/cmd/generate.ts \
-                      --replace-fail 'const prettier = await import("prettier")' 'const prettier: any = { format: async (s: string) => s }' \
-                      --replace-fail 'const babel = await import("prettier/plugins/babel")' 'const babel = {}' \
-                      --replace-fail 'const estree = await import("prettier/plugins/estree")' 'const estree = {}'
-                  '';
-                });
-                mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
-                  themeVariants = [
-                    "default"
-                    "blue"
-                  ];
-                  boldPanelIcons = true;
-                };
-              })
-            ];
-            home-manager = {
-              extraSpecialArgs = { inherit inputs; };
-              users.hesprs = import ./home/home.nix;
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "bak";
-            };
-          }
+          (
+            { ... }:
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  zen = inputs.zen-browser.packages.${system}.default;
+                  sf-pro-display = final.callPackage ./packages/sf-pro-display { };
+                  noctalia = inputs.noctalia.packages.${system}.default;
+                  opencode = inputs.opencode.packages.${system}.opencode.overrideAttrs (old: {
+                    preBuild = (old.preBuild or "") + ''
+                      substituteInPlace packages/opencode/src/cli/cmd/generate.ts \
+                        --replace-fail 'const prettier = await import("prettier")' 'const prettier: any = { format: async (s: string) => s }' \
+                        --replace-fail 'const babel = await import("prettier/plugins/babel")' 'const babel = {}' \
+                        --replace-fail 'const estree = await import("prettier/plugins/estree")' 'const estree = {}'
+                    '';
+                  });
+                  mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
+                    themeVariants = [
+                      "default"
+                      "blue"
+                    ];
+                    boldPanelIcons = true;
+                  };
+                })
+                (import ./packages/obsidian.nix)
+              ];
+              home-manager = {
+                extraSpecialArgs = { inherit inputs; };
+                users.hesprs = import ./home/home.nix;
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "bak";
+              };
+            }
+          )
         ];
       };
     };
