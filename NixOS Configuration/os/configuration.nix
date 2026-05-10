@@ -10,7 +10,7 @@
     ./hardware.nix
     ./devices.nix
     ./stylix.nix
-    ./login
+    ./login.nix
   ];
 
   nix = {
@@ -113,7 +113,7 @@
     slurp # screenshot region selector
     wl-clipboard # clipboard manager
     mission-center # system monitor
-    bibata-cursors # cursor theme
+    libsecret # base secret dependency
 
     # runtimes / compilers
     python3 # Python
