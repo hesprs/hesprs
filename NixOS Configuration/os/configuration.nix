@@ -113,6 +113,7 @@
     slurp # screenshot region selector
     wl-clipboard # clipboard manager
     mission-center # system monitor
+    tuigreet # login manager
 
     # runtimes / compilers
     python3 # Python

@@ -73,8 +73,5 @@ lib.checkListOfEnum "${pname}: theme variants"
       homepage = "https://github.com/vinceliuice/MacTahoe-icon-theme";
       license = lib.licenses.gpl3Only;
       platforms = lib.platforms.linux;
-      maintainers = with lib.maintainers; [
-        # your maintainer handle
-      ];
     };
   }

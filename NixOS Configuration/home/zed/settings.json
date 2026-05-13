@@ -1,4 +1,16 @@
 {
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "use_on_type_format": false,
   "lsp": {
     "vtsls": {
@@ -40,6 +52,7 @@
     }
   },
   "agent": {
+    "dock": "right",
     "commit_message_model": {
       "provider": "Blueshirt AI",
       "model": "gpt-5-nano"

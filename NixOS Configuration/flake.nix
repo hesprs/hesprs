@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
@@ -31,9 +30,8 @@
                 (final: prev: {
                   zen = inputs.zen-browser.packages.${system}.default;
                   sf-pro-display = final.callPackage ./packages/sf-pro-display { };
-                  obsidian = final.callPackage ./packages/obsidian2.nix {
+                  obsidian = prev.obsidian.override {
                     commandLineArgs = "--password-store=gnome-libsecret";
-                    electron_39_25_11 = inputs.nixpkgs-stable.pkgs.electron;
                   };
                   noctalia = inputs.noctalia.packages.${system}.default;
                   opencode = inputs.opencode.packages.${system}.opencode.overrideAttrs (old: {

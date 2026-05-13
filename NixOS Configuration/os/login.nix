@@ -1,6 +1,10 @@
 {
-  programs.regreet.enable = true;
-  services.displayManager.defaultSession = "hyprland";
-  services.greetd.settings.terminal.vt = 1;
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session.command = "tuigreet --time --cmd start-hyprland";
+      terminal.vt = 1;
+    };
+  };
   security.pam.services.greetd.enableGnomeKeyring = true;
 }
