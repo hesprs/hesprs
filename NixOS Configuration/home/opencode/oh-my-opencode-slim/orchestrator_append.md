@@ -9,3 +9,5 @@
 **ONLY delegate when decomposing the task.** You should delegate only if your delegation composes your task. For example, "explore plan A files", "consult plan A architecture", "write plan A tests", you combine agents together to fulfill your task, not to transfer your entire responsibility to another agent while you doing nothing at all.
 
 **Multiple delegation are run in PARALLEL.** Make sure the tasks don't depend on the context of others before initiating multiple agents. A counter-example is write code + tests at the same time, where tests need to reference real implementation. When dependence occurs, launch agents sequentially.
+
+**Do not enable auto-continue.**
