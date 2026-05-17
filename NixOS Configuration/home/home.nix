@@ -8,6 +8,7 @@
     ./hyprland
     ./codebook
     ./vscode
+    ./ssh
     ./noctalia
     ./opencode
     ./secrets

@@ -1,4 +1,8 @@
 {
+  "cli_default_open_behavior": "existing_window",
+  "edit_predictions": {
+    "allow_data_collection": "no"
+  },
   "project_panel": {
     "dock": "left"
   },
@@ -61,7 +65,16 @@
   "restore_on_startup": "last_workspace",
   "close_on_file_delete": true,
   "auto_update": false,
-  "agent_servers": {},
+  "agent_servers": {
+    "opencode": {
+      "favorite_config_option_values": {
+        "effort": [
+          "medium"
+        ]
+      },
+      "type": "registry"
+    }
+  },
   "buffer_line_height": "comfortable",
   "middle_click_paste": false,
   "scroll_sensitivity": 2.5,
@@ -153,11 +166,15 @@
     },
     "Markdown": {
       "format_on_save": "on",
+      "tab_size": 2,
       "formatter": {
         "language_server": {
           "name": "oxfmt"
         }
       }
+    },
+    "YAML": {
+      "tab_size": 2
     },
     "JSON": {
       "formatter": {

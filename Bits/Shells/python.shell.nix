@@ -1,13 +1,10 @@
-let
-  pkgs = import <nixpkgs> { };
-in
+{
+  pkgs ? import <nixpkgs> { },
+}:
+
 pkgs.mkShell {
   buildInputs = [
-    (pkgs.python3.withPackages (
-      ps: with ps; [
-        # ...
-      ]
-    ))
+    (pkgs.python3.withPackages (ps: with ps; [ requests ]))
   ];
 
   shellHook = ''

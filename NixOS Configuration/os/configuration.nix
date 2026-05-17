@@ -93,7 +93,6 @@
     noctalia # desktop UI
     opencode # agrntic coding
     gh # GitHub CLI
-    # bunx oh-my-opencode-slim@latest install
 
     # system utilities
     loupe # image viewer
