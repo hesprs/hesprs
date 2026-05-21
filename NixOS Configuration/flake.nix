@@ -7,7 +7,7 @@
     stylix.url = "github:nix-community/stylix";
     sops-nix.url = "github:Mic92/sops-nix";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
-    opencode.url = "github:anomalyco/opencode?ref=v1.14.22";
+    opencode.url = "github:anomalyco/opencode";
   };
 
   outputs =
@@ -34,12 +34,12 @@
                     commandLineArgs = "--password-store=gnome-libsecret";
                   };
                   noctalia = inputs.noctalia.packages.${system}.default;
-                  opencode = inputs.opencode.packages.${system}.opencode.overrideAttrs (old: {
-                    preBuild = (old.preBuild or "") + ''
-                      substituteInPlace packages/opencode/src/cli/cmd/generate.ts \
-                        --replace-fail 'const prettier = await import("prettier")' 'const prettier: any = { format: async (s: string) => s }' \
-                        --replace-fail 'const babel = await import("prettier/plugins/babel")' 'const babel = {}' \
-                        --replace-fail 'const estree = await import("prettier/plugins/estree")' 'const estree = {}'
+                  opencode = inputs.opencode.packages.${system}.default.overrideAttrs (oldAttrs: {
+                    postPatch = ''
+                      # Relax the bun version check
+                      substituteInPlace packages/script/src/index.ts \
+                        --replace-fail 'if (!semver.satisfies(process.versions.bun, expectedBunVersionRange))' \
+                                       'if (false && !semver.satisfies(process.versions.bun, expectedBunVersionRange))'
                     '';
                   });
                   mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {

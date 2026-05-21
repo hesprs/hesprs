@@ -139,7 +139,8 @@
         "nixd",
         "!nil",
         "..."
-      ]
+      ],
+      "tab_size": 2
     },
     "JavaScript": {
       "language_servers": [

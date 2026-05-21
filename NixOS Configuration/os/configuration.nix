@@ -91,7 +91,6 @@
     gradia # image editor
     libreoffice-qt-fresh # office suite
     noctalia # desktop UI
-    opencode # agrntic coding
     gh # GitHub CLI
 
     # system utilities
