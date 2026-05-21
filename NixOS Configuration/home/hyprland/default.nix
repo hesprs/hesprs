@@ -44,14 +44,9 @@
         layout = "dwindle";
       };
 
-      dwindle = {
-        pseudotile = true;
-        preserve_split = true;
-      };
+      dwindle.preserve_split = true;
 
-      master = {
-        new_status = "master";
-      };
+      master.new_status = "master";
 
       binds = {
         workspace_back_and_forth = false;
@@ -65,6 +60,8 @@
         initial_workspace_tracking = 1;
         middle_click_paste = false;
       };
+
+      ecosystem.no_update_news = true;
 
       input = {
         kb_layout = "us";
