@@ -87,7 +87,6 @@
     qq
     wechat
     zen # browser
-    google-chrome # browser
     gradia # image editor
     libreoffice-qt-fresh # office suite
     noctalia # desktop UI
@@ -115,10 +114,8 @@
 
     # runtimes / compilers
     python3 # Python
-    jupyter # Jupyter Notebook
-    nodejs_25 # JavaScript / TypeScript
+    nodejs-slim_latest # JavaScript / TypeScript
     bun # JavaScript / TypeScript
-    deno # Jupyter Notebook TS support
     rustc # Rust
     javaPackages.compiler.openjdk25 # Java
     gcc # C/C++

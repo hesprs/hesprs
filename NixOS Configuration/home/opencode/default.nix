@@ -6,6 +6,9 @@
       source = ./oh-my-opencode-slim;
     };
   };
+
+  stylix.targets.opencode.colors.override.withHashtag.base00 = "#00000000";
+  
   programs.opencode = {
     enable = true;
     context = ./AGENTS.md;
@@ -18,58 +21,7 @@
       provider = {
         anthropic.options.baseURL = "https://coultra.blueshirtmap.com/v1";
         openai.options.baseURL = "https://coultra.blueshirtmap.com/v1";
-        google = {
-          options.baseURL = "https://coultra.blueshirtmap.com/v1";
-          models = {
-            "gemini-3-flash-preview" = {
-              name = "Gemini 3 Flash";
-              limit = {
-                context = 1048576;
-                output = 65536;
-              };
-              modalities = {
-                input = [
-                  "text"
-                  "image"
-                  "pdf"
-                ];
-                output = [ "text" ];
-              };
-            };
-
-            "gemini-3-pro" = {
-              name = "Gemini 3 Pro";
-              limit = {
-                context = 1048576;
-                output = 65535;
-              };
-              modalities = {
-                input = [
-                  "text"
-                  "image"
-                  "pdf"
-                ];
-                output = [ "text" ];
-              };
-            };
-
-            "gemini-3.1-pro-preview" = {
-              name = "Gemini 3.1 Pro";
-              limit = {
-                context = 1048576;
-                output = 65535;
-              };
-              modalities = {
-                input = [
-                  "text"
-                  "image"
-                  "pdf"
-                ];
-                output = [ "text" ];
-              };
-            };
-          };
-        };
+        google.options.baseURL = "https://coultra.blueshirtmap.com/v1";
       };
 
       agent = {
