@@ -28,7 +28,6 @@ Hello 🙋 I'm Hēsperus:
 ![Git](https://img.shields.io/badge/Git-black?style=flat&logo=git)
 ![Node.js](https://img.shields.io/badge/Node.js-black?style=flat&logo=nodedotjs)
 ![Bun](https://img.shields.io/badge/Bun-black?style=flat&logo=bun)
-![Deno](https://img.shields.io/badge/Deno-black?style=flat&logo=deno)
 ![Obsidian](https://img.shields.io/badge/Obsidian-black?style=flat&logo=obsidian&logoColor=7C3AED)
 ![Zed](https://img.shields.io/badge/Zed-black?style=flat&logo=zedindustries)
 ![Figma](https://img.shields.io/badge/Figma-black?style=flat&logo=figma)

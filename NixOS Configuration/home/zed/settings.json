@@ -1,188 +1,201 @@
 {
-  "cli_default_open_behavior": "existing_window",
-  "edit_predictions": {
-    "allow_data_collection": "no"
-  },
-  "project_panel": {
-    "dock": "left"
-  },
-  "outline_panel": {
-    "dock": "left"
-  },
-  "collaboration_panel": {
-    "dock": "left"
-  },
-  "git_panel": {
-    "dock": "left"
-  },
-  "use_on_type_format": false,
-  "lsp": {
-    "vtsls": {
-      "settings": {
-        "typescript": {
-          "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
-        },
-        "javascript": {
-          "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
-        }
-      },
-      "enable_lsp_tasks": true
-    }
-  },
-  "language_models": {
-    "openai_compatible": {
-      "Blueshirt AI": {
-        "api_url": "https://coultra.blueshirtmap.com/v1",
-        "available_models": [
-          {
-            "name": "gpt-5-nano",
-            "max_tokens": 200000,
-            "max_output_tokens": 32000,
-            "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": true,
-              "images": true,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": false,
-              "chat_completions": true
-            }
-          }
-        ]
-      }
-    }
-  },
-  "agent": {
-    "dock": "right",
-    "commit_message_model": {
-      "provider": "Blueshirt AI",
-      "model": "gpt-5-nano"
-    }
-  },
-  "restore_on_startup": "last_workspace",
-  "close_on_file_delete": true,
-  "auto_update": false,
-  "agent_servers": {
-    "opencode": {
-      "favorite_config_option_values": {
-        "effort": [
-          "medium"
-        ]
-      },
-      "type": "registry"
-    }
-  },
-  "buffer_line_height": "comfortable",
-  "middle_click_paste": false,
-  "scroll_sensitivity": 2.5,
-  "disable_ai": false,
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
-  },
-  "session": {
-    "trust_all_worktrees": true
-  },
-  "terminal": {
-    "button": true,
-    "dock": "right",
-    "cursor_shape": "bar"
-  },
-  "base_keymap": "VSCode",
-  "tab_bar": {
-    "show_tab_bar_buttons": false
-  },
-  "sticky_scroll": {
-    "enabled": false
-  },
-  "cursor_blink": true,
-  "autosave": {
-    "after_delay": {
-      "milliseconds": 1000
-    }
-  },
-  "file_types": {
-    "json": [
-      "*.canvas",
-      "*.excalidraw"
-    ],
-    "yaml": [
-      "*.base"
-    ]
-  },
-  "auto_indent_on_paste": true,
-  "show_whitespaces": "none",
-  "soft_wrap": "editor_width",
-  "tab_size": 4,
-  "icon_theme": {
-    "mode": "dark",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha"
-  },
-  "auto_install_extensions": {
-    "nix": true,
-    "rust": true,
-    "toml": true,
-    "oxc": true
-  },
-  "buffer_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_size": 13,
-  "theme": "Base16 Oxocarbon Dark",
-  "ui_font_family": "SF Pro Display",
-  "ui_font_size": 16.0,
-  "languages": {
-    "Nix": {
-      "language_servers": [
-        "nixd",
-        "!nil",
-        "..."
-      ],
-      "tab_size": 2
-    },
-    "JavaScript": {
-      "language_servers": [
-        "!eslint",
-        "..."
-      ],
-      "formatter": {
-        "language_server": {
-          "name": "oxfmt"
-        }
-      }
-    },
-    "TypeScript": {
-      "language_servers": [
-        "!eslint",
-        "!typescript-language-server",
-        "..."
-      ],
-      "formatter": {
-        "language_server": {
-          "name": "oxfmt"
-        }
-      }
-    },
-    "Markdown": {
-      "format_on_save": "on",
-      "tab_size": 2,
-      "formatter": {
-        "language_server": {
-          "name": "oxfmt"
-        }
-      }
-    },
-    "YAML": {
-      "tab_size": 2
-    },
-    "JSON": {
-      "formatter": {
-        "language_server": {
-          "name": "oxfmt"
-        }
-      }
-    }
-  }
+	"colorize_brackets": true,
+	"code_lens": "on",
+	"cli_default_open_behavior": "existing_window",
+	"edit_predictions": {
+		"allow_data_collection": "no"
+	},
+	"project_panel": {
+		"dock": "left",
+		"hide_root": true,
+		"bold_folder_labels": true
+	},
+	"outline_panel": {
+		"dock": "left"
+	},
+	"collaboration_panel": {
+		"dock": "left"
+	},
+	"git_panel": {
+		"dock": "left",
+		"tree_view": true
+	},
+	"toolbar": {
+		"agent_review": false,
+		"code_actions": false,
+		"breadcrumbs": false,
+		"quick_actions": false,
+		"selections_menu": false
+	},
+	"file_finder": {
+		"modal_max_width": "medium"
+	},
+	"use_on_type_format": false,
+	"lsp": {
+		"vtsls": {
+			"settings": {
+				"typescript": {
+					"updateImportsOnFileMove": {
+						"enabled": "always"
+					}
+				},
+				"javascript": {
+					"updateImportsOnFileMove": {
+						"enabled": "always"
+					}
+				}
+			},
+			"enable_lsp_tasks": true
+		}
+	},
+	"language_models": {
+		"openai_compatible": {
+			"Blueshirt AI": {
+				"api_url": "https://coultra.blueshirtmap.com/v1",
+				"available_models": [
+					{
+						"name": "gpt-5-nano",
+						"max_tokens": 200000,
+						"max_output_tokens": 32000,
+						"max_completion_tokens": 200000,
+						"capabilities": {
+							"tools": true,
+							"images": true,
+							"parallel_tool_calls": true,
+							"prompt_cache_key": false,
+							"chat_completions": true
+						}
+					}
+				]
+			}
+		}
+	},
+	"agent": {
+		"dock": "right",
+		"commit_message_model": {
+			"provider": "Blueshirt AI",
+			"model": "gpt-5-nano"
+		}
+	},
+	"restore_on_startup": "last_workspace",
+	"close_on_file_delete": true,
+	"auto_update": false,
+	"agent_servers": {
+		"opencode": {
+			"favorite_config_option_values": {
+				"effort": ["medium"]
+			},
+			"type": "registry"
+		}
+	},
+	"buffer_line_height": "comfortable",
+	"middle_click_paste": false,
+	"scroll_sensitivity": 2.5,
+	"disable_ai": false,
+	"telemetry": {
+		"diagnostics": false,
+		"metrics": false
+	},
+	"session": {
+		"trust_all_worktrees": true
+	},
+	"terminal": {
+		"button": true,
+		"dock": "right",
+		"cursor_shape": "bar"
+	},
+	"base_keymap": "VSCode",
+	"tab_bar": {
+		"show_tab_bar_buttons": false,
+		"show_nav_history_buttons": false
+	},
+	"show_signature_help_after_edits": true,
+	"auto_signature_help": true,
+	"redact_private_values": true,
+	"status_bar": {
+		//  "experimental.show": false,
+	},
+	"gutter": {
+		"line_numbers": true
+	},
+	"sticky_scroll": {
+		"enabled": false
+	},
+	"cursor_blink": true,
+	"autosave": {
+		"after_delay": {
+			"milliseconds": 1000
+		}
+	},
+	"file_types": {
+		"json": ["*.canvas", "*.excalidraw"],
+		"yaml": ["*.base"]
+	},
+	"auto_indent_on_paste": true,
+	"show_whitespaces": "selection",
+	"hard_tabs": true,
+	"tabs": {
+		"file_icons": true,
+		"show_diagnostics": "errors"
+	},
+	"soft_wrap": "editor_width",
+	"tab_size": 4,
+	"icon_theme": {
+		"mode": "dark",
+		"light": "Catppuccin Latte",
+		"dark": "Catppuccin Mocha"
+	},
+	"auto_install_extensions": {
+		"nix": true,
+		"rust": true,
+		"toml": true,
+		"oxc": true
+	},
+	"buffer_font_family": "JetBrainsMono Nerd Font",
+	"buffer_font_size": 13,
+	"theme": "Base16 Oxocarbon Dark",
+	"ui_font_family": "SF Pro Display",
+	"ui_font_size": 16.0,
+	"languages": {
+		"Nix": {
+			"language_servers": ["nixd", "!nil", "..."],
+			"tab_size": 2
+		},
+		"JavaScript": {
+			"language_servers": ["!eslint", "..."],
+			"formatter": {
+				"language_server": {
+					"name": "oxfmt"
+				}
+			}
+		},
+		"TypeScript": {
+			"language_servers": ["!eslint", "!typescript-language-server", "..."],
+			"formatter": {
+				"language_server": {
+					"name": "oxfmt"
+				}
+			}
+		},
+		"Markdown": {
+			"show_edit_predictions": false,
+			"format_on_save": "on",
+			"tab_size": 2,
+			"formatter": {
+				"language_server": {
+					"name": "oxfmt"
+				}
+			}
+		},
+		"YAML": {
+			"tab_size": 2
+		},
+		"JSON": {
+			"formatter": {
+				"language_server": {
+					"name": "oxfmt"
+				}
+			}
+		}
+	}
 }
