@@ -1,5 +1,10 @@
 {
-	"colorize_brackets": true,
+	"hover_popover_enabled": true,
+ "show_completion_documentation": true,
+ "inlay_hints": {
+  "show_value_hints": true
+ },
+ "colorize_brackets": true,
 	"code_lens": "on",
 	"cli_default_open_behavior": "existing_window",
 	"edit_predictions": {
@@ -109,15 +114,7 @@
 		"show_tab_bar_buttons": false,
 		"show_nav_history_buttons": false
 	},
-	"show_signature_help_after_edits": true,
-	"auto_signature_help": true,
 	"redact_private_values": true,
-	"status_bar": {
-		//  "experimental.show": false,
-	},
-	"gutter": {
-		"line_numbers": true
-	},
 	"sticky_scroll": {
 		"enabled": false
 	},
