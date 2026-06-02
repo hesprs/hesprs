@@ -8,12 +8,13 @@
   };
 
   stylix.targets.opencode.colors.override.withHashtag.base00 = "#00000000";
-  
+
   programs.opencode = {
     enable = true;
     context = ./AGENTS.md;
     settings = {
       autoupdate = false;
+      lsp = true;
       plugin = [
         "oh-my-opencode-slim@latest"
         "@tarquinen/opencode-dcp@latest"

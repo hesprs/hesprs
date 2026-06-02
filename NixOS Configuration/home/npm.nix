@@ -7,6 +7,7 @@
     sessionPath = [
       "\${PNPM_HOME}"
       "\${npm_config_prefix}/bin"
+      "\${HOME}/.bun/bin"
     ];
   };
 }
