@@ -7,7 +7,6 @@
     ./symlink.nix
     ./hyprland
     ./codebook
-    ./vscode
     ./ssh
     ./noctalia
     ./opencode

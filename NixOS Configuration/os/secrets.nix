@@ -2,7 +2,7 @@
 
 {
 	sops = {
-    defaultSopsFile = ../home/secrets/secrets.yaml;
+    defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/hesprs/.config/sops/age/keys.txt";
     secrets.github-token = { };
