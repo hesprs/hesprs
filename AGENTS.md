@@ -30,15 +30,15 @@ nix eval .#nixosConfigurations.Libertas.config.networking.hostName
 ### Full system build
 
 ```bash
-nix build .#nixosConfigurations.Libertas.config.system.build.toplevel
+nix build .#nixosConfigurations.Libertas.config.system.build.toplevel --show-trace
 ```
 
 ### Rebuild commands
 
 ```bash
-sudo nixos-rebuild dry-build --flake .#Libertas
-sudo nixos-rebuild test --flake .#Libertas
-sudo nixos-rebuild switch --flake .#Libertas
+sudo nixos-rebuild dry-build
+sudo nixos-rebuild test
+sudo nixos-rebuild switch
 ```
 
 Use `dry-build` or `test` for validation. Use `switch` only when explicitly requested.

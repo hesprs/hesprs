@@ -7,7 +7,7 @@
     stylix.url = "github:nix-community/stylix";
     sops-nix.url = "github:Mic92/sops-nix";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
-    opencode.url = "github:anomalyco/opencode";
+    llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
   outputs =
@@ -33,15 +33,8 @@
                   obsidian = prev.obsidian.override {
                     commandLineArgs = "--password-store=gnome-libsecret";
                   };
+                  llm-agents = inputs.llm-agents.packages.${system};
                   noctalia = inputs.noctalia.packages.${system}.default;
-                  opencode = inputs.opencode.packages.${system}.default.overrideAttrs (oldAttrs: {
-                    postPatch = ''
-                      # Relax the bun version check
-                      substituteInPlace packages/script/src/index.ts \
-                        --replace-fail 'if (!semver.satisfies(process.versions.bun, expectedBunVersionRange))' \
-                                       'if (false && !semver.satisfies(process.versions.bun, expectedBunVersionRange))'
-                    '';
-                  });
                   mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
                     themeVariants = [
                       "default"

@@ -11,7 +11,7 @@
     ./ssh
     ./noctalia
     ./opencode
-    ./secrets
+    ./secrets.nix
     ./zed
     ./npm.nix
     ./git.nix

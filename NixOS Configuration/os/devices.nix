@@ -6,6 +6,7 @@
 {
   # networking
   networking = {
+    hostName = "Libertas";
     wireless.iwd.enable = true;
     networkmanager = {
       enable = true;
@@ -28,6 +29,10 @@
     # interfaces.wlan0.macAddress = "";
   };
   services.resolved.enable = true;
+
+  # bootloader
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # bluetooth
   hardware.bluetooth.enable = true;

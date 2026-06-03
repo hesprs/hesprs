@@ -11,6 +11,7 @@
     ./devices.nix
     ./stylix.nix
     ./login.nix
+    ./secrets.nix
   ];
 
   nix = {
@@ -19,6 +20,10 @@
       flake-registry = "";
       # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
+      extra-substituters = [ "https://cache.numtide.com" ];
+      extra-trusted-public-keys = [
+        "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+      ];
     };
     channel.enable = false;
     gc = {
@@ -26,19 +31,15 @@
       options = "--delete-older-than 4d";
     };
     optimise.automatic = true;
+    extraOptions = ''
+      !include ${config.sops.templates.nix-github-conf.path}
+    '';
   };
 
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = (pkg: true);
   };
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "Libertas";
-  networking.networkmanager.enable = true;
 
   # Localization
   time.timeZone = "Asia/Shanghai";
@@ -70,7 +71,6 @@
   security.rtkit.enable = true;
   programs.dconf.enable = true; # Gnome APP settings
   programs.nix-ld.enable = true; # run external binaries
-  programs.chromium.enable = true;
   services.gnome.gnome-keyring.enable = true;
   environment.pathsToLink = [
     "/share/applications"
@@ -140,5 +140,5 @@
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 }

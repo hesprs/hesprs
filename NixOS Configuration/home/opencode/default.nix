@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   home.file = {
     ".config/opencode/oh-my-opencode-slim.json".source = ./oh-my-opencode-slim.json;
@@ -12,6 +14,7 @@
   programs.opencode = {
     enable = true;
     context = ./AGENTS.md;
+    package = pkgs.llm-agents.opencode;
     settings = {
       autoupdate = false;
       lsp = true;
