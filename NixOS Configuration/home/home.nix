@@ -9,9 +9,8 @@
     ./codebook
     ./ssh
     ./noctalia
-    ./opencode
-    ./secrets.nix
     ./zed
+    ./secrets.nix
     ./npm.nix
     ./git.nix
     ./kitty.nix
@@ -26,7 +25,7 @@
   home = {
     username = "hesprs";
     homeDirectory = "/home/hesprs";
-    stateVersion = "25.05";
+    stateVersion = "26.05";
     file."Pictures/Wallpapers" = {
       source = ./wallpapers;
       recursive = true;

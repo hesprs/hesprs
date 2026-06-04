@@ -10,7 +10,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.variables = [ "--all" ];
+    configType = "hyprlang";
+    systemd.enable = false;
     xwayland.enable = true;
 
     settings = {

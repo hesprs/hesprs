@@ -36,10 +36,7 @@
     '';
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = (pkg: true);
-  };
+  nixpkgs.config.allowUnfree = true;
 
   # Localization
   time.timeZone = "Asia/Shanghai";
@@ -84,8 +81,9 @@
     obsidian # note-taking
     zed-editor # code editor
     v2rayn # VPN client
-    qq
+    # qq # breaks
     wechat
+    omp # coding agent
     zen # browser
     gradia # image editor
     libreoffice-qt-fresh # office suite

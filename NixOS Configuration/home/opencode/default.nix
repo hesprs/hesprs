@@ -24,7 +24,10 @@
       ];
       provider = {
         anthropic.options.baseURL = "https://coultra.blueshirtmap.com/v1";
-        openai.options.baseURL = "https://coultra.blueshirtmap.com/v1";
+        openai = {
+        	npm = "@ai-sdk/openai";
+          options.baseURL = "https://coultra.blueshirtmap.com/v1";
+        };
         google.options.baseURL = "https://coultra.blueshirtmap.com/v1";
       };
 
