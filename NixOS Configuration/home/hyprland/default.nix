@@ -15,7 +15,7 @@
     xwayland.enable = true;
 
     settings = {
-      "$terminal" = "kitty";
+      "$terminal" = "ghostty";
       "$fileManager" = "nautilus";
       "$browser" = "zen-beta";
       "$menu" = "noctalia-shell ipc call launcher toggle";

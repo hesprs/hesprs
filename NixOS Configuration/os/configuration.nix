@@ -83,7 +83,6 @@
     v2rayn # VPN client
     # qq
     wechat
-    omp # coding agent
     # headroom # AI context compressor
     zen # browser
     gradia # image editor

@@ -13,7 +13,7 @@
     ./secrets.nix
     ./npm.nix
     ./git.nix
-    ./kitty.nix
+    ./ghostty.nix
     ./dconf.nix
     ./starship.nix
     ./opencode.nix

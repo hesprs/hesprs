@@ -51,7 +51,7 @@
                   obsidian = prev.obsidian.override {
                     commandLineArgs = "--password-store=gnome-libsecret";
                   };
-                  omp = inputs.llm-agents.packages.${system}.omp;
+                  opencode = inputs.llm-agents.packages.${system}.opencode;
                   noctalia = inputs.noctalia.packages.${system}.default;
                   headroom = final.callPackage ./packages/headroom.nix { };
                   mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {

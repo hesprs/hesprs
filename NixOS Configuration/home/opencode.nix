@@ -9,6 +9,7 @@
       provider = {
         anthropic.options.baseURL = "https://apishop.org/v1";
         openai.options.baseURL = "https://www.nodapi.com/v1";
+        deepseek.options.baseURL = "https://www.nodapi.com/v1";
         google.options.baseURL = "https://www.nodapi.com/v1";
       };
 
