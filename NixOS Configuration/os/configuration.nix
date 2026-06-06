@@ -20,10 +20,6 @@
       flake-registry = "";
       # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
-      extra-substituters = [ "https://cache.numtide.com" ];
-      extra-trusted-public-keys = [
-        "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
-      ];
     };
     channel.enable = false;
     gc = {

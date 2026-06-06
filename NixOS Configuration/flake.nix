@@ -22,10 +22,6 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    llm-agents = {
-      url = "github:numtide/llm-agents.nix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
   };
 
   outputs =
@@ -51,7 +47,6 @@
                   obsidian = prev.obsidian.override {
                     commandLineArgs = "--password-store=gnome-libsecret";
                   };
-                  opencode = inputs.llm-agents.packages.${system}.opencode;
                   noctalia = inputs.noctalia.packages.${system}.default;
                   headroom = final.callPackage ./packages/headroom.nix { };
                   mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {

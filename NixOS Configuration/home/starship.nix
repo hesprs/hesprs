@@ -1,7 +1,10 @@
 {
   programs.bash = {
     enable = true;
-    bashrcExtra = ''eval -- "$(/etc/profiles/per-user/hesprs/bin/starship init bash --print-full-init)"'';
+    bashrcExtra = ''
+    	PROMPT_COMMAND="export PROMPT_COMMAND=echo"
+      eval "$(starship init bash)"
+    '';
   };
   programs.starship = {
     enable = true;
@@ -139,6 +142,7 @@
       };
 
       line_break.disabled = false;
+      add_newline = false;
 
       character = {
         disabled = false;

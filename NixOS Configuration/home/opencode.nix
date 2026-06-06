@@ -1,6 +1,7 @@
 {
   stylix.targets.opencode.colors.override.withHashtag.base00 = "#00000000";
 
+  home.sessionVariables.OPENCODE_ENABLE_EXA = 1;
   programs.opencode = {
     enable = true;
     settings = {
