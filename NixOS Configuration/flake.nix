@@ -53,6 +53,7 @@
                   };
                   omp = inputs.llm-agents.packages.${system}.omp;
                   noctalia = inputs.noctalia.packages.${system}.default;
+                  headroom = final.callPackage ./packages/headroom.nix { };
                   mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
                     themeVariants = [
                       "default"

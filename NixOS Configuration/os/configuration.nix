@@ -81,9 +81,10 @@
     obsidian # note-taking
     zed-editor # code editor
     v2rayn # VPN client
-    # qq # breaks
+    qq
     wechat
     omp # coding agent
+    headroom # AI context compressor
     zen # browser
     gradia # image editor
     libreoffice-qt-fresh # office suite
