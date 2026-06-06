@@ -1,4 +1,4 @@
-# headroom.nix
+# packages/headroom.nix
 {
   pkgs ? import <nixpkgs> { },
 }:
@@ -19,19 +19,19 @@ pythonPackages.buildPythonPackage rec {
     hash = "sha256-4pQUSi8dU85tm5WY8Z/ZEN8O/ccGDDVIC3SnNBvUZTY=";
   };
 
-  # Build dependencies
-  nativeBuildInputs = with pythonPackages; [
-    maturin
-    pkgs.rustc
-    pkgs.cargo
-    pkgs.pkg-config
+  # Rust toolchain is top-level pkgs, not pythonPackages.
+  nativeBuildInputs = with pkgs; [
+    rustc
+    cargo
+    pkg-config
   ];
 
   buildInputs = with pkgs; [
     openssl
   ];
 
-  # Runtime dependencies
+  build-system = [ pkgs.maturin ];
+
   propagatedBuildInputs =
     with pythonPackages;
     [
@@ -41,13 +41,13 @@ pythonPackages.buildPythonPackage rec {
       click
       rich
       opentelemetry-api
-      ast-grep-cli
     ]
-    ++ (pkgs.lib.optional (python.pythonOlder "3.13") tomli);
+    ++ pkgs.ast-grep ++ pkgs.lib.optional (python.pythonOlder "3.13") tomli;
 
-  # maturin configuration
+  # maturin needs to know where the PyO3 crate lives.
   env.MATURIN_MANIFEST_PATH = "crates/headroom-py/Cargo.toml";
 
+  # Isolate cargo state to avoid store contamination.
   preBuild = ''
     export CARGO_HOME=$TMPDIR/cargo-home
     mkdir -p $CARGO_HOME
