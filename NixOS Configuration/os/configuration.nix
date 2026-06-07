@@ -79,7 +79,7 @@
     v2rayn # VPN client
     # qq
     wechat
-    # headroom # AI context compressor
+    headroom # AI context compressor
     zen # browser
     gradia # image editor
     libreoffice-qt-fresh # office suite

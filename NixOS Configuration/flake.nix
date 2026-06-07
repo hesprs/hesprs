@@ -48,7 +48,12 @@
                     commandLineArgs = "--password-store=gnome-libsecret";
                   };
                   noctalia = inputs.noctalia.packages.${system}.default;
-                  headroom = final.callPackage ./packages/headroom.nix { };
+                  headroom = final.callPackage ./packages/headroom.nix {
+                    preStartCommands = ''
+                      export OPENAI_TARGET_API_URL=https://www.nodapi.com
+                      export HEADROOM_TELEMETRY=off
+                    '';
+                  };
                   mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
                     themeVariants = [
                       "default"
