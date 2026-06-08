@@ -6,11 +6,59 @@
   pkgs,
   python3Packages,
   preStartCommands ? "",
+  extras ? [ ],
   ...
 }:
 
 let
   astGrep = pkgs."ast-grep";
+  extraDeps = {
+    code = with python3Packages; [ tree-sitter-language-pack ];
+    evals = with python3Packages; [
+      datasets
+      lm-eval
+      pytest
+      pytest-asyncio
+      pytest-cov
+    ];
+    image = with python3Packages; [
+      pillow
+      onnxruntime
+      rapidocr
+      sentencepiece
+    ];
+    langchain = with python3Packages; [
+      langchain-core
+      langchain-openai
+    ];
+    mcp = with python3Packages; [ mcp ];
+    memory = with python3Packages; [
+      hnswlib
+      sentence-transformers
+      sqlite-vec
+    ];
+    ml = with python3Packages; [
+      huggingface-hub
+      torch
+      transformers
+    ];
+    otel = with python3Packages; [
+      opentelemetry-exporter-otlp-proto-http
+      opentelemetry-sdk
+    ];
+    relevance = with python3Packages; [
+      fastembed
+      numpy
+    ];
+    reports = with python3Packages; [ jinja2 ];
+    strands = with python3Packages; [ strands-agents ];
+    voice = with python3Packages; [
+      onnxruntime
+      sounddevice
+      torch
+      transformers
+    ];
+  };
 in
 python3Packages.buildPythonPackage {
   __structuredAttrs = true;
@@ -32,18 +80,21 @@ python3Packages.buildPythonPackage {
     stdenv.cc.cc.lib
   ];
 
-  dependencies = with python3Packages; [
-    click
-    botocore
-    fastapi
-    h2
-    litellm
-    pydantic
-    rich
-    tiktoken
-    uvicorn
-    opentelemetry-api
-  ];
+  dependencies =
+    with python3Packages;
+    [
+      click
+      botocore
+      fastapi
+      h2
+      litellm
+      pydantic
+      rich
+      tiktoken
+      uvicorn
+      opentelemetry-api
+    ]
+    ++ lib.concatMap (extra: extraDeps.${extra}) extras;
 
   pythonRelaxDeps = [
     "litellm"

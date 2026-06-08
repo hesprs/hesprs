@@ -52,7 +52,9 @@
                     preStartCommands = ''
                       export OPENAI_TARGET_API_URL=https://www.nodapi.com
                       export HEADROOM_TELEMETRY=off
+                      export HEADROOM_CODE_AWARE_ENABLED=1
                     '';
+                    extras = [ "code" ];
                   };
                   mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
                     themeVariants = [
