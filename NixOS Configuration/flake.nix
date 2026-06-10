@@ -50,7 +50,7 @@
                   noctalia = inputs.noctalia.packages.${system}.default;
                   headroom = final.callPackage ./packages/headroom.nix {
                     preStartCommands = ''
-                      export OPENAI_TARGET_API_URL=https://www.nodapi.com
+                      export OPENAI_TARGET_API_URL=https://anpin.ai
                       export HEADROOM_TELEMETRY=off
                       export HEADROOM_CODE_AWARE_ENABLED=1
                     '';

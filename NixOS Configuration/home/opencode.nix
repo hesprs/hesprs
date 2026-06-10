@@ -28,32 +28,8 @@
         scout.disable = true;
       };
 
-      formatter.oxfmt = {
-        command = [
-          "oxfmt"
-          "$FILE"
-        ];
-        extensions = [
-          ".js"
-          ".ts"
-          ".jsx"
-          ".tsx"
-          ".md"
-          ".json"
-          ".jsonc"
-          ".json5"
-          ".yaml"
-          ".yml"
-          ".toml"
-          ".html"
-          ".angular"
-          ".vue"
-          ".css"
-          ".scss"
-          ".less"
-          ".mdx"
-        ];
-      };
+      # https://github.com/anomalyco/opencode/issues/31422
+      formatter = false;
     };
   };
 }
