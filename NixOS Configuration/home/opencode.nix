@@ -11,9 +11,9 @@
       autoupdate = false;
       lsp = true;
       provider = {
-        anthropic.options.baseURL = "https://apishop.org/v1";
+        anthropic.options.baseURL = "https://anpin.ai/v1";
         openai.options = {
-          baseURL = "http://localhost:8787/v1";
+          baseURL = "https://anpin.ai/v1";
           headerTimeout = 30000;
         };
         deepseek.options.baseURL = "https://www.nodapi.com/v1";

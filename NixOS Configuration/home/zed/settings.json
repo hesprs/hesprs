@@ -7,6 +7,7 @@
   "colorize_brackets": true,
   "cli_default_open_behavior": "existing_window",
   "edit_predictions": {
+    "provider": "zed",
     "allow_data_collection": "no"
   },
   "project_panel": {
