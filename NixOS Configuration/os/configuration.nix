@@ -77,7 +77,7 @@
     obsidian # note-taking
     zed-editor # code editor
     v2rayn # VPN client
-    # qq
+    qq
     wechat
     zen # browser
     gradia # image editor

@@ -4,20 +4,17 @@
   home.sessionVariables.OPENCODE_ENABLE_EXA = 1;
   programs.opencode = {
     enable = true;
-    tui = {
-      plugin = [ "opencode-subagent-statusline" ];
-    };
     settings = {
       autoupdate = false;
       lsp = true;
       provider = {
-        anthropic.options.baseURL = "https://anpin.ai/v1";
+        anthropic.options.baseURL = "https://a6api.com/v1";
         openai.options = {
-          baseURL = "https://anpin.ai/v1";
+          baseURL = "https://a6api.com/v1";
           headerTimeout = 30000;
         };
-        deepseek.options.baseURL = "https://www.nodapi.com/v1";
-        google.options.baseURL = "https://www.nodapi.com/v1";
+        deepseek.options.baseURL = "https://a6api.com/v1";
+        google.options.baseURL = "https://a6api.com/v1";
       };
 
       agent = {
