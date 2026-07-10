@@ -130,7 +130,7 @@
           data-testid="lang-progress"
           x="0"
           y="0"
-          width="180.89"
+          width="180.85"
           height="8"
           fill="#3178c6"
         />
@@ -138,9 +138,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="180.89"
+          x="180.85"
           y="0"
-          width="36.47"
+          width="36.49"
           height="8"
           fill="#41b883"
         />
@@ -148,7 +148,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="217.35999999999999"
+          x="217.34"
           y="0"
           width="13.1"
           height="8"
@@ -158,9 +158,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="230.45999999999998"
+          x="230.44"
           y="0"
-          width="17.09"
+          width="17.1"
           height="8"
           fill="#DA5B0B"
         />
@@ -168,7 +168,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="237.54999999999998"
+          x="237.54"
           y="0"
           width="16.55"
           height="8"
@@ -178,7 +178,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="244.1"
+          x="244.09"
           y="0"
           width="15.91"
           height="8"
@@ -191,14 +191,14 @@
     <g class="stagger" style="animation-delay: 450ms">
       <circle cx="5" cy="6" r="5" fill="#3178c6" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        TypeScript 72.36%
+        TypeScript 72.34%
       </text>
     </g>
   </g><g transform="translate(0, 25)">
     <g class="stagger" style="animation-delay: 600ms">
       <circle cx="5" cy="6" r="5" fill="#41b883" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Vue 14.59%
+        Vue 14.60%
       </text>
     </g>
   </g><g transform="translate(0, 50)">
