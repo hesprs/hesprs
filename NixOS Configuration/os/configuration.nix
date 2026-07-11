@@ -76,7 +76,7 @@
     thunderbird # email client
     obsidian # note-taking
     zed-editor # code editor
-    vscode
+    vscodium
     v2rayn # VPN client
     qq
     wechat
