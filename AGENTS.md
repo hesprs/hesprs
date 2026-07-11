@@ -6,6 +6,7 @@
 - NixOS flake root: `NixOS Configuration/`
 - NixOS modules: `NixOS Configuration/os/*.nix`
 - Home Manager modules: `NixOS Configuration/home/**/*.nix`
+- Nix deviations: `NixOS Configuration/packages/*`
 - Bootstrap helper: `setup.sh`
 
 ## Repository assumptions

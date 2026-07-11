@@ -8,13 +8,13 @@
       autoupdate = false;
       lsp = true;
       provider = {
-        anthropic.options.baseURL = "https://a6api.com/v1";
+        anthropic.options.baseURL = "https://api.a6api.com/v1";
         openai.options = {
-          baseURL = "https://a6api.com/v1";
+          baseURL = "https://api.a6api.com/v1";
           headerTimeout = 30000;
         };
-        deepseek.options.baseURL = "https://a6api.com/v1";
-        google.options.baseURL = "https://a6api.com/v1";
+        deepseek.options.baseURL = "https://api.a6api.com/v1";
+        google.options.baseURL = "https://api.a6api.com/v1";
       };
 
       agent = {
