@@ -31,6 +31,7 @@
       source = ./wallpapers;
       recursive = true;
     };
+    sessionVariables.GNOME_DESKTOP_SESSION_ID = "this-is-deprecated"; # https://github.com/electron/electron/issues/39789#issuecomment-3433810585
   };
 
   xdg.portal = {

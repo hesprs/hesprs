@@ -22,10 +22,6 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    island-dark = {
-      url = "github:bwya77/vscode-dark-islands";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
   };
 
   outputs =
@@ -48,14 +44,7 @@
                   };
                   zen = inputs.zen-browser.packages.${system}.default;
                   sf-pro-display = final.callPackage ./packages/sf-pro-display { };
-                  obsidian = prev.obsidian.override {
-                    commandLineArgs = "--password-store=gnome-libsecret";
-                  };
                   noctalia = inputs.noctalia.packages.${system}.default;
-                  vscode = final.callPackage ./packages/islands-dark-vscode.nix {
-                    islandDarkSource = inputs.island-dark.outPath;
-                    vscode = prev.vscode;
-                  };
                   mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
                     themeVariants = [
                       "default"
@@ -64,6 +53,7 @@
                     boldPanelIcons = true;
                   };
                 })
+                (import ./packages/vscode)
               ];
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };

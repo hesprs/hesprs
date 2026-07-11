@@ -11,7 +11,7 @@ let
   bun = prev.bun;
 in
 {
-  codium = prev.vscodium.overrideAttrs (oldAttrs: {
+  vscode = prev.vscode.overrideAttrs (oldAttrs: {
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ bun ];
     postInstall = (oldAttrs.postInstall or "") + ''
       ${bun}/bin/bun ${patchScript} $out ${stylesCSS}
