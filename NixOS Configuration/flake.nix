@@ -53,7 +53,7 @@
                     boldPanelIcons = true;
                   };
                 })
-                (import ./packages/codium)
+                (import ./packages/vscodium)
               ];
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };

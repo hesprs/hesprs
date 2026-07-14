@@ -2,20 +2,20 @@
 	--baseBackgroundColor: #0c0d0e;
 }
 .monaco-workbench {
+	--vscode-terminal-background: var(--baseBackgroundColor) !important;
+	--vscode-scrollbar-background: transparent !important;
+	background-color: rgba(0, 0, 0, 0) !important;
 	--backgroundColor: transparent;
 	--borderRadius1: 6px;
-	--borderRadius2: 12px;
+	--borderRadius2: 14px;
+	--borderRadius3: 18px;
 	--padding1: 4px;
 	--padding2: calc(2 * var(--padding1));
-	--selectedColor: rgba(121, 121, 121, 0.4);
 	--centralPanelColor: var(--vscode-editor-background);
 	--main-card-background: #1b1c20;
 	--main-card-second-background: #21232a;
 	--main-border-shadow: #00000050;
 	--main-card-highlight: #ffffff30;
-	--vscode-terminal-background: var(--baseBackgroundColor) !important;
-	--vscode-scrollbar-background: transparent !important;
-	background-color: rgba(0, 0, 0, 0) !important;
 }
 #workbench\.parts\.activitybar {
 	border-color: var(--backgroundColor) !important;
@@ -167,9 +167,16 @@
 .monaco-list-row.selected {
 	border-radius: var(--borderRadius1) !important;
 }
+.composite-bar {
+	z-index: 1;
+}
+.part.activitybar {
+	overflow: visible !important;
+}
 .part.activitybar .checked > .active-item-indicator {
 	z-index: 0 !important;
 	background-color: rgba(0, 0, 0, 0) !important;
+	overflow: visible !important;
 }
 .part.activitybar .checked > .active-item-indicator::before {
 	background: var(--main-card-background);
@@ -181,18 +188,18 @@
 		0 4px 16px 2px var(--main-border-shadow),
 		0 2px 4px var(--main-border-shadow),
 		inset 0 1px 2px var(--main-card-highlight);
-	background: linear-gradient(var(--main-card-second-background), var(--main-card-background));
 	content: '';
 	position: absolute !important;
 	top: var(--padding1) !important;
 	right: var(--padding1) !important;
 	bottom: var(--padding1) !important;
 	left: var(--padding1) !important;
-	border-radius: var(--borderRadius1) !important;
+	border-radius: var(--borderRadius2) !important;
 	pointer-events: none !important;
 	border: none !important;
 	width: unset !important;
 	height: unset !important;
+	background-color: var(--vscode-editor-background) !important;
 }
 .part.panel .action-label {
 	z-index: 1 !important;
@@ -208,7 +215,7 @@
 	bottom: var(--padding1) !important;
 	left: calc(0px - var(--padding1)) !important;
 	border-radius: var(--borderRadius1) !important;
-	background: #37373d !important;
+	background-color: var(--vscode-editor-background) !important;
 	pointer-events: none !important;
 	border: none !important;
 	width: unset !important;
@@ -243,7 +250,7 @@ html {
 		0 4px 16px 2px var(--main-border-shadow),
 		0 2px 4px var(--main-border-shadow),
 		inset 0 1px 2px var(--main-card-highlight);
-	border-radius: var(--borderRadius2) !important;
+	border-radius: var(--borderRadius3) !important;
 	background-color: var(--centralPanelColor) !important;
 	overflow: hidden !important;
 }
@@ -349,7 +356,7 @@ html {
 	> div:nth-child(1) {
 	z-index: 1 !important;
 }
-.monaco-workbench > [data-parent-flow-to-element-id] {
+.monaco-workbench > div:has([data-parent-flow-to-element-id]) {
 	z-index: 1 !important;
 	border-radius: var(--borderRadius2) !important;
 	overflow: hidden !important;
@@ -381,11 +388,15 @@ html {
 	background-color: var(--main-card-background);
 	content: '';
 	position: absolute;
-	top: var(--padding1);
+	top: calc(var(--padding1) + 1px);
 	right: 0;
-	background-color: rgba(100, 100, 120, 0.2) !important;
+	background-color: var(--baseBackgroundColor) !important;
 	bottom: var(--padding1);
 	left: var(--padding1);
-	border-radius: 8px;
+	border-radius: var(--borderRadius2);
 	pointer-events: none;
+}
+.tabs .tab.active .monaco-icon-label,
+.tabs .tab.active .tab-actions {
+	z-index: 1;
 }
