@@ -9,6 +9,7 @@
     ./ssh
     ./vscode
     ./noctalia
+    ./pi
     ./secrets.nix
     ./npm.nix
     ./git.nix
@@ -16,7 +17,6 @@
     ./dconf.nix
     ./starship.nix
     ./opencode.nix
-    ./pi.nix
   ];
 
   programs.home-manager.enable = true;
