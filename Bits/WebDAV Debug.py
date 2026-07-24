@@ -2,10 +2,10 @@
 import requests
 
 # Configuration
-SERVER_URL = "http://localhost:5173"  # Base WebDAV endpoint
-USERNAME = "your_account@xxx.org"  # Username
+SERVER_URL = "https://example.com/webdav"  # Base WebDAV endpoint
+USERNAME = "your_account"  # Username
 PASSWORD = "your_password"  # Your password or app token
-FOLDER_PATH = "/test/"  # absolute folder path on server
+FOLDER_PATH = "/VAULT-ROOT/"  # the vault root folder on server
 
 
 def main():

@@ -12,7 +12,7 @@ Preserve `/home/hesprs/.config/sops/age/keys.txt`
 
 - Update all flakes: `sudo nix flake update --flake /etc/nixos`
 - Update individual flake: `sudo nix flake update <flake> --flake /etc/nixos`
-- Edit Secret `sops "NixOS Configuration/secrets/secrets.yaml"`
+- Edit Secret: `sops "NixOS Configuration/secrets/secrets.yaml"`
 - Cleanup:
 
 ```sh

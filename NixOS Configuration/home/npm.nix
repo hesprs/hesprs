@@ -5,7 +5,7 @@
     };
     sessionPath = [
       "\${PNPM_HOME}"
-      "\${HOME}/.bun/bin"
+      "\${HOME}/.cache/.bun/bin"
     ];
   };
 }

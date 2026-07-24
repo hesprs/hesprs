@@ -7,7 +7,6 @@
     settings = {
       autoupdate = false;
       lsp = true;
-      plugin = ["opencode-pty"];
       provider = {
         anthropic.options.baseURL = "https://api.a6api.com/v1";
         openai.options = {
@@ -16,6 +15,7 @@
         };
         deepseek.options.baseURL = "https://api.a6api.com/v1";
         google.options.baseURL = "https://api.a6api.com/v1";
+        xai.options.baseURL = "https://api.a6api.com/v1";
       };
 
       agent = {

@@ -2,7 +2,7 @@ name: Update README cards
 
 on:
   schedule:
-    - cron: '0 0 * * 1,5'
+    - cron: '33 0 * * 1,5'
   workflow_dispatch:
 
 permissions:
@@ -12,21 +12,22 @@ jobs:
   build:
     runs-on: ubuntu-slim
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v6
 
       - name: Generate stats card
-        uses: readme-tools/github-readme-stats-action@v1
+        uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=${{ github.repository_owner }}&show_icons=true&theme=dark
+          options: username=${{ github.repository_owner }}&rank_icon=percentile&custom_title=H%C4%93sperus'%20GitHub%20Stats&show_icons=true&include_all_commits=true&theme=github_dark_dimmed
           path: Assets/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate top languages card
-        uses: readme-tools/github-readme-stats-action@v1
+        uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: username=${{ github.repository_owner }}&layout=compact&theme=dark&hide=mdx
+          options: username=${{ github.repository_owner }}&layout=compact&langs_count=8&theme=github_dark_dimmed&hide=mdx
           path: Assets/top-langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
