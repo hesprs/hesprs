@@ -1,6 +1,4 @@
 {
-  "npmCommand": [
-    "bun",
-    "--bun"
-  ]
+	"npmCommand": ["bun", "--bun"],
+	"packages": ["npm:pi-zentui"]
 }

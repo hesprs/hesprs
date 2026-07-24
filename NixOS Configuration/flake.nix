@@ -54,6 +54,7 @@
                   };
                 })
                 (import ./packages/vscodium)
+                (import ./packages/pi.nix)
               ];
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };
