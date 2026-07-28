@@ -23,8 +23,8 @@
         enabled = true;
         range = 3;
         render_power = 2;
-        color = "rgba(0, 0, 0, 0.7)";
-        color_inactive = "rgba(0, 0, 0, 0.3)";
+        color = "rgba(000000b3)";
+        color_inactive = "rgba(0000004d)";
       };
     };
   };

@@ -65,10 +65,6 @@
   programs.dconf.enable = true; # Gnome APP settings
   programs.nix-ld.enable = true; # run external binaries
   services.gnome.gnome-keyring.enable = true;
-  environment.pathsToLink = [
-    "/share/applications"
-    "/share/xdg-desktop-portal"
-  ]; # share portals
 
   #packages
   environment.systemPackages = with pkgs; [
@@ -91,6 +87,7 @@
     decibels # audio player
     papers # PDF viewer
     snapshot # camera
+    kooha # screen recorder
     nautilus # file manager
     seahorse # password manager
     gnome-calculator # calculator

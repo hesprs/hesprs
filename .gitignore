@@ -1,2 +1,7 @@
 node_modules
 .vscode
+Bits/Text Photo Enhancer/Processed
+Bits/Text Photo Enhancer/Raw
+Bits/PDF Concatenator/Raw
+Bits/PDF Concatenator/result.pdf
+__pycache__

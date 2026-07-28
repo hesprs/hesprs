@@ -1,6 +1,4 @@
-# AGENTS Guide for `Configurations`
-
-## Scope and layout
+## Layout
 
 - Repo root: `Configurations/`
 - NixOS flake root: `NixOS Configuration/`
@@ -8,13 +6,6 @@
 - Home Manager modules: `NixOS Configuration/home/**/*.nix`
 - Nix deviations: `NixOS Configuration/packages/*`
 - Bootstrap helper: `setup.sh`
-
-## Repository assumptions
-
-- Target platform: Linux/NixOS
-- Flake-based workflow
-- Main host: `Libertas`
-- Exposed output: `nixosConfigurations.Libertas`
 
 ## Build, lint, and test commands
 
@@ -43,28 +34,3 @@ sudo nixos-rebuild switch
 ```
 
 Use `dry-build` or `test` for validation. Use `switch` only when explicitly requested.
-
-### Home Manager-only validation
-
-```bash
-nix build .#nixosConfigurations.Libertas.config.home-manager.users.hesprs.home.activationPackage
-```
-
-### Formatting / linting
-
-```bash
-nixfmt home/**/*.nix os/**/*.nix flake.nix
-```
-
-Notes:
-
-- `nixfmt` is available in system packages.
-- No dedicated lint tools (`statix`, `deadnix`) are configured yet.
-
-### Flake checks
-
-```bash
-nix flake check
-```
-
-Current flake has no custom `checks` outputs.
