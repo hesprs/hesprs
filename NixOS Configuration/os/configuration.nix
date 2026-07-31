@@ -87,7 +87,6 @@
     decibels # audio player
     papers # PDF viewer
     snapshot # camera
-    kooha # screen recorder
     nautilus # file manager
     seahorse # password manager
     gnome-calculator # calculator
@@ -97,7 +96,8 @@
     ripgrep # search tool
     sops # secrets manager
     grim # screenshot getter
-    slurp # screenshot region selector
+    slurp # screen region selector
+    wf-recorder # screen recorder
     wl-clipboard # clipboard manager
     mission-center # system monitor
     tuigreet # login manager

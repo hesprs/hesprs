@@ -44,6 +44,7 @@
                   };
                   zen = inputs.zen-browser.packages.${system}.default;
                   sf-pro-display = final.callPackage ./packages/sf-pro-display { };
+                  obsidian = final.callPackage ./packages/obsidian.nix { };
                   noctalia = inputs.noctalia.packages.${system}.default;
                   mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
                     themeVariants = [
