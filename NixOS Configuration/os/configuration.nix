@@ -80,6 +80,7 @@
     libreoffice-qt-fresh # office suite
     noctalia # desktop UI
     gh # GitHub CLI
+    classin
 
     # system utilities
     loupe # image viewer

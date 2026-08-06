@@ -2,7 +2,6 @@
   lib,
   stdenv,
   fetchurl,
-  autoPatchelfHook,
   dpkg,
   makeWrapper,
   alsa-lib,
@@ -24,6 +23,7 @@
   libXrender,
   libXtst,
   libdrm,
+  libgbm,
   libglvnd,
   libgpg-error,
   libuuid,
@@ -31,24 +31,11 @@
   libxkbcommon,
   mesa,
   zlib,
+  wayland,
 }:
 
-stdenv.mkDerivation {
-  pname = "classin";
-  version = "6.0.8.2737";
-
-  src = fetchurl {
-    url = "https://www.eeo.cn/download/client/classin_6.0.8.2737_amd64.deb";
-    hash = "sha256-w+hx6vbygQ0Mn/sW9CWaapd4T27XMPQifd3vZoLXPgc=";
-  };
-
-  nativeBuildInputs = [
-    autoPatchelfHook
-    dpkg
-    makeWrapper
-  ];
-
-  buildInputs = [
+let
+  runtimeLibraries = [
     alsa-lib
     e2fsprogs
     expat
@@ -68,6 +55,7 @@ stdenv.mkDerivation {
     libXrender
     libXtst
     libdrm
+    libgbm
     libglvnd
     libgpg-error
     libuuid
@@ -75,8 +63,28 @@ stdenv.mkDerivation {
     libxkbcommon
     mesa
     stdenv.cc.cc.lib
+    wayland
     zlib
   ];
+in
+stdenv.mkDerivation {
+  pname = "classin";
+  version = "6.0.8.2737";
+
+  src = fetchurl {
+    url = "https://www.eeo.cn/download/client/classin_6.0.8.2737_amd64.deb";
+    hash = "sha256-w+hx6vbygQ0Mn/sW9CWaapd4T27XMPQifd3vZoLXPgc=";
+  };
+
+  nativeBuildInputs = [
+    dpkg
+    makeWrapper
+  ];
+
+  buildInputs = runtimeLibraries;
+
+  dontPatchELF = true;
+  dontStrip = true;
 
   unpackPhase = ''
     runHook preUnpack
@@ -91,7 +99,11 @@ stdenv.mkDerivation {
     cp -r opt/apps/classin "$out/lib/classin"
 
     makeWrapper "$out/lib/classin/ClassIn" "$out/bin/classin" \
-      --run "cd $out/lib/classin"
+      --run "cd $out/lib/classin" \
+      --set GIO_EXTRA_MODULES "" \
+      --set LD_LIBRARY_PATH "$out/lib/classin/lib:${lib.makeLibraryPath runtimeLibraries}" \
+      --add-flags "--no-sandbox" \
+      --add-flags "--no-zygote"
 
     install -d "$out/share/applications"
     substitute usr/share/applications/classin.desktop \
