@@ -101,7 +101,7 @@ let
 
       makeWrapper ${electron_43}/bin/electron $out/bin/obsidian \
         --add-flags $out/share/obsidian/app.asar \
-        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-wayland-ime=true --wayland-text-input-version=3}}" \
+        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-wayland-ime=true --wayland-text-input-version=3 --enable-features=Vulkan,DefaultANGLEVulkan,VulkanFromANGLE --use-gl=angle --use-angle=vulkan}}" \
         --add-flags ${lib.escapeShellArg commandLineArgs}
       install -m 755 -D obsidian-cli $out/bin/obsidian-cli
       install -m 444 -D resources/app.asar $out/share/obsidian/app.asar

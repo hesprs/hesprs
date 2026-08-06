@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+podman rm --force nextcloud-local-test-shaper 2>/dev/null || true
+podman rm --force nextcloud-local-test 2>/dev/null || true
+if [ -r /tmp/nextcloud-local-test/images ]; then
+  while read -r image status; do
+    [ "$status" = absent ] && podman image rm "$image" >/dev/null 2>&1 || true
+  done </tmp/nextcloud-local-test/images
+fi
+podman unshare rm -rf /tmp/nextcloud-local-test
+printf '%s\n' 'Nextcloud test removed.'

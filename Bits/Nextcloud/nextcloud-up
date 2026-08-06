@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+name=nextcloud-local-test
+shaper=nextcloud-local-test-shaper
+state=/tmp/nextcloud-local-test
+image=docker.io/library/nextcloud:34-apache
+shaper_image=docker.io/library/alpine:3.22
+url=http://127.0.0.1:8080
+webdav_user=webdav
+webdav_password=webdav-test-password
+
+if podman container exists "$name" || podman container exists "$shaper"; then
+  printf '%s\n' 'Nextcloud test already exists. Run ./nextcloud-down first.' >&2
+  exit 1
+fi
+
+mkdir -p "$state/html"
+{
+  if podman image exists "$image"; then printf '%s present\n' "$image"; else printf '%s absent\n' "$image"; fi
+  if podman image exists "$shaper_image"; then printf '%s present\n' "$shaper_image"; else printf '%s absent\n' "$shaper_image"; fi
+} >"$state/images"
+
+podman pull "$image"
+podman pull "$shaper_image"
+
+podman run --detach \
+  --name "$name" \
+  --publish 127.0.0.1:8080:80 \
+  --volume "$state/html:/var/www/html" \
+  --env NEXTCLOUD_ADMIN_USER=admin \
+  --env NEXTCLOUD_ADMIN_PASSWORD=adminpass \
+  --env SQLITE_DATABASE=nextcloud \
+  --env NEXTCLOUD_TRUSTED_DOMAINS='localhost 127.0.0.1' \
+  "$image"
+
+printf 'Waiting for Nextcloud...\n'
+until curl --fail --silent "$url/status.php" >/dev/null; do
+  sleep 2
+done
+until podman exec "$name" test -s /var/www/html/config/config.php; do
+  sleep 2
+done
+
+podman exec \
+  --workdir /var/www/html \
+  --env OC_PASS="$webdav_password" \
+  "$name" php occ user:add --password-from-env "$webdav_user"
+
+podman run --detach \
+  --name "$shaper" \
+  --network "container:$name" \
+  --cap-add NET_ADMIN \
+  "$shaper_image" sleep infinity
+
+podman exec "$shaper" sh -euxc '
+  env -u http_proxy -u https_proxy -u HTTP_PROXY -u HTTPS_PROXY apk add --no-cache iproute2
+  device=$(ip route show default | awk "NR == 1 { print \$5 }")
+  ip link add ifb0 type ifb
+  ip link set ifb0 up
+
+  tc qdisc add dev ifb0 root handle 2: htb default 30
+  tc class add dev ifb0 parent 2: classid 2:10 htb rate 24mbit
+  tc qdisc add dev ifb0 parent 2:10 handle 20: netem delay 100ms rate 24mbit
+  tc filter add dev ifb0 parent 2: protocol ip prio 1 u32 \
+    match ip dport 80 0xffff flowid 2:10
+
+  for dev in "$device" lo; do
+    # Container egress: server to client, capped at 5 MiB/s.
+    tc qdisc add dev "$dev" root handle 1: htb default 30
+    tc class add dev "$dev" parent 1: classid 1:10 htb rate 40mbit
+    tc qdisc add dev "$dev" parent 1:10 handle 10: netem delay 100ms rate 40mbit
+    tc filter add dev "$dev" parent 1: protocol ip prio 1 u32 \
+      match ip sport 80 0xffff flowid 1:10
+
+    # Container ingress: client to server, redirected to IFB and capped at 3 MiB/s.
+    tc qdisc add dev "$dev" handle ffff: ingress
+    tc filter add dev "$dev" parent ffff: protocol ip prio 1 u32 \
+      match ip dport 80 0xffff action mirred egress redirect dev ifb0
+  done
+'
+
+printf '\nNextcloud: %s\nWebDAV URL: %s/remote.php/dav/files/%s/\nWebDAV user: %s\nWebDAV password: %s\n\n' \
+  "$url" "$url" "$webdav_user" "$webdav_user" "$webdav_password"

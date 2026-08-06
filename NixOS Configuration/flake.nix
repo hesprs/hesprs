@@ -53,6 +53,7 @@
                     ];
                     boldPanelIcons = true;
                   };
+                  classin = final.callPackage ./packages/classin.nix { };
                 })
                 (import ./packages/vscodium)
                 (import ./packages/pi.nix)

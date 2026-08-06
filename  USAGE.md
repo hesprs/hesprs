@@ -1,8 +1,8 @@
-## Before Re-installation
+## Before Re-Installation
 
 Preserve `/home/hesprs/.config/sops/age/keys.txt`
 
-## After Re-installation
+## After Re-Installation
 
 - Clone Git repo to `/home/hesprs/Documents/Configurations/`
 - Recover `/home/hesprs/.config/sops/age/keys.txt`
