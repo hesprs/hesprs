@@ -73,6 +73,7 @@
     thunderbird # email client
     obsidian # note-taking
     v2rayn # VPN client
+    vscodium # code editor
     qq
     wechat
     zen # browser

@@ -3,7 +3,7 @@ name: 'Vivid'
 author: 'hesprs'
 variant: 'dark'
 palette:
-  base00: '#181818'
+  base00: '#18181A'
   base01: '#232326'
   base02: '#2e2e32'
   base03: '#4a4a50'
