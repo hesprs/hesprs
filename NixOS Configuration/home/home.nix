@@ -15,6 +15,7 @@
     ./git.nix
     ./ghostty.nix
     ./dconf.nix
+    ./gtk.nix
     ./starship.nix
     ./opencode.nix
   ];
@@ -50,7 +51,7 @@
     ];
   };
 
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
+  stylix.base16Scheme = ../packages/vivid.yaml;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

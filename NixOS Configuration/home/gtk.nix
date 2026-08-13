@@ -3,7 +3,7 @@
 let
   theme = {
     package = pkgs.mactahoe-gtk-theme;
-    name = "MacTahoe-Dark";
+    name = "MacTahoe-Dark-Blur";
   };
 in
 {

@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland.settings = {
     # Decoration Block
     decoration = {
-      rounding = 12;
+      rounding = 20;
       active_opacity = 0.93;
       inactive_opacity = 0.88;
       fullscreen_opacity = 1;

@@ -64,6 +64,7 @@
   security.rtkit.enable = true;
   programs.dconf.enable = true; # Gnome APP settings
   programs.nix-ld.enable = true; # run external binaries
+  programs.gpu-screen-recorder.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
   #packages
@@ -71,7 +72,6 @@
     # applications
     thunderbird # email client
     obsidian # note-taking
-    vscodium # code editor
     v2rayn # VPN client
     qq
     wechat
@@ -98,7 +98,7 @@
     sops # secrets manager
     grim # screenshot getter
     slurp # screen region selector
-    wf-recorder # screen recorder
+    gpu-screen-recorder-gtk # screen recorder GUI
     wl-clipboard # clipboard manager
     mission-center # system monitor
     tuigreet # login manager

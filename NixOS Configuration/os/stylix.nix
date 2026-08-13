@@ -3,7 +3,7 @@
 {
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
+    base16Scheme = ../packages/vivid.yaml;
     polarity = "dark";
     homeManagerIntegration.followSystem = true;
     cursor = {

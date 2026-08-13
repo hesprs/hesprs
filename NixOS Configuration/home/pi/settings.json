@@ -1,10 +1,17 @@
 {
-	"npmCommand": ["bun", "--bun"],
-	"packages": ["npm:pi-zentui", "npm:pi-rewind", "npm:pi-stop"],
-	"lastChangelogVersion": "0.80.7",
-	"theme": "dark",
-	"defaultProvider": "xai",
-	"defaultModel": "grok-4.5",
-	"defaultThinkingLevel": "medium",
-	"hideThinkingBlock": false
+  "npmCommand": [
+    "bun",
+    "--bun"
+  ],
+  "packages": [
+    "npm:pi-zentui",
+    "npm:pi-rewind",
+    "npm:pi-stop"
+  ],
+  "lastChangelogVersion": "0.81.1",
+  "theme": "dark",
+  "defaultProvider": "xai",
+  "defaultModel": "grok-4.5",
+  "defaultThinkingLevel": "medium",
+  "hideThinkingBlock": false
 }

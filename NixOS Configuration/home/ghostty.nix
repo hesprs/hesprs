@@ -1,7 +1,7 @@
 {
   stylix.targets.ghostty = {
     opacity.enable = false;
-    colors.override.base00 = "000000";
+    colors.override.base00 = "181818";
   };
   programs.ghostty = {
     enable = true;
@@ -14,7 +14,7 @@
       window-padding-y = 10;
       copy-on-select = false;
       window-decoration = false;
-      background-opacity = 0.7;
+      background-opacity = 0.6;
       scrollback-limit = 2000;
       mouse-scroll-multiplier = 0.7;
       window-padding-color = "extend";

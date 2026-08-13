@@ -4,7 +4,12 @@
 
 pkgs.mkShell {
   buildInputs = [
-    (pkgs.python3.withPackages (ps: with ps; [ requests ]))
+    (pkgs.python3.withPackages (
+      ps: with ps; [
+        opencv-python
+        numpy
+      ]
+    ))
   ];
 
   shellHook = ''

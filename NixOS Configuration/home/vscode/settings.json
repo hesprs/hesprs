@@ -1,5 +1,4 @@
 {
-	"workbench.colorTheme": "Expo Dark",
 	"breadcrumbs.enabled": false,
 	"editor.stickyScroll.enabled": false,
 	"workbench.editor.editorActionsLocation": "hidden",
@@ -184,4 +183,5 @@
 	"js/ts.tsserver.maxMemory": 1024,
 	"js/ts.tsdk.promptToUseWorkspaceVersion": true,
 	"explorer.confirmPasteNative": false,
+	"workbench.colorTheme": "Expo Dark",
 }

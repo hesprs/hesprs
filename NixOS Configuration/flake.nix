@@ -46,14 +46,15 @@
                   sf-pro-display = final.callPackage ./packages/sf-pro-display { };
                   obsidian = final.callPackage ./packages/obsidian.nix { };
                   noctalia = inputs.noctalia.packages.${system}.default;
-                  mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
+                   mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
                     themeVariants = [
                       "default"
                       "blue"
                     ];
-                    boldPanelIcons = true;
-                  };
-                  classin = final.callPackage ./packages/classin.nix { };
+                     boldPanelIcons = true;
+                   };
+                   mactahoe-gtk-theme = final.callPackage ./packages/gtk-theme.nix { };
+                   classin = final.callPackage ./packages/classin.nix { };
                 })
                 (import ./packages/vscodium)
                 (import ./packages/pi.nix)
