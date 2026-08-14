@@ -24,9 +24,9 @@
 	"nix.serverSettings": {
 		"nixd": {
 			"formatting": {
-				"command": ["nixfmt"],
-			},
-		},
+				"command": ["nixfmt"]
+			}
+		}
 	},
 	"editor.quickSuggestionsDelay": 0,
 	"editor.minimap.renderCharacters": false,
@@ -140,7 +140,7 @@
 		"vitest",
 		"webdav",
 		"whistleblower",
-		"Yandex",
+		"Yandex"
 	],
 	"workbench.settings.showAISearchToggle": false,
 	"terminal.integrated.fontWeight": 500,
@@ -153,7 +153,7 @@
 		"vscode",
 		"vscode-insiders",
 		"/home/hesprs/Documents/Sync%20Engine/packages/plugin/src/fs/wrappers/context.ts",
-		"/home/hesprs/Documents/Sync%20Engine/packages/plugin/src/fs/wrappers/asymmetric-storage.ts",
+		"/home/hesprs/Documents/Sync%20Engine/packages/plugin/src/fs/wrappers/asymmetric-storage.ts"
 	],
 	"git.enableSmartCommit": true,
 	"git.confirmSync": false,
@@ -161,10 +161,10 @@
 	"workbench.startupEditor": "none",
 	"editor.minimap.size": "fill",
 	"editor.unicodeHighlight.allowedLocales": {
-		"zh-hans": true,
+		"zh-hans": true
 	},
 	"[nix]": {
-		"editor.defaultFormatter": "jnoortheen.nix-ide",
+		"editor.defaultFormatter": "jnoortheen.nix-ide"
 	},
 	"json.schemaDownload.trustedDomains": {
 		"https://developer.microsoft.com/json-schemas/": true,
@@ -174,7 +174,7 @@
 		"https://raw.githubusercontent.com/microsoft/vscode/": true,
 		"https://schemastore.azurewebsites.net/": true,
 		"https://turborepo.dev": true,
-		"https://www.schemastore.org/": true,
+		"https://www.schemastore.org/": true
 	},
 	"git.autofetch": true,
 	"js/ts.tsserver.experimental.enableProjectDiagnostics": true,
@@ -183,5 +183,5 @@
 	"js/ts.tsserver.maxMemory": 1024,
 	"js/ts.tsdk.promptToUseWorkspaceVersion": true,
 	"explorer.confirmPasteNative": false,
-	"workbench.colorTheme": "Expo Dark",
+	"workbench.colorTheme": "Expo Dark"
 }
