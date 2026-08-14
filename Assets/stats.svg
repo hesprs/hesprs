@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">H&#275;sperus&#39; GitHub Stats, Rank: A</title>
-        <desc id="descId">Total Stars Earned: 417, Total Commits  : 1204, Total PRs: 304, Total Issues: 19, Contributed to (last year): 17</desc>
+        <desc id="descId">Total Stars Earned: 425, Total Commits  : 1215, Total PRs: 307, Total Issues: 19, Contributed to (last year): 17</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 52.877023443268016;
+        stroke-dashoffset: 52.20095020378454;
       }
     }
   
@@ -146,7 +146,7 @@
           Top
         </text>
         <text x="-5" y="12" alignment-baseline="central" dominant-baseline="central" text-anchor="middle" data-testid="percentile-rank-value" class="rank-percentile-text">
-          21.0%
+          20.8%
         </text>
       
         </g>
@@ -165,7 +165,7 @@
         x="224.01"
         y="12.5"
         data-testid="stars"
-      >417</text>
+      >425</text>
     </g>
   </g><g transform="translate(0, 25)">
     <g class="stagger" style="animation-delay: 600ms" transform="translate(25, 0)">
@@ -195,7 +195,7 @@
         x="224.01"
         y="12.5"
         data-testid="prs"
-      >304</text>
+      >307</text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="stagger" style="animation-delay: 900ms" transform="translate(25, 0)">
