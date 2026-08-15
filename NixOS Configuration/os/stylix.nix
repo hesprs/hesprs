@@ -38,6 +38,6 @@
       light = "MacTahoe";
       dark = "MacTahoe";
     };
-    image = ../home/wallpapers/11.png;
+    image = ../home/wallpapers/12.png;
   };
 }
