@@ -18,8 +18,11 @@
     settings = {
       experimental-features = "nix-command flakes";
       flake-registry = "";
-      # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
+      extra-substituters = [ "https://noctalia.cachix.org" ];
+      extra-trusted-public-keys = [
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      ];
     };
     channel.enable = false;
     gc = {
@@ -79,7 +82,6 @@
     zen # browser
     gradia # image editor
     libreoffice-qt-fresh # office suite
-    noctalia # desktop UI
     gh # GitHub CLI
     classin
 

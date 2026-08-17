@@ -4,7 +4,24 @@
   fetchFromGitHub,
   jdupes,
   sassc,
-  gtk-engine-murrine,
+  sidebarSize ? "200px",
+  nautilusStyle ? "stable",
+  panelStyle ? "default",
+  panelOpacity ? 0.15,
+  showappsButton ? "bigsur",
+  panelSize ? "default",
+  fontSize ? "normal",
+  activities ? "default",
+  panelFont ? "white",
+  maxWindowStyle ? "square",
+  monterey ? false,
+  darker ? false,
+  blur ? false,
+  desktop ? "default",
+  scale ? "default",
+  shellVersion ? "old",
+  scalingFactor ? 2,
+  menuShadow ? "default",
 }:
 
 stdenvNoCC.mkDerivation {
@@ -23,8 +40,6 @@ stdenvNoCC.mkDerivation {
     sassc
   ];
 
-  propagatedUserEnvPkgs = [ gtk-engine-murrine ];
-
   installPhase = ''
     runHook preInstall
 
@@ -33,7 +48,24 @@ stdenvNoCC.mkDerivation {
     cp src/sass/_gtk-base.scss src/sass/_gtk-base-temp.scss
     cp src/sass/_theme-options.scss src/sass/_theme-options-temp.scss
     substituteInPlace src/sass/_theme-options-temp.scss \
-      --replace-fail "\$blur: 'false';" "\$blur: 'true';"
+      --replace-fail "\$sidebar_size: 200px;" "\$sidebar_size: ${sidebarSize};" \
+      --replace-fail "\$nautilus_style: 'stable';" "\$nautilus_style: '${nautilusStyle}';" \
+      --replace-fail "\$panel_style: 'default';" "\$panel_style: '${panelStyle}';" \
+      --replace-fail "\$panel_opacity: 0.15;" "\$panel_opacity: ${toString panelOpacity};" \
+      --replace-fail "\$showapps_button: 'bigsur';" "\$showapps_button: '${showappsButton}';" \
+      --replace-fail "\$panel_size: 'default';" "\$panel_size: '${panelSize}';" \
+      --replace-fail "\$font_size: 'normal';" "\$font_size: '${fontSize}';" \
+      --replace-fail "\$activities: 'default';" "\$activities: '${activities}';" \
+      --replace-fail "\$panel_font: 'white';" "\$panel_font: '${panelFont}';" \
+      --replace-fail "\$max_window_style: 'square';" "\$max_window_style: '${maxWindowStyle}';" \
+      --replace-fail "\$monterey: 'false';" "\$monterey: '${lib.boolToString monterey}';" \
+      --replace-fail "\$darker: 'false';" "\$darker: '${lib.boolToString darker}';" \
+      --replace-fail "\$blur: 'false';" "\$blur: '${lib.boolToString blur}';" \
+      --replace-fail "\$desktop: 'default';" "\$desktop: '${desktop}';" \
+      --replace-fail "\$scale: 'default';" "\$scale: '${scale}';" \
+      --replace-fail "\$shell_version: 'old';" "\$shell_version: '${shellVersion}';" \
+      --replace-fail "\$scaling_factor: '2';" "\$scaling_factor: '${toString scalingFactor}';" \
+      --replace-fail "\$menu_shadow: 'default';" "\$menu_shadow: '${menuShadow}';"
 
     for gtk in gtk-3.0 gtk-4.0; do
       cp -r src/assets/gtk/common-assets/assets "$theme/$gtk/"

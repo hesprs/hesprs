@@ -11,6 +11,11 @@
       name = "Bibata-Modern-Classic";
       size = 24;
     };
+    opacity = {
+      terminal = 0.6;
+      popups = 0.6;
+      desktop = 0.6;
+    };
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;

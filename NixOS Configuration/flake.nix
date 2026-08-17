@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia/cachix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
@@ -44,18 +44,20 @@
                   };
                   zen = inputs.zen-browser.packages.${system}.default;
                   sf-pro-display = final.callPackage ./packages/sf-pro-display { };
-                  obsidian = final.callPackage ./packages/obsidian.nix { };
                   noctalia = inputs.noctalia.packages.${system}.default;
-                   mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
+                  mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
                     themeVariants = [
                       "default"
                       "blue"
                     ];
-                     boldPanelIcons = true;
-                   };
-                   mactahoe-gtk-theme = final.callPackage ./packages/gtk-theme.nix { };
-                   classin = final.callPackage ./packages/classin.nix { };
+                    boldPanelIcons = true;
+                  };
+                  mactahoe-gtk-theme = final.callPackage ./packages/gtk-theme.nix {
+                    blur = true;
+                  };
+                  classin = final.callPackage ./packages/classin.nix { };
                 })
+                (import ./packages/obsidian.nix)
                 (import ./packages/vscodium)
                 (import ./packages/pi.nix)
               ];
