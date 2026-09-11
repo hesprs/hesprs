@@ -58,6 +58,7 @@
                   };
                   classin = final.callPackage ./packages/classin.nix { };
                   lark = final.callPackage ./packages/lark.nix { };
+                  teleagent = final.callPackage ./packages/teleagent.nix { };
                   bun = final.callPackage ./packages/bun.nix { };
                 })
                 (import ./packages/obsidian.nix)

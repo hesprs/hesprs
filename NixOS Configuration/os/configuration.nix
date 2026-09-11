@@ -86,6 +86,7 @@
     libreoffice-qt-fresh # office suite
     gh # GitHub CLI
     classin
+    teleagent
 
     # system utilities
     loupe # image viewer
@@ -107,6 +108,7 @@
     wl-clipboard # clipboard manager
     mission-center # system monitor
     tuigreet # login manager
+    unzip # zipped file handler
 
     # runtimes / compilers
     python3 # Python

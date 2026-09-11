@@ -11,6 +11,7 @@
   freetype,
   gdk-pixbuf,
   glib,
+  gsettings-desktop-schemas,
   gtk3,
   libcanberra,
   libnotify,
@@ -94,6 +95,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     makeWrapper "$out/lib/betterbird/betterbird" "$out/bin/betterbird" \
       --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath runtimeLibraries}" \
       --prefix PATH : "${lib.makeBinPath [ xdg-utils ]}" \
+      --prefix XDG_DATA_DIRS : "${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}" \
+      --prefix XDG_DATA_DIRS : "${gtk3}/share/gsettings-schemas/${gtk3.name}" \
       --set MOZ_APP_LAUNCHER betterbird \
       --set MOZ_LEGACY_PROFILES 1 \
       --set MOZ_ALLOW_DOWNGRADE 1

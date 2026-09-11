@@ -1,11 +1,15 @@
 ## Before Re-Installation
 
-Preserve `/home/hesprs/.config/sops/age/keys.txt`
+Preserve:
+
+- `~/.config/sops/age/keys.txt`
+- `~/.thunderbird/*`
 
 ## After Re-Installation
 
-- Clone Git repo to `/home/hesprs/Documents/Configurations/`
-- Recover `/home/hesprs/.config/sops/age/keys.txt`
+- Name user to `hesprs`
+- Clone Git repo to `~/Documents/Configurations/`
+- Recover `~/.config/sops/age/keys.txt`
 - Run `./setup.sh`
 
 ## Commands
