@@ -135,6 +135,9 @@ stdenv.mkDerivation (finalAttrs: {
     # "EACCES: permission denied, unlink" warning; recover with
     # `rm -rf ~/.config/TeleAgent/plugins`.
 
+    # Electron dlopens libsecret-1.so.0 at runtime for safeStorage
+    # (login credential storage); without it login aborts with
+    # "system credential storage unavailable".
     wrapProgram $out/opt/TeleAgent/teleagent \
       --prefix PATH : ${
         lib.makeBinPath [
@@ -144,6 +147,7 @@ stdenv.mkDerivation (finalAttrs: {
       --prefix LD_LIBRARY_PATH : ${
         lib.makeLibraryPath [
           libGL
+          libsecret
           stdenv.cc.cc.lib
         ]
       }:${addDriverRunpath.driverLink}/share \
