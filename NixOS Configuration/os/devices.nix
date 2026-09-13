@@ -19,6 +19,7 @@
     proxy = {
       httpProxy = "http://127.0.0.1:10808";
       httpsProxy = "http://127.0.0.1:10808";
+      noProxy = "localhost,127.0.0.1";
     };
     firewall = {
       enable = true;
