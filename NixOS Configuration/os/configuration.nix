@@ -54,7 +54,7 @@
     LC_NUMERIC = "en_GB.UTF-8";
     LC_PAPER = "en_GB.UTF-8";
     LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
   users.users = {
@@ -78,7 +78,7 @@
   #packages
   environment.systemPackages = with pkgs; [
     # applications
-    betterbird
+    betterbird # email client
     obsidian # note-taking
     v2rayn # VPN client
     vscodium # code editor
@@ -86,10 +86,10 @@
     wechat
     zen # browser
     gradia # image editor
-    libreoffice-qt-fresh # office suite
+    libreoffice-qt-stable # office suite
     gh # GitHub CLI
+    agent-browser # agentic browser control
     classin
-    teleagent
 
     # system utilities
     loupe # image viewer
@@ -111,7 +111,7 @@
     wl-clipboard # clipboard manager
     mission-center # system monitor
     tuigreet # login manager
-    unzip # zipped file handler
+    unzip # zipper
 
     # runtimes / compilers
     python3 # Python

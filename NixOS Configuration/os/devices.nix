@@ -19,13 +19,11 @@
     proxy = {
       httpProxy = "http://127.0.0.1:10808";
       httpsProxy = "http://127.0.0.1:10808";
-      noProxy = "localhost,127.0.0.1";
+      noProxy = "localhost,127.0.0.1,192.168.0.0/16,fe80::/10";
     };
     firewall = {
       enable = true;
-      allowedTCPPorts = [
-        5173
-      ];
+      allowedTCPPorts = [ 5173 ];
     };
     # interfaces.wlan0.macAddress = "";
   };

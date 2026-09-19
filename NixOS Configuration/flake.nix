@@ -59,6 +59,7 @@
                   classin = final.callPackage ./packages/classin.nix { };
                   lark = final.callPackage ./packages/lark.nix { };
                   teleagent = final.callPackage ./packages/teleagent.nix { };
+                  agent-browser = final.callPackage ./packages/agent-browser.nix { };
                 })
                 (import ./packages/obsidian.nix)
                 (import ./packages/vscodium)
