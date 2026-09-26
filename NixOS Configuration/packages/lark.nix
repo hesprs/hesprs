@@ -57,7 +57,7 @@ stdenv.mkDerivation {
   version = "7.72.23";
 
   src = fetchurl {
-    url = "https://lf16-larkversion-new-sign.larksuitecdn.com/obj/lark-version-sg/b69ee051/Lark-linux_x64-7.72.23.deb";
+    url = "https://sf16-sg.larksuitecdn.com/obj/lark-version-sg/b69ee051/Lark-linux_x64-7.72.23.deb";
     hash = "sha256-cSKhFlj8DqkTkrMkEYNzP4jRrG6ruyO+LLV24MhNrI8=";
   };
 

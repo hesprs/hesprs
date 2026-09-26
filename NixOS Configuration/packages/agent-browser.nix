@@ -10,6 +10,7 @@
   pnpmConfigHook,
   geist-font,
   which,
+  writableTmpDirAsHomeHook,
 
   # Chromium runtime libraries (resolved via ldd of the Playwright-downloaded
   # Chrome for Testing binary; NixOS has no global /usr/lib).
@@ -30,7 +31,13 @@
   libdrm,
   libgbm,
   libxkbcommon,
-  xorg,
+  libx11,
+  libxcb,
+  libxcomposite,
+  libxdamage,
+  libxext,
+  libxfixes,
+  libxrandr,
 }:
 
 let
@@ -111,20 +118,24 @@ let
       cp -r ${dashboard} source/packages/dashboard/out
     '';
 
-    # `which_exists` spawns the external `which` binary at runtime to probe
-    # for optional tools; pin it to an absolute store path.
-    postPatch = ''
-      substituteInPlace src/doctor/helpers.rs src/install.rs \
-        src/native/cdp/chrome.rs src/native/cdp/lightpanda.rs --replace-fail \
-        '"which"' '"${lib.getExe which}"'
-    '';
+      # `which_exists` spawns the external `which` binary at runtime to probe
+      # for optional tools; pin it to an absolute store path.
+      postPatch = ''
+        substituteInPlace src/doctor/helpers.rs src/install.rs \
+          src/native/cdp/chrome.rs src/native/cdp/lightpanda.rs --replace-fail \
+          '"which"' '"${lib.getExe which}"'
+      '';
 
-    # Flaky test: reads the AGENT_BROWSER_CDP env variable without using the
-    # shared test lock.
-    checkFlags = [
-      "--skip"
-      "native::actions::tests::test_execute_unknown_command"
-    ];
+      nativeCheckInputs = [
+        writableTmpDirAsHomeHook
+      ];
+
+      # Flaky test: reads the AGENT_BROWSER_CDP env variable without using the
+      # shared test lock.
+      checkFlags = [
+        "--skip"
+        "native::actions::tests::test_execute_unknown_command"
+      ];
 
     __darwinAllowLocalNetworking = true;
 
@@ -171,18 +182,18 @@ buildFHSEnv {
     nspr
     nss
     pango
-    systemd
-    libdrm
-    libgbm
-    libxkbcommon
-    xorg.libX11
-    xorg.libxcb
-    xorg.libXcomposite
-    xorg.libXdamage
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXrandr
-  ];
+      systemd
+      libdrm
+      libgbm
+      libxkbcommon
+      libx11
+      libxcb
+      libxcomposite
+      libxdamage
+      libxext
+      libxfixes
+      libxrandr
+    ];
 
   # `agent-browser` resolves `skills/` and `skill-data/` next to `bin/` of the
   # canonical exe path; the FHS root merges unwrapped's $out, so both land in
