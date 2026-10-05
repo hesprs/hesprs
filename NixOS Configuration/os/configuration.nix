@@ -9,6 +9,7 @@
     ./desktop.nix
     ./hardware.nix
     ./devices.nix
+    ./mime.nix
     ./stylix.nix
     ./login.nix
     ./secrets.nix
@@ -92,6 +93,7 @@
     classin
 
     # system utilities
+    glib.bin # Gnome CLI tool
     loupe # image viewer
     showtime # video viewer
     decibels # audio player
