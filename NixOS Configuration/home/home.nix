@@ -6,10 +6,9 @@
     inputs.noctalia.homeModules.default
     ./symlink.nix
     ./hyprland
-    ./ssh
     ./vscode
     ./noctalia
-    ./secrets.nix
+    ./secrets
     ./npm.nix
     ./git.nix
     ./ghostty.nix

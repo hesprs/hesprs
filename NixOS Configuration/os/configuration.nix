@@ -70,6 +70,10 @@
   };
 
   # services
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-gnome3;
+  };
   security.rtkit.enable = true;
   programs.dconf.enable = true; # Gnome APP settings
   programs.nix-ld.enable = true; # run external binaries
@@ -107,6 +111,7 @@
     tree # directory tree viewer
     ripgrep # search tool
     sops # secrets manager
+    gnupg # GPG
     grim # screenshot getter
     slurp # screen region selector
     gpu-screen-recorder-gtk # screen recorder GUI

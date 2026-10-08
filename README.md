@@ -1,6 +1,6 @@
 <h1 align="center">Hēsperus' README</h1>
 
-Turn **Ideality** to **Reality** <img src="https://komarev.com/ghpvc/?username=hesprs&style=flat" alt="Hesprs" align="right" />
+Turn **Ideality** to **Reality** <img src="https://komarev.com/ghpvc/?username=hesprs&style=flat" alt="hesprs" align="right" />
 
 <br>
 
