@@ -75,11 +75,11 @@ let
 in
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "betterbird";
-  version = "153.2.0esr-bb8";
+  version = "153.4.0esr-bb10";
 
   src = fetchurl {
     url = "https://www.betterbird.eu/downloads/LinuxArchive/betterbird-${finalAttrs.version}.en-US.linux-x86_64.tar.xz";
-    hash = "sha256-FC67Y9P4TG1KiCUs7Swt0s5dKOs7CLBfENhB/j1PgAE=";
+    hash = "sha256-ON0kiQpmtM+aRbwk4VGS4AwmuSnhu433l0wWpFORKeI=";
   };
 
   nativeBuildInputs = [ makeWrapper ];

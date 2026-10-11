@@ -88,7 +88,6 @@
     v2rayn # VPN client
     vscodium # code editor
     qq
-    wechat
     zen # browser
     gradia # image editor
     libreoffice-qt-stable # office suite
