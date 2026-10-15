@@ -121,20 +121,16 @@
 
     # runtimes / compilers
     python3 # Python
-    nodejs-slim_latest # JavaScript / TypeScript
     bun # JavaScript / TypeScript
     rustc # Rust
-    javaPackages.compiler.openjdk25 # Java
     gcc # C/C++
 
     # package managers / language servers / formatters
     uv # Python
-    pnpm # JavaScript / TypeScript
     cargo # Rust
     gnumake # Make
     nixfmt # Nix formatter
     nixd # Nix language server
-    oxfmt # TypeScript / JavaScript formatter
   ];
 
   fonts = {

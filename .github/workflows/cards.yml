@@ -19,7 +19,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=${{ github.repository_owner }}&rank_icon=percentile&custom_title=H%C4%93sperus'%20GitHub%20Stats&show_icons=true&include_all_commits=true&theme=github_dark_dimmed
+          options: username=${{ github.repository_owner }}&custom_title=H%C4%93sperus'%20GitHub%20Stats&show_icons=true&include_all_commits=true&theme=github_dark_dimmed
           path: Assets/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 

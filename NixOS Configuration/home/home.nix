@@ -9,7 +9,6 @@
     ./vscode
     ./noctalia
     ./secrets
-    ./npm.nix
     ./git.nix
     ./ghostty.nix
     ./dconf.nix
@@ -30,6 +29,7 @@
       source = ./wallpapers;
       recursive = true;
     };
+    sessionPath = [ "\${HOME}/.cache/.bun/bin" ];
     sessionVariables = {
       GNOME_DESKTOP_SESSION_ID = "this-is-deprecated"; # https://github.com/electron/electron/issues/39789#issuecomment-3433810585
       NIXOS_OZONE_WL = "1";
