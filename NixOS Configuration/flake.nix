@@ -60,6 +60,7 @@
                   lark = final.callPackage ./packages/lark.nix { };
                   teleagent = final.callPackage ./packages/teleagent.nix { };
                   agent-browser = final.callPackage ./packages/agent-browser.nix { };
+                  wordcraft = final.callPackage ./packages/wordcraft.nix { };
                 })
                 (import ./packages/obsidian.nix)
                 (import ./packages/vscodium)

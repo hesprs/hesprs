@@ -90,7 +90,7 @@
     qq
     zen # browser
     gradia # image editor
-    libreoffice-qt-stable # office suite
+    wordcraft # office suite
     gh # GitHub CLI
     agent-browser # agentic browser control
     classin
@@ -122,6 +122,13 @@
     # runtimes / compilers
     python3 # Python
     bun # JavaScript / TypeScript
+    (linkFarm "node-bun" [
+      # node -> bun shim
+      {
+        name = "bin/node";
+        path = "${bun}/bin/bun";
+      }
+    ])
     rustc # Rust
     gcc # C/C++
 
