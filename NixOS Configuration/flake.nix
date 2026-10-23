@@ -56,11 +56,11 @@
                   mactahoe-gtk-theme = final.callPackage ./packages/gtk-theme.nix {
                     blur = true;
                   };
-                  classin = final.callPackage ./packages/classin.nix { };
                   lark = final.callPackage ./packages/lark.nix { };
                   teleagent = final.callPackage ./packages/teleagent.nix { };
                   agent-browser = final.callPackage ./packages/agent-browser.nix { };
                   wordcraft = final.callPackage ./packages/wordcraft.nix { };
+                  cua-driver = final.callPackage ./packages/cua-driver.nix { };
                 })
                 (import ./packages/obsidian.nix)
                 (import ./packages/vscodium)

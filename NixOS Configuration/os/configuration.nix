@@ -93,7 +93,7 @@
     wordcraft # office suite
     gh # GitHub CLI
     agent-browser # agentic browser control
-    classin
+    cua-driver # agentic computer control
 
     # system utilities
     glib.bin # Gnome CLI tool

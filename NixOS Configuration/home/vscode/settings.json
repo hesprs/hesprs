@@ -13,7 +13,6 @@
 	"workbench.iconTheme": "catppuccin-mocha",
 	"workbench.productIconTheme": "fluent-icons",
 	"editor.fontFamily": "'JetBrains Mono Nerd Font'",
-	"files.autoSave": "afterDelay",
 	"editor.wordWrap": "on",
 	"terminal.integrated.fontFamily": "monospace",
 	"editor.fontLigatures": true,
@@ -192,4 +191,5 @@
 	"workbench.colorTheme": "Expo Dark",
 	"nix.hiddenLanguageServerErrors": ["-32001"],
 	"terminal.integrated.cursorWidth": 2,
+	"files.autoSave": "afterDelay",
 }
