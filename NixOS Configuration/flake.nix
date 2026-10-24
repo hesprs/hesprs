@@ -18,10 +18,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/cachix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
   };
 
   outputs =
@@ -45,7 +41,6 @@
                   zen = inputs.zen-browser.packages.${system}.default;
                   sf-pro-display = final.callPackage ./packages/sf-pro-display { };
                   betterbird = final.callPackage ./packages/betterbird.nix { };
-                  noctalia = inputs.noctalia.packages.${system}.default;
                   mactahoe-icon-theme = final.callPackage ./packages/icon-theme.nix {
                     themeVariants = [
                       "default"
@@ -61,6 +56,8 @@
                   agent-browser = final.callPackage ./packages/agent-browser.nix { };
                   wordcraft = final.callPackage ./packages/wordcraft.nix { };
                   cua-driver = final.callPackage ./packages/cua-driver.nix { };
+                  rounded-window-corners-reborn = final.callPackage ./packages/rounded-window-corners.nix { };
+                  wayland-scroll-factor = final.callPackage ./packages/wayland-scroll-factor.nix { };
                 })
                 (import ./packages/obsidian.nix)
                 (import ./packages/vscodium)

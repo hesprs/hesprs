@@ -11,7 +11,6 @@
     ./devices.nix
     ./mime.nix
     ./stylix.nix
-    ./login.nix
     ./secrets.nix
   ];
 
@@ -23,12 +22,6 @@
       ];
       flake-registry = "";
       nix-path = config.nix.nixPath;
-      extra-substituters = [
-        "https://noctalia.cachix.org"
-      ];
-      extra-trusted-public-keys = [
-        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-      ];
     };
     channel.enable = false;
     gc = {
@@ -69,16 +62,14 @@
     };
   };
 
-  # services
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryPackage = pkgs.pinentry-gnome3;
+  programs = {
+    dconf.enable = true; # Gnome APP settings
+    nix-ld.enable = true; # run external binaries
+    gnupg.agent = {
+      enable = true;
+      pinentryPackage = pkgs.pinentry-gnome3;
+    };
   };
-  security.rtkit.enable = true;
-  programs.dconf.enable = true; # Gnome APP settings
-  programs.nix-ld.enable = true; # run external binaries
-  programs.gpu-screen-recorder.enable = true;
-  services.gnome.gnome-keyring.enable = true;
 
   #packages
   environment.systemPackages = with pkgs; [
@@ -95,29 +86,25 @@
     agent-browser # agentic browser control
     cua-driver # agentic computer control
 
+    # GNOME shell extensions
+    gnomeExtensions.mosaic # tiling window manager
+    gnomeExtensions.blur-my-shell # blur for the MacTahoe theme
+    rounded-window-corners-reborn # round non-GTK windows
+    gnomeExtensions.rounded-corners # round monitor corners
+    gnomeExtensions.user-themes # load MacTahoe shell theme
+    gnomeExtensions.appindicator # system tray icons
+    gnomeExtensions.desktop-cube # 3D workspace switcher
+    gnomeExtensions.just-perfection # hide the dash from overview
+
     # system utilities
     glib.bin # Gnome CLI tool
-    loupe # image viewer
-    showtime # video viewer
-    decibels # audio player
-    papers # PDF viewer
-    snapshot # camera
-    nautilus # file manager
-    seahorse # password manager
-    gnome-calculator # calculator
-    gnome-characters # character finder
-    brightnessctl # screen brightness control
-    tree # directory tree viewer
     ripgrep # search tool
     sops # secrets manager
     gnupg # GPG
-    grim # screenshot getter
-    slurp # screen region selector
     gpu-screen-recorder-gtk # screen recorder GUI
     wl-clipboard # clipboard manager
-    mission-center # system monitor
-    tuigreet # login manager
     unzip # zipper
+    wayland-scroll-factor # touchpad scroll speed
 
     # runtimes / compilers
     python3 # Python

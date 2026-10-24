@@ -8,12 +8,10 @@
     enableBashIntegration = true;
     settings = {
       window-save-state = "never";
-      window-width = 950;
-      window-height = 500;
       window-padding-x = 10;
       window-padding-y = 10;
       copy-on-select = false;
-      window-decoration = false;
+      window-decoration = true;
       background-opacity = 0.6;
       scrollback-limit = 2000;
       mouse-scroll-multiplier = 0.7;

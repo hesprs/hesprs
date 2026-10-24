@@ -30,13 +30,13 @@ lib.checkListOfEnum "${pname}: theme variants"
   stdenvNoCC.mkDerivation
   rec {
     inherit pname;
-    version = "2026-07-07";
+    version = "2026-09-10";
 
     src = fetchFromGitHub {
       owner = "vinceliuice";
       repo = "MacTahoe-icon-theme";
       tag = "${version}";
-      hash = "sha256-CXZn4r1B+eB2Uv00vutFGQjOKJIia/I5RkPOBAAJKYA=";
+      hash = "sha256-NAahlBOYub0QlqkYStamoCbyWh+H5JG/iFm4Ws9EU3A=";
     };
 
     nativeBuildInputs = [
@@ -53,11 +53,6 @@ lib.checkListOfEnum "${pname}: theme variants"
 
     postPatch = ''
       patchShebangs install.sh
-
-      # Fix upstream symlink, whose relative target is invalid after installation.
-      rm links/status/symbolic/globe-symbolic.svg
-      ln -s ../../places/symbolic/network-workgroup-symbolic.svg \
-        links/status/symbolic/globe-symbolic.svg
     '';
 
     installPhase = ''

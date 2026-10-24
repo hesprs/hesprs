@@ -19,20 +19,20 @@
   blur ? false,
   desktop ? "default",
   scale ? "default",
-  shellVersion ? "old",
+  shellVersion ? "new",
   scalingFactor ? 2,
   menuShadow ? "default",
 }:
 
 stdenvNoCC.mkDerivation {
   pname = "mactahoe-gtk-theme";
-  version = "2026-08-08";
+  version = "2026-09-10";
 
   src = fetchFromGitHub {
     owner = "vinceliuice";
     repo = "MacTahoe-gtk-theme";
-    tag = "2026-08-08";
-    hash = "sha256-UEJZFXCVox3KCTZqSeOILumKCbUIeDTzcbLjimtotEI=";
+    tag = "2026-09-10";
+    hash = "sha256-P4zevOTHd7KKLj3a9wkaY96tMFMg7iZEpz3NkbdyTwM=";
   };
 
   nativeBuildInputs = [
@@ -44,7 +44,7 @@ stdenvNoCC.mkDerivation {
     runHook preInstall
 
     theme="$out/share/themes/MacTahoe-Dark-Blur"
-    mkdir -p "$theme"/{gtk-2.0,gtk-3.0,gtk-4.0}
+    mkdir -p "$theme"/{gtk-2.0,gtk-3.0,gtk-4.0,gnome-shell/assets}
     cp src/sass/_gtk-base.scss src/sass/_gtk-base-temp.scss
     cp src/sass/_theme-options.scss src/sass/_theme-options-temp.scss
     substituteInPlace src/sass/_theme-options-temp.scss \
@@ -83,6 +83,22 @@ stdenvNoCC.mkDerivation {
     cp src/main/gtk-2.0/common/*.rc "$theme/gtk-2.0/"
     cp -r src/assets/gtk-2.0/assets-common-Dark "$theme/gtk-2.0/assets"
     cp src/assets/gtk-2.0/assets-Dark/*.png "$theme/gtk-2.0/assets/"
+
+    # GNOME Shell (User Themes extension loads gnome-shell/gnome-shell.css)
+    shell="$theme/gnome-shell"
+    cp -r src/assets/gnome-shell/icons "$shell/"
+    cp src/main/gnome-shell/pad-osd.css "$shell/"
+    cp src/main/gnome-shell/_shell-base.scss src/main/gnome-shell/_shell-base-temp.scss
+    substituteInPlace src/main/gnome-shell/_shell-base-temp.scss \
+      --replace-fail '$GNOME_SHELL: 46;' '$GNOME_SHELL: 50;' \
+      --replace-fail 'widgets-46-0' 'widgets-48-0'
+    sassc -t expanded src/main/gnome-shell/gnome-shell-Dark.scss "$shell/gnome-shell.css"
+    cp -r src/assets/gnome-shell/common-assets/. "$shell/assets/"
+    cp -r src/assets/gnome-shell/assets-Dark/. "$shell/assets/"
+    cp -r src/assets/gnome-shell/theme/. "$shell/assets/"
+    cp src/assets/gnome-shell/activities/activities-apple.svg "$shell/assets/activities.svg"
+    cp src/assets/gnome-shell/activities/activities-apple.svg "$shell/assets/activities-white.svg"
+    mv "$shell/assets/no-events.svg" "$shell/assets/process-working.svg" "$shell/assets/no-notifications.svg" "$shell/"
 
     cat > "$theme/index.theme" <<'EOF'
     [Desktop Entry]

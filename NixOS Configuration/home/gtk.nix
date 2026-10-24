@@ -23,7 +23,7 @@ in {
     inherit theme;
     gtk3 = {
       theme = theme;
-      extraConfig.gtk-decoration-layout = "menu:";
+      extraConfig.gtk-decoration-layout = ":";
     };
     gtk4.theme = theme;
     colorScheme = "dark";
