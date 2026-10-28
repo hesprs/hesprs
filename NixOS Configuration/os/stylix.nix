@@ -6,11 +6,13 @@
     base16Scheme = ../packages/vivid.yaml;
     polarity = "dark";
     homeManagerIntegration.followSystem = true;
+
+    # avoid compiling everything from source
     targets = {
-      gnome.enable = false;
       nixos-icons.enable = false;
       gtksourceview.enable = false;
     };
+    
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";

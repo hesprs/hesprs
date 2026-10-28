@@ -7,11 +7,12 @@
 {
   imports = [
     ./desktop.nix
-    ./hardware.nix
     ./devices.nix
+    ./hardware.nix
+    ./login.nix
     ./mime.nix
-    ./stylix.nix
     ./secrets.nix
+    ./stylix.nix
   ];
 
   nix = {
@@ -85,26 +86,31 @@
     gh # GitHub CLI
     agent-browser # agentic browser control
     cua-driver # agentic computer control
-
-    # GNOME shell extensions
-    gnomeExtensions.mosaic # tiling window manager
-    gnomeExtensions.blur-my-shell # blur for the MacTahoe theme
-    rounded-window-corners-reborn # round non-GTK windows
-    gnomeExtensions.rounded-corners # round monitor corners
-    gnomeExtensions.user-themes # load MacTahoe shell theme
-    gnomeExtensions.appindicator # system tray icons
-    gnomeExtensions.desktop-cube # 3D workspace switcher
-    gnomeExtensions.just-perfection # hide the dash from overview
+    fastfetch
+    pi-coding-agent
+    teleagent
+    panacea
 
     # system utilities
     glib.bin # Gnome CLI tool
     ripgrep # search tool
     sops # secrets manager
     gnupg # GPG
-    gpu-screen-recorder-gtk # screen recorder GUI
     wl-clipboard # clipboard manager
     unzip # zipper
-    wayland-scroll-factor # touchpad scroll speed
+    loupe # image viewer
+    showtime # video viewer
+    decibels # audio player
+    papers # PDF viewer
+    snapshot # camera
+    nautilus # file manager
+    seahorse # password manager
+    gnome-calculator # calculator
+    gnome-characters # character finder
+    brightnessctl # screen brightness control
+    mission-center # system monitor
+    tuigreet # login manager
+    gnome-system-monitor # task manager
 
     # runtimes / compilers
     python3 # Python
@@ -118,11 +124,11 @@
     ])
     rustc # Rust
     gcc # C/C++
+    gnumake # Make
 
     # package managers / language servers / formatters
     uv # Python
     cargo # Rust
-    gnumake # Make
     nixfmt # Nix formatter
     nixd # Nix language server
   ];

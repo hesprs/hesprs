@@ -10,6 +10,7 @@
   at-spi2-atk,
   at-spi2-core,
   cairo,
+  coreutils,
   cups,
   dbus,
   expat,
@@ -53,13 +54,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "teleagent";
-  version = "2.5.2";
+  version = "2.7.1";
 
   src = fetchurl {
     # https://www.teleai.com.cn/product/teleagent redirects here via
     # https://agent.teleai.com.cn/superCowork/sapi/api/download/redirect/linux-x64
     url = "https://cdn01.teleai.com.cn/packages/${finalAttrs.version}/TeleAgent-${finalAttrs.version}-amd64.deb";
-    hash = "sha256-kEgJfenw9Sj+/YSQnvKfFUq7CkfMICwZnSu/EIJP1/M=";
+    hash = "sha256-NsXiLMWCXBhQJw1U3V6JWX+JXm80RyP3FOhqT5TMNT0=";
   };
 
   nativeBuildInputs = [
@@ -130,15 +131,18 @@ stdenv.mkDerivation (finalAttrs: {
     substituteInPlace $out/share/applications/teleagent.desktop \
       --replace-fail /opt/TeleAgent/teleagent $out/opt/TeleAgent/teleagent
 
-    # NOTE: the app copies resources/plugins to ~/.config preserving the
-    # read-only store modes, so later plugin re-syncs log a non-fatal
-    # "EACCES: permission denied, unlink" warning; recover with
-    # `rm -rf ~/.config/TeleAgent/plugins`.
-
     # Electron dlopens libsecret-1.so.0 at runtime for safeStorage
     # (login credential storage); without it login aborts with
     # "system credential storage unavailable".
+    #
+    # The app copies resources/plugins to ~/.config with fs.cp, which keeps
+    # the store's read-only modes; the next launch's re-sync then fails with
+    # "EACCES: permission denied, unlink" and aborts backend startup (the
+    # "plugins" task is fatal). Store modes cannot be relaxed, so re-enable
+    # writing before every launch.
     wrapProgram $out/opt/TeleAgent/teleagent \
+      --add-flags "--ozone-platform=wayland" \
+      --run '${coreutils}/bin/chmod -R u+w "''${HOME}/.config/TeleAgent/plugins" 2>/dev/null || true' \
       --prefix PATH : ${
         lib.makeBinPath [
           xdg-utils

@@ -34,10 +34,14 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # bluetooth
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false; # don't auto enable
+  };
   services.blueman.enable = true;
 
   # audio
+  security.rtkit.enable = true; # needed by pipewire
   services.pipewire = {
     enable = true;
     alsa.enable = true;

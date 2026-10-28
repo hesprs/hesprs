@@ -20,6 +20,7 @@
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "oxc.oxc-vscode",
 	"nix.enableLanguageServer": true,
+	"nix.serverPath": "nixd",
 	"nix.serverSettings": {
 		"nixd": {
 			"formatting": {
@@ -189,7 +190,7 @@
 	"js/ts.tsdk.promptToUseWorkspaceVersion": true,
 	"explorer.confirmPasteNative": false,
 	"workbench.colorTheme": "Expo Dark",
-	"nix.hiddenLanguageServerErrors": ["-32001"],
 	"terminal.integrated.cursorWidth": 2,
 	"files.autoSave": "afterDelay",
+	"nix.hiddenLanguageServerErrors": ["textDocument/formatting"],
 }

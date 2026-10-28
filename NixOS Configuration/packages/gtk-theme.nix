@@ -22,10 +22,42 @@
   shellVersion ? "new",
   scalingFactor ? 2,
   menuShadow ? "default",
+  colorVariants ? [ "Dark" ],
+  themeVariants ? [ "default" ],
+  schemeVariants ? [ "standard" ],
 }:
 
-stdenvNoCC.mkDerivation {
+let
   pname = "mactahoe-gtk-theme";
+
+  colors = [ "Light" "Dark" ];
+  themes = [ "default" "blue" "purple" "pink" "red" "orange" "yellow" "green" "grey" ];
+  schemes = [ "standard" "nord" ];
+
+  expand = allowed: chosen: if builtins.elem "all" chosen then allowed else chosen;
+  suffix = default: value: if value == default then "" else "-${value}";
+
+  variants = map (
+    { color, theme, scheme }:
+    let
+      accent = "${suffix "default" theme}${suffix "standard" scheme}";
+    in
+    {
+      inherit color theme scheme accent;
+      name = "MacTahoe-${color}${accent}${lib.optionalString blur "-Blur"}";
+      assets = "-${color}${accent}";
+    }
+  ) (lib.cartesianProduct {
+    color = expand colors colorVariants;
+    theme = expand themes themeVariants;
+    scheme = expand schemes schemeVariants;
+  });
+in
+lib.checkListOfEnum "${pname}: color variants" (colors ++ [ "all" ]) colorVariants
+(lib.checkListOfEnum "${pname}: theme variants" (themes ++ [ "all" ]) themeVariants
+(lib.checkListOfEnum "${pname}: scheme variants" (schemes ++ [ "all" ]) schemeVariants
+stdenvNoCC.mkDerivation {
+  inherit pname;
   version = "2026-09-10";
 
   src = fetchFromGitHub {
@@ -43,9 +75,6 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    theme="$out/share/themes/MacTahoe-Dark-Blur"
-    mkdir -p "$theme"/{gtk-2.0,gtk-3.0,gtk-4.0,gnome-shell/assets}
-    cp src/sass/_gtk-base.scss src/sass/_gtk-base-temp.scss
     cp src/sass/_theme-options.scss src/sass/_theme-options-temp.scss
     substituteInPlace src/sass/_theme-options-temp.scss \
       --replace-fail "\$sidebar_size: 200px;" "\$sidebar_size: ${sidebarSize};" \
@@ -67,47 +96,49 @@ stdenvNoCC.mkDerivation {
       --replace-fail "\$scaling_factor: '2';" "\$scaling_factor: '${toString scalingFactor}';" \
       --replace-fail "\$menu_shadow: 'default';" "\$menu_shadow: '${menuShadow}';"
 
-    for gtk in gtk-3.0 gtk-4.0; do
-      cp -r src/assets/gtk/common-assets/assets "$theme/$gtk/"
-      cp -r src/assets/gtk/scalable "$theme/$gtk/assets"
-      cp -r src/assets/gtk/windows-assets/titlebutton "$theme/$gtk/windows-assets"
-      cp src/assets/gtk/thumbnails/thumbnail-Dark.png "$theme/$gtk/thumbnail.png"
-    done
-    sassc -t expanded src/main/gtk-3.0/gtk-Dark.scss "$theme/gtk-3.0/gtk.css"
-    sassc -t expanded src/main/gtk-3.0/gtk-Dark.scss "$theme/gtk-3.0/gtk-dark.css"
-    sassc -t expanded src/main/gtk-4.0/gtk-Dark.scss "$theme/gtk-4.0/gtk.css"
-    sassc -t expanded src/main/gtk-4.0/gtk-Dark.scss "$theme/gtk-4.0/gtk-dark.css"
-
-    cp src/main/gtk-2.0/gtkrc-Dark "$theme/gtk-2.0/gtkrc"
-    cp src/main/gtk-2.0/menubar-toolbar-Dark.rc "$theme/gtk-2.0/menubar-toolbar.rc"
-    cp src/main/gtk-2.0/common/*.rc "$theme/gtk-2.0/"
-    cp -r src/assets/gtk-2.0/assets-common-Dark "$theme/gtk-2.0/assets"
-    cp src/assets/gtk-2.0/assets-Dark/*.png "$theme/gtk-2.0/assets/"
-
-    # GNOME Shell (User Themes extension loads gnome-shell/gnome-shell.css)
-    shell="$theme/gnome-shell"
-    cp -r src/assets/gnome-shell/icons "$shell/"
-    cp src/main/gnome-shell/pad-osd.css "$shell/"
+    # GNOME Shell 50 support
     cp src/main/gnome-shell/_shell-base.scss src/main/gnome-shell/_shell-base-temp.scss
     substituteInPlace src/main/gnome-shell/_shell-base-temp.scss \
       --replace-fail '$GNOME_SHELL: 46;' '$GNOME_SHELL: 50;' \
       --replace-fail 'widgets-46-0' 'widgets-48-0'
-    sassc -t expanded src/main/gnome-shell/gnome-shell-Dark.scss "$shell/gnome-shell.css"
-    cp -r src/assets/gnome-shell/common-assets/. "$shell/assets/"
-    cp -r src/assets/gnome-shell/assets-Dark/. "$shell/assets/"
-    cp -r src/assets/gnome-shell/theme/. "$shell/assets/"
-    cp src/assets/gnome-shell/activities/activities-apple.svg "$shell/assets/activities.svg"
-    cp src/assets/gnome-shell/activities/activities-apple.svg "$shell/assets/activities-white.svg"
-    mv "$shell/assets/no-events.svg" "$shell/assets/process-working.svg" "$shell/assets/no-notifications.svg" "$shell/"
 
-    cat > "$theme/index.theme" <<'EOF'
-    [Desktop Entry]
-    Type=X-GNOME-Metatheme
-    Name=MacTahoe-Dark-Blur
+    ${lib.concatMapStringsSep "\n" ({ color, theme, scheme, accent, name, assets }: ''
+      dir="$out/share/themes/${name}"
+      mkdir -p "$dir"/{gtk-2.0,gtk-3.0,gtk-4.0,gnome-shell/assets}
 
-    [X-GNOME-Metatheme]
-    GtkTheme=MacTahoe-Dark-Blur
-    EOF
+      cp src/sass/_gtk-base.scss src/sass/_gtk-base-temp.scss
+      substituteInPlace src/sass/_gtk-base-temp.scss \
+        --replace-fail "\$theme: 'default';" "\$theme: '${theme}';" \
+        --replace-fail "\$scheme: 'standard';" "\$scheme: '${scheme}';"
+
+      for gtk in gtk-3.0 gtk-4.0; do
+        cp -r src/assets/gtk/common-assets/assets "$dir/$gtk/"
+        cp -r src/assets/gtk/scalable "$dir/$gtk/assets"
+        cp -r src/assets/gtk/windows-assets/titlebutton${suffix "standard" scheme} "$dir/$gtk/windows-assets"
+        cp "src/assets/gtk/thumbnails/thumbnail${assets}.png" "$dir/$gtk/thumbnail.png"
+        sassc -t expanded "src/main/$gtk/gtk-${color}.scss" "$dir/$gtk/gtk.css"
+        sassc -t expanded "src/main/$gtk/gtk-Dark.scss" "$dir/$gtk/gtk-dark.css"
+      done
+
+      cp "src/main/gtk-2.0/gtkrc${assets}" "$dir/gtk-2.0/gtkrc"
+      cp "src/main/gtk-2.0/menubar-toolbar-${color}.rc" "$dir/gtk-2.0/menubar-toolbar.rc"
+      cp src/main/gtk-2.0/common/*.rc "$dir/gtk-2.0/"
+      cp -r "src/assets/gtk-2.0/assets-common-${color}${suffix "standard" scheme}" "$dir/gtk-2.0/assets"
+      cp "src/assets/gtk-2.0/assets${assets}"/*.png "$dir/gtk-2.0/assets/"
+
+      shell="$dir/gnome-shell"
+      cp -r src/assets/gnome-shell/icons "$shell/"
+      cp src/main/gnome-shell/pad-osd.css "$shell/"
+      sassc -t expanded "src/main/gnome-shell/gnome-shell-${color}.scss" "$shell/gnome-shell.css"
+      cp -r src/assets/gnome-shell/common-assets/. "$shell/assets/"
+      cp -r "src/assets/gnome-shell/assets-${color}/." "$shell/assets/"
+      cp -r "src/assets/gnome-shell/theme${accent}/." "$shell/assets/"
+      cp src/assets/gnome-shell/activities/activities-apple.svg "$shell/assets/activities.svg"
+      cp src/assets/gnome-shell/activities/activities-apple.svg "$shell/assets/activities-white.svg"
+      mv "$shell/assets/no-events.svg" "$shell/assets/process-working.svg" "$shell/assets/no-notifications.svg" "$shell/"
+
+      printf '[Desktop Entry]\nType=X-GNOME-Metatheme\nName=${name}\n\n[X-GNOME-Metatheme]\nGtkTheme=${name}\n' > "$dir/index.theme"
+    '') variants}
 
     jdupes --link-soft --recurse "$out/share"
 
@@ -120,4 +151,4 @@ stdenvNoCC.mkDerivation {
     license = lib.licenses.mit;
     platforms = lib.platforms.linux;
   };
-}
+}))
