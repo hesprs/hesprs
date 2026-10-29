@@ -37,11 +37,11 @@ Hello 🙋 I'm Hēsperus:
 🌱 I'm learning:
 ![Crypto](https://img.badges.sh/badge?message=Crypto&color=333333&labelColor=ff6c20&logo=web3dotjs&logoColor=ffffff&font=Space+Grotesk&fontWeight=500&labelFontWeight=700&messageFontWeight=700)
 
-📫 Contact Me: ![Email](./Assets/email-badge.svg)
+📫 Contact Me: ![Email](./assets/email-badge.svg)
 
 <div align="center">
-  <img src="./Assets/stats.svg" style="height: 160px;"/>
-  <img src="./Assets/top-langs.svg" style="height: 160px;"/>
+  <img src="./assets/stats.svg" style="height: 160px;"/>
+  <img src="./assets/top-langs.svg" style="height: 160px;"/>
 </div>
 
 <br>

@@ -1,15 +1,15 @@
 ## Layout
 
 - Repo root: `Configurations/`
-- NixOS flake root: `NixOS Configuration/`
-- NixOS modules: `NixOS Configuration/os/*.nix`
-- Home Manager modules: `NixOS Configuration/home/**/*.nix`
-- Nix deviations: `NixOS Configuration/packages/*`
+- NixOS flake root: `nixos/`
+- NixOS modules: `nixos/os/*.nix`
+- Home Manager modules: `nixos/home/**/*.nix`
+- Nix deviations: `nixos/packages/*`
 - Bootstrap helper: `setup.sh`
 
 ## Build, lint, and test commands
 
-Run these from `NixOS Configuration/`.
+Run these from `nixos/`.
 
 ### Fast sanity checks
 

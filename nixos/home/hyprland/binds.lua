@@ -71,19 +71,4 @@ hl.gesture({
     direction = "horizontal",
     action    = "workspace",
 })
-
-hl.gesture({
-    fingers   = 3,
-    direction = "up",
-    action    = function()
-        hl.exec_cmd(menu)
-    end,
-})
-
-hl.gesture({
-    fingers   = 3,
-    direction = "down",
-    action    = function()
-        hl.exec_cmd(menu)
-    end,
-})
+z
