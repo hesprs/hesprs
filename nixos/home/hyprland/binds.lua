@@ -71,4 +71,3 @@ hl.gesture({
     direction = "horizontal",
     action    = "workspace",
 })
-z
