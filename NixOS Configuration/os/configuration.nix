@@ -21,6 +21,10 @@
         "nix-command"
         "flakes"
       ];
+      extra-substituters = [ "https://noctalia.cachix.org" ];
+      extra-trusted-public-keys = [
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      ];
       flake-registry = "";
       nix-path = config.nix.nixPath;
     };
@@ -89,7 +93,6 @@
     fastfetch
     pi-coding-agent
     teleagent
-    panacea
 
     # system utilities
     glib.bin # Gnome CLI tool
@@ -106,11 +109,9 @@
     nautilus # file manager
     seahorse # password manager
     gnome-calculator # calculator
-    gnome-characters # character finder
     brightnessctl # screen brightness control
-    mission-center # system monitor
     tuigreet # login manager
-    gnome-system-monitor # task manager
+    gnome-system-monitor # system monitor
 
     # runtimes / compilers
     python3 # Python

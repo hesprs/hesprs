@@ -2,12 +2,13 @@ hl.config({
     general = {
         border_size = 1,
         col = {
-            active_border = "rgba(88888866)",
-            inactive_border = "rgba(66666666)",
+            active_border = "rgba(aaaaad55)",
+            inactive_border = "rgba(88888b55)",
         },
     },
     decoration = {
         rounding = 20,
+        rounding_power = 3;
         dim_inactive = true,
         dim_strength = 0.1,
 
@@ -23,10 +24,10 @@ hl.config({
 
         shadow = {
             enabled = true,
-            range = 2,
-            render_power = 2,
+            range = 1,
             color = "rgba(000000d3)",
             color_inactive = "rgba(0000008d)",
+            sharp = true,
         },
     },
 })

@@ -5,10 +5,10 @@ local menu         = "noctalia msg panel-toggle launcher"
 local main_mod     = "SUPER"
 
 -- Application Launchers
+hl.bind(main_mod .. " + SUPER_L", hl.dsp.exec_cmd(menu))
 hl.bind(main_mod .. " + Q", hl.dsp.exec_cmd(terminal))
 hl.bind(main_mod .. " + E", hl.dsp.exec_cmd(file_manager .. " -w"))
 hl.bind(main_mod .. " + B", hl.dsp.exec_cmd(browser))
-hl.bind(main_mod .. " + R", hl.dsp.exec_cmd(menu))
 
 -- Window Management
 hl.bind(main_mod .. " + C", hl.dsp.window.close())
@@ -16,9 +16,6 @@ hl.bind(main_mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
 hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(main_mod .. " + J", hl.dsp.layout("togglesplit"))
-
--- System Actions
-hl.bind(main_mod .. " + M", hl.dsp.exit())
 
 -- Focus Navigation (Arrow Keys)
 hl.bind(main_mod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -59,7 +56,7 @@ hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"))
 
 -- Screenshot
-hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp -w 0 -b 00000060)" - | wl-copy --type image/png'))
+hl.bind("Print", hl.dsp.exec_cmd('noctalia msg screenshot-region'))
 
 -- Lid Switch (Lock Screen)
 hl.bind("switch:Lid Switch", hl.dsp.exec_cmd("noctalia ipc call lockScreen lock"), { locked = true })

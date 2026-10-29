@@ -82,7 +82,7 @@ password_style = "random"
 settings_window_translucent = true
 
 [shell.panel]
-transparency_mode = "glass"
+transparency_mode = "soft"
 
 [shell.screen_corners]
 enabled = true

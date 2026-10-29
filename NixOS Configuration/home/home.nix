@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ lib, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -37,7 +37,10 @@
   };
   stylix.base16Scheme = ../packages/vivid.yaml;
   xdg.portal = {
-    enable = true;
+    # mkForce: the HM hyprland module also defines xdg.portal.enable (as
+    # false when its portalPackage is null); outprioritize it so this
+    # existing portal setup stays exactly as it is.
+    enable = lib.mkForce true;
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk4

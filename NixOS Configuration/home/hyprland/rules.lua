@@ -12,21 +12,13 @@ hl.window_rule({
     move = "69.5% 4%",
 })
 
-for _, namespace in ipairs({
-    "swaync-control-center",
-    "swaync-notification-window",
-    "waybar",
-    "rofi",
-}) do
-    hl.layer_rule({
-        name = namespace .. "-blur",
-        match = { namespace = namespace },
-        blur = true,
-    })
-
-    hl.layer_rule({
-        name = namespace .. "-ignore-alpha",
-        match = { namespace = namespace },
-        ignore_alpha = 0.5,
-    })
-end
+hl.layer_rule({
+    name = "noctalia-blur",
+    match = {
+        namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$",
+    },
+    no_anim = true,
+    ignore_alpha = 0.3,
+    blur = true,
+    blur_popups = true,
+})

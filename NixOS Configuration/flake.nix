@@ -60,8 +60,8 @@
                   teleagent = final.callPackage ./packages/teleagent.nix { };
                   agent-browser = final.callPackage ./packages/agent-browser.nix { };
                   wordcraft = final.callPackage ./packages/wordcraft.nix { };
-                  panacea = final.callPackage ./packages/panacea.nix { };
                   cua-driver = final.callPackage ./packages/cua-driver.nix { };
+                  cua-hyprland-plugin = final.callPackage ./packages/cua-hyprland-plugin.nix { };
                   xdg-desktop-portal-gtk4 = final.callPackage ./packages/xdg-portal-gtk4.nix { };
                 })
                 (import ./packages/obsidian.nix)

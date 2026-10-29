@@ -45,6 +45,10 @@ hl.config({
         no_update_news = true,
     },
 
+    plugin = {
+        cua = { enabled = true },
+    },
+
     input = {
         kb_layout = "us",
         kb_variant = "",
@@ -60,8 +64,3 @@ hl.config({
         },
     },
 })
-
-require("animations")
-require("decorations")
-require("rules")
-require("binds")
