@@ -19,9 +19,9 @@
       size = 24;
     };
     opacity = {
-      terminal = 0.6;
-      popups = 0.6;
-      desktop = 0.6;
+      terminal = 0.5;
+      popups = 0.5;
+      desktop = 0.5;
     };
     fonts = {
       serif = {

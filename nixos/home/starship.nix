@@ -1,8 +1,16 @@
 {
   programs.bash = {
     enable = true;
+    # https://github.com/spaceship-prompt/spaceship-prompt/issues/462#issuecomment-1564754315
     bashrcExtra = ''
-    	PROMPT_COMMAND="export PROMPT_COMMAND=echo"
+      show_newline() {
+        if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+          NEW_LINE_BEFORE_PROMPT=1
+        elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+          echo ""
+        fi
+      }
+      PROMPT_COMMAND="show_newline"
       eval "$(starship init bash)"
     '';
   };

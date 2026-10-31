@@ -21,13 +21,7 @@
 	"editor.defaultFormatter": "oxc.oxc-vscode",
 	"nix.enableLanguageServer": true,
 	"nix.serverPath": "nixd",
-	"nix.serverSettings": {
-		"nixd": {
-			"formatting": {
-				"command": ["nixfmt"],
-			},
-		},
-	},
+	"nix.serverSettings": { "nixd": { "formatting": { "command": ["nixfmt"] } } },
 	"editor.quickSuggestionsDelay": 0,
 	"editor.minimap.renderCharacters": false,
 	"editor.cursorBlinking": "smooth",
@@ -166,12 +160,8 @@
 	"explorer.confirmDragAndDrop": false,
 	"workbench.startupEditor": "none",
 	"editor.minimap.size": "fill",
-	"editor.unicodeHighlight.allowedLocales": {
-		"zh-hans": true,
-	},
-	"[nix]": {
-		"editor.defaultFormatter": "jnoortheen.nix-ide",
-	},
+	"editor.unicodeHighlight.allowedLocales": { "zh-hans": true },
+	"[nix]": { "editor.defaultFormatter": "jnoortheen.nix-ide" },
 	"json.schemaDownload.trustedDomains": {
 		"https://developer.microsoft.com/json-schemas/": true,
 		"https://json-schema.org/": true,
@@ -190,8 +180,8 @@
 	"js/ts.tsserver.maxMemory": 1024,
 	"js/ts.tsdk.promptToUseWorkspaceVersion": true,
 	"explorer.confirmPasteNative": false,
-	"workbench.colorTheme": "Expo Dark",
 	"terminal.integrated.cursorWidth": 2,
 	"files.autoSave": "afterDelay",
 	"nix.hiddenLanguageServerErrors": ["textDocument/formatting"],
+	"workbench.colorTheme": "7. NVIMㅤㅤ(Lynx Theme)",
 }

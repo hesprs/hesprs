@@ -1,4 +1,9 @@
-{ lib, pkgs, inputs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -35,7 +40,6 @@
       gtk.enable = true;
     };
   };
-  stylix.base16Scheme = ../packages/vivid.yaml;
   xdg.portal = {
     # mkForce: the HM hyprland module also defines xdg.portal.enable (as
     # false when its portalPackage is null); outprioritize it so this
@@ -49,6 +53,10 @@
       "hyprland"
       "gtk4"
     ];
+  };
+  stylix = {
+    base16Scheme = ../packages/vivid.yaml;
+    targets.kde.enable = false;
   };
 
   # Nicely reload system units when changing configs

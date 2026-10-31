@@ -18,10 +18,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/cachix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
   };
 
   outputs =
@@ -52,21 +48,24 @@
                     ];
                     boldPanelIcons = true;
                   };
-                  noctalia = inputs.noctalia.packages.${system}.default;
                   mactahoe-gtk-theme = final.callPackage ./packages/gtk-theme.nix {
                     blur = true;
                   };
                   lark = final.callPackage ./packages/lark.nix { };
                   teleagent = final.callPackage ./packages/teleagent.nix { };
-                  agent-browser = final.callPackage ./packages/agent-browser.nix { };
                   wordcraft = final.callPackage ./packages/wordcraft.nix { };
                   cua-driver = final.callPackage ./packages/cua-driver.nix { };
-                  cua-hyprland-plugin = final.callPackage ./packages/cua-hyprland-plugin.nix { };
+                  # Upstream pins the v3 input route to Hyprland 0.56.2; it does not build against 0.57.0 yet.
+                  # Flip withInput back once a released driver tag supports 0.57.0.
+                  cua-hyprland-plugin = final.callPackage ./packages/cua-hyprland-plugin.nix {
+                    withInput = false;
+                  };
                   xdg-desktop-portal-gtk4 = final.callPackage ./packages/xdg-portal-gtk4.nix { };
                 })
                 (import ./packages/obsidian.nix)
-                (import ./packages/vscodium)
+                # (import ./packages/vscodium)
                 (import ./packages/pi.nix)
+                (import ./packages/agent-browser.nix)
               ];
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };

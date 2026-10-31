@@ -5,7 +5,7 @@ local menu         = "noctalia msg panel-toggle launcher"
 local main_mod     = "SUPER"
 
 -- Application Launchers
-hl.bind(main_mod .. " + SUPER_L", hl.dsp.exec_cmd(menu))
+hl.bind(main_mod .. "_L", hl.dsp.exec_cmd(menu), { release = true })
 hl.bind(main_mod .. " + Q", hl.dsp.exec_cmd(terminal))
 hl.bind(main_mod .. " + E", hl.dsp.exec_cmd(file_manager .. " -w"))
 hl.bind(main_mod .. " + B", hl.dsp.exec_cmd(browser))

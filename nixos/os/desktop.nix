@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   # disable the X11 windowing system.
   services = {
@@ -17,5 +18,8 @@
     withUWSM = true;
   };
 
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    extraPackages = [ pkgs.intel-media-driver ]; # Intel VA-API driver: hw video encode/decode (GSR, browser, players)
+  };
 }

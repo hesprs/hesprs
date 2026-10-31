@@ -12,7 +12,8 @@
       window-padding-y = 10;
       copy-on-select = false;
       window-decoration = true;
-      background-opacity = 0.6;
+      background-opacity = 0.5;
+      background-blur = true;
       scrollback-limit = 2000;
       mouse-scroll-multiplier = 0.7;
       window-padding-color = "extend";
