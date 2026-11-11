@@ -12,6 +12,7 @@
     ./login.nix
     ./mime.nix
     ./secrets.nix
+    ./snowluma.nix
     ./stylix.nix
   ];
 
@@ -21,6 +22,7 @@
         "nix-command"
         "flakes"
       ];
+      keep-outputs = true; # prevents nix from pruning fetched sources all the time
       flake-registry = "";
       nix-path = config.nix.nixPath;
     };

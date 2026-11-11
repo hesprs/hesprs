@@ -182,6 +182,6 @@
 	"explorer.confirmPasteNative": false,
 	"terminal.integrated.cursorWidth": 2,
 	"files.autoSave": "afterDelay",
-	"nix.hiddenLanguageServerErrors": ["textDocument/formatting"],
+	"nix.hiddenLanguageServerErrors": ["textDocument/formatting", "textDocument/definition"],
 	"workbench.colorTheme": "7. NVIMㅤㅤ(Lynx Theme)",
 }

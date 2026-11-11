@@ -143,6 +143,7 @@ stdenv.mkDerivation (finalAttrs: {
     wrapProgram $out/opt/TeleAgent/teleagent \
       --add-flags "--ozone-platform=wayland" \
       --run '${coreutils}/bin/chmod -R u+w "''${HOME}/.config/TeleAgent/plugins" 2>/dev/null || true' \
+      --set BASH_ENV $out/share/teleagent-fix-tool-env.sh \
       --prefix PATH : ${
         lib.makeBinPath [
           xdg-utils
@@ -161,6 +162,73 @@ stdenv.mkDerivation (finalAttrs: {
     ln -s $out/opt/TeleAgent/teleagent $out/bin/teleagent
 
     runHook postInstall
+  '';
+
+  postInstall = ''
+    # Local patch: neutralize the AIGC watermark stamping and restore
+    # the real XDG directories for agent-spawned shells.
+    #
+    # History: the XDG env redirection cannot be fixed inside the app
+    # bundle. The operative main-process code is
+    # dist-electron/main.jsc, a bytenode V8 bytecode bundle loaded via
+    # main-loader.cjs; the plaintext main-runtime bundle shipped in
+    # the asar is never loaded, and renaming strings inside the
+    # bytecode corrupted the desktop-kernel local-auth handshake and
+    # broke the app outright. The XDG fix below works outside the app
+    # via BASH_ENV instead.
+    asar=$out/opt/TeleAgent/resources/app.asar
+
+    # Patch B: make the AIGC watermark runtime a pass-through. The store
+    # copy is re-synced to ~/.config/TeleAgent/plugins at every launch.
+    # Rename the original declaration and insert a stub with the
+    # original name that copies input to output and restores the
+    # input's atime/mtime, so every call site (md/pdf/image, hidden
+    # and explicit modes) produces a byte-identical file with
+    # preserved timestamps. getWatermark and everything else stay
+    # intact.
+    wm=$out/opt/TeleAgent/resources/plugins/watermark-runtime/index.cjs
+    sed -i 's/async function addWatermark(inputPath, outputPath, mode) {/async function addWatermark(inputPath, outputPath, mode) { const fs = require("fs"); await fs.promises.copyFile(inputPath, outputPath); const st = await fs.promises.stat(inputPath); await fs.promises.utimes(outputPath, st.atime, st.mtime); return; }\nasync function __wm_disabled_addWatermark(inputPath, outputPath, mode) {/' "$wm"
+    if ! grep -aqF '__wm_disabled_addWatermark' "$wm"; then
+      echo 'ERROR: watermark patch did not apply (version drift?)' >&2
+      exit 1
+    fi
+
+    # Patch C (partial by design): the watermark flag is enforced by
+    # CLOUD sync, not local code. At every app start and session
+    # create, the renderer fetches the account toggle
+    # ai_watermark_enabled from the cloud and rewrites
+    # user-agent-config.json through two paths: the desktop IPC
+    # handler (the dotted path below) and the renderer's own
+    # camel-key mergeItem. This rename moves only the desktop path
+    # onto a junk key; the renderer path still writes the real key.
+    # Turning the flag off durably therefore happens via the official
+    # settings exemption (cloud-persisted) or an extra renderer
+    # patch; the kernel is read-only and honors the real key live, so
+    # patch B guarantees byte-identical files either way.
+    sed -i 's/features\.watermark\.aiWatermarkEnabled/features.watermark.aiWatermarkEnablex/g' "$asar"
+    if grep -aqF 'features.watermark.aiWatermarkEnabled' "$asar" \
+      || ! grep -aqF 'features.watermark.aiWatermarkEnablex' "$asar"; then
+      echo 'ERROR: watermark config-path patch did not apply (version drift?)' >&2
+      exit 1
+    fi
+
+    # XDG fix for agent tool shells: the desktop's mergedEnv rewrites
+    # XDG_CONFIG_HOME/XDG_DATA_HOME/XDG_CACHE_HOME to TeleAgent account
+    # dirs in every tool process, silently breaking every
+    # XDG-respecting host app the agent runs (gh auth, git global
+    # config in ~/.config/git/config, Electron apps, browsers, ...).
+    # Non-interactive bash sources $BASH_ENV before running a command,
+    # and BASH_ENV is inherited from the app env through the kernel's
+    # env merge, so the wrapper's --set makes every agent bash call
+    # restore the real paths from $HOME. The app itself is untouched.
+    mkdir -p $out/share
+    cat > $out/share/teleagent-fix-tool-env.sh <<'EOF'
+# Restored XDG directories for TeleAgent agent tool shells.
+# Sourced via BASH_ENV by non-interactive bash; see teleagent.nix.
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+EOF
   '';
 
   passthru = {
