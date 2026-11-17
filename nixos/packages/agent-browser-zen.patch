@@ -1,0 +1,77 @@
+diff --git a/src/native/bidi/firefox.rs b/src/native/bidi/firefox.rs
+index f6d8e66..17c994b 100644
+--- a/src/native/bidi/firefox.rs
++++ b/src/native/bidi/firefox.rs
+@@ -123,10 +123,10 @@ fn find_firefox_with(
+     path: Option<OsString>,
+     fixed: &[&str],
+ ) -> Result<PathBuf, String> {
+-    let exe = if cfg!(windows) {
+-        "firefox.exe"
++    let exes: &[&str] = if cfg!(windows) {
++        &["firefox.exe", "zen.exe"]
+     } else {
+-        "firefox"
++        &["firefox", "zen-beta"]
+     };
+     let found = match explicit {
+         Some(p) if Path::new(p).is_file() || is_snap(Path::new(p)) => PathBuf::from(p),
+@@ -134,7 +134,7 @@ fn find_firefox_with(
+         None => path
+             .iter()
+             .flat_map(std::env::split_paths)
+-            .map(|d| d.join(exe))
++            .flat_map(|d| exes.iter().map(move |exe| d.join(exe)))
+             .chain(fixed.iter().map(PathBuf::from))
+             .find(|p| p.is_file())
+             .ok_or_else(|| {
+@@ -160,6 +160,21 @@ pub fn parse_bidi_url(line: &str) -> Option<String> {
+     url.starts_with("ws://").then(|| url.to_string())
+ }
+ 
++/// Extracts the Gecko version from a Firefox-style user agent (`rv:157.0`).
++pub fn gecko_version_from_user_agent(ua: &str) -> Option<String> {
++    let rest = &ua[ua.find("rv:")? + 3..];
++    let end = rest
++        .find(|c: char| !c.is_ascii_digit() && c != '.')
++        .unwrap_or(rest.len());
++    let version = &rest[..end];
++    version
++        .split('.')
++        .next()?
++        .parse::<u32>()
++        .ok()
++        .map(|_| version.to_string())
++}
++
+ /// Fails unless `version` (the BiDi `browserVersion`) is Firefox 150 or newer.
+ pub fn check_firefox_version(version: &str) -> Result<(), String> {
+     match version
+diff --git a/src/native/bidi/session.rs b/src/native/bidi/session.rs
+index 4a3baf9..f54517c 100644
+--- a/src/native/bidi/session.rs
++++ b/src/native/bidi/session.rs
+@@ -320,11 +320,22 @@ impl FirefoxSession {
+     ) -> Result<Self, String> {
+         let attached = process.is_none();
+         let dispatch_events = bidi.subscribe_buffered();
++        let browser_name = created["capabilities"]["browserName"]
++            .as_str()
++            .unwrap_or("");
+         let browser_version = created["capabilities"]["browserVersion"]
+             .as_str()
+             .unwrap_or("")
+             .to_string();
+-        check_firefox_version(&browser_version)?;
++        let check_version = if browser_name == "zen" {
++            super::firefox::gecko_version_from_user_agent(
++                created["capabilities"]["userAgent"].as_str().unwrap_or(""),
++            )
++            .unwrap_or_else(|| browser_version.clone())
++        } else {
++            browser_version.clone()
++        };
++        check_firefox_version(&check_version)?;
+         let events_to_watch: Vec<&str> = CONTEXT_EVENTS
+             .into_iter()
+             .chain(PROMPT_EVENTS)

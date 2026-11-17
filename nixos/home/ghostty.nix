@@ -1,7 +1,7 @@
 {
   stylix.targets.ghostty = {
     opacity.enable = false;
-    colors.override.base00 = "0C0C0E";
+    colors.override.base00 = "202022";
   };
   programs.ghostty = {
     enable = true;
