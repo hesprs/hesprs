@@ -34,6 +34,8 @@
     sessionVariables = {
       GNOME_DESKTOP_SESSION_ID = "this-is-deprecated"; # https://github.com/electron/electron/issues/39789#issuecomment-3433810585
       NIXOS_OZONE_WL = "1";
+      # GTK 4.24+ binds ext-background-effect-v1 on every window, so Hyprland stops blurring translucent GTK windows; unbinding the protocol restores the blur.
+      GDK_WAYLAND_DISABLE = "ext_background_effect_manager_v1"; # https://github.com/hyprwm/Hyprland/discussions/16507
     };
     pointerCursor = {
       enable = true;

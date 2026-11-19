@@ -6,7 +6,7 @@
   ninja,
   pkg-config,
   binutils,
-  fetchFromGitHub,
+  fetchurl,
   hyprland,
   aquamarine,
   hyprcursor,
@@ -23,21 +23,14 @@
   libxcb-wm,
   libxcb-errors,
   # Build the experimental v3 input route (foreground activation + raw
-  # background input). Pinned by upstream to Hyprland 0.56.2 exactly.
+  # background input). CMake compile-checks the installed headers and picks
+  # either the legacy window API or the 0.57 window-backend API instead of
+  # pinning a Hyprland version.
   withInput ? true,
 }:
 
 let
-  # Same monorepo and tag as packages/cua-driver.nix — only the sourceRoot
-  # differs. Nix reuses the identical source store path for both packages.
-  src = fetchFromGitHub {
-    owner = "trycua";
-    repo = "cua";
-    tag = "cua-driver-rs-v0.38.0";
-    hash = "sha256-Fpryc6Vg9vtV3zRCaL4S38v8l4JluU95o86dQbzkDPM=";
-  };
-
-  # ABI parity with the compositor: nixpkgs builds Hyprland 0.56.2 with
+  # ABI parity with the compositor: nixpkgs builds Hyprland with
   # gcc16Stdenv + mold (see pkgs/by-name/hy/hyprland/package.nix), and the
   # plugin must be built with the same toolchain family. Mirror that recipe
   # so the two stay in sync if either changes.
@@ -45,10 +38,15 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "cua-hyprland-plugin";
-  version = "0.38.0";
+  version = "0.53.0";
 
-  inherit src;
-  sourceRoot = "${src.name}/libs/cua-driver/hyprland-plugin";
+  # Release source tarball for the plugin only (92 KB), cut from the commit
+  # the release pipeline validated (aed25e9), with a SOURCE-PROVENANCE.json
+  # listing the per-file hashes. Replaces fetching the whole monorepo.
+  src = fetchurl {
+    url = "https://github.com/trycua/cua/releases/download/cua-driver-rs-v${finalAttrs.version}/cua-hyprland-plugin-${finalAttrs.version}-aed25e921ff303315d95ea23ea2f853b0fb26998.tar.gz";
+    hash = "sha256-IJb34GVJq9HvImvS5cwxuXcuBR/nuAcOMQtbuusrkPM=";
+  };
 
   nativeBuildInputs = [
     cmake

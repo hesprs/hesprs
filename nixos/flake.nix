@@ -54,13 +54,9 @@
                   lark = final.callPackage ./packages/lark.nix { };
                   snowluma = final.callPackage ./packages/snowluma.nix { };
                   teleagent = final.callPackage ./packages/teleagent.nix { };
-                  wordcraft = final.callPackage ./packages/wordcraft.nix { };
-                  foxbridge = final.callPackage ./packages/foxbridge.nix { };
                   cua-driver = final.callPackage ./packages/cua-driver.nix { };
-                  # Upstream pins the v3 input route to Hyprland 0.56.2; it does not build against 0.57.0 yet.
-                  # Flip withInput back once a released driver tag supports 0.57.0.
                   cua-hyprland-plugin = final.callPackage ./packages/cua-hyprland-plugin.nix {
-                    withInput = false;
+                    withInput = true;
                   };
                   xdg-desktop-portal-gtk4 = final.callPackage ./packages/xdg-portal-gtk4.nix { };
                 })

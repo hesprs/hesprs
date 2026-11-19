@@ -1,42 +1,65 @@
 {
   lib,
   stdenv,
-  fetchFromGitHub,
-  rustPlatform,
-  pkg-config,
+  fetchurl,
+  autoPatchelfHook,
   wrapGAppsHook4,
   gtk4,
   glib,
+  gdk-pixbuf,
 }:
 
-rustPlatform.buildRustPackage {
+# Prebuilt-binary variant of xdg-desktop-portal-gtk4.
+# Binary comes from the upstream release (built on ubuntu-latest with stable
+# Rust, stripped); the Makefile and data/ templates come from the same
+# release's git-archive source tarball. No Rust toolchain, no cargo vendor
+# step. The Makefile install targets never invoke cargo, so staging the
+# prebuilt binary into a fake CARGO_TARGET_DIR is enough.
+
+stdenv.mkDerivation (finalAttrs: {
   pname = "xdg-desktop-portal-gtk4";
-  version = "1.5.1-unstable-2026-10-02";
+  version = "1.6.6";
 
-  src = fetchFromGitHub {
-    owner = "JohnRTitor";
-    repo = "xdg-desktop-portal-gtk4";
-    rev = "8f88da61d347f1af9cc74618ed6823b385754ba3";
-    hash = "sha256-bLbuL7M9K7YuQez0mZH2vk4SypxBLRoCKzjZiIfJ4Ms=";
-  };
+  srcs = [
+    # Flat archive: just the "xdg-desktop-portal-gtk4" binary.
+    (fetchurl {
+      url = "https://github.com/JohnRTitor/xdg-desktop-portal-gtk4/releases/download/v${finalAttrs.version}/xdg-desktop-portal-gtk4-linux-x86_64.tar.gz";
+      hash = "sha256-lzg6bC76y9ttpo4jQHthJJ+A5Yqw8wB7A0xQwbe6AIU=";
+    })
+    # git archive of the tag: Makefile + data/ templates (plus full source).
+    (fetchurl {
+      url = "https://github.com/JohnRTitor/xdg-desktop-portal-gtk4/releases/download/v${finalAttrs.version}/xdg-desktop-portal-gtk4-${finalAttrs.version}.tar.gz";
+      hash = "sha256-iEoE0hfdpNC/iHJyTlyR+2vnbrBNTRDwMBJi8/a59b0=";
+    })
+  ];
 
-  cargoHash = "sha256-xODGcjjHgVPnFDIICcU71RLB54P4vdf/UjGMSkjZbw8=";
-
+  sourceRoot = ".";
   strictDeps = true;
 
   nativeBuildInputs = [
-    pkg-config
+    autoPatchelfHook
     wrapGAppsHook4
   ];
 
   buildInputs = [
     gtk4
     glib
+    gdk-pixbuf
   ];
 
-  postInstall = ''
-    rm -rf $out/bin
-    make install DESTDIR= PREFIX=$out CARGO_TARGET_DIR=target/${stdenv.hostPlatform.rust.cargoShortTarget}
+  installPhase = ''
+    runHook preInstall
+
+    # Stage the prebuilt binary where the Makefile expects cargo output.
+    mkdir -p target/release
+    install -m 0755 xdg-desktop-portal-gtk4 target/release/xdg-desktop-portal-gtk4
+
+    # install-bin copies the staged binary; install-data renders the
+    # .service/.desktop/.portal templates with the right prefix baked in.
+    make -C "xdg-desktop-portal-gtk4-${finalAttrs.version}" install \
+      PREFIX="$out" CARGO_TARGET_DIR="$PWD/target"
+
+    runHook postInstall
   '';
 
   meta = {
@@ -45,4 +68,4 @@ rustPlatform.buildRustPackage {
     license = lib.licenses.lgpl21Plus;
     platforms = lib.platforms.linux;
   };
-}
+})

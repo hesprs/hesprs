@@ -39,6 +39,7 @@
   libxrender,
   libxscrnsaver,
   libxshmfence,
+  libxt,
   libxtst,
   nspr,
   nss,
@@ -54,13 +55,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "teleagent";
-  version = "2.7.1";
+  version = "3.1.0";
 
   src = fetchurl {
     # https://www.teleai.com.cn/product/teleagent redirects here via
     # https://agent.teleai.com.cn/superCowork/sapi/api/download/redirect/linux-x64
     url = "https://cdn01.teleai.com.cn/packages/${finalAttrs.version}/TeleAgent-${finalAttrs.version}-amd64.deb";
-    hash = "sha256-NsXiLMWCXBhQJw1U3V6JWX+JXm80RyP3FOhqT5TMNT0=";
+    hash = "sha256-btGlC00nSooRGsSPRn+JPfr3e9B7Wea2owjTt2zAb1g=";
   };
 
   nativeBuildInputs = [
@@ -104,6 +105,8 @@ stdenv.mkDerivation (finalAttrs: {
     libxrender
     libxscrnsaver
     libxshmfence
+    # uiohook-napi prebuilds link libXt.so.6
+    libxt
     libxtst
     nspr
     nss
@@ -176,7 +179,6 @@ stdenv.mkDerivation (finalAttrs: {
     # bytecode corrupted the desktop-kernel local-auth handshake and
     # broke the app outright. The XDG fix below works outside the app
     # via BASH_ENV instead.
-    asar=$out/opt/TeleAgent/resources/app.asar
 
     # Patch B: make the AIGC watermark runtime a pass-through. The store
     # copy is re-synced to ~/.config/TeleAgent/plugins at every launch.
@@ -190,25 +192,6 @@ stdenv.mkDerivation (finalAttrs: {
     sed -i 's/async function addWatermark(inputPath, outputPath, mode) {/async function addWatermark(inputPath, outputPath, mode) { const fs = require("fs"); await fs.promises.copyFile(inputPath, outputPath); const st = await fs.promises.stat(inputPath); await fs.promises.utimes(outputPath, st.atime, st.mtime); return; }\nasync function __wm_disabled_addWatermark(inputPath, outputPath, mode) {/' "$wm"
     if ! grep -aqF '__wm_disabled_addWatermark' "$wm"; then
       echo 'ERROR: watermark patch did not apply (version drift?)' >&2
-      exit 1
-    fi
-
-    # Patch C (partial by design): the watermark flag is enforced by
-    # CLOUD sync, not local code. At every app start and session
-    # create, the renderer fetches the account toggle
-    # ai_watermark_enabled from the cloud and rewrites
-    # user-agent-config.json through two paths: the desktop IPC
-    # handler (the dotted path below) and the renderer's own
-    # camel-key mergeItem. This rename moves only the desktop path
-    # onto a junk key; the renderer path still writes the real key.
-    # Turning the flag off durably therefore happens via the official
-    # settings exemption (cloud-persisted) or an extra renderer
-    # patch; the kernel is read-only and honors the real key live, so
-    # patch B guarantees byte-identical files either way.
-    sed -i 's/features\.watermark\.aiWatermarkEnabled/features.watermark.aiWatermarkEnablex/g' "$asar"
-    if grep -aqF 'features.watermark.aiWatermarkEnabled' "$asar" \
-      || ! grep -aqF 'features.watermark.aiWatermarkEnablex' "$asar"; then
-      echo 'ERROR: watermark config-path patch did not apply (version drift?)' >&2
       exit 1
     fi
 

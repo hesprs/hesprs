@@ -147,6 +147,11 @@
     containers.policy.default = [ { type = "insecureAcceptAnything"; } ];
   };
 
+  systemd.services.iwd.serviceConfig.ExecStart = [
+    ""
+    "${pkgs.iwd}/libexec/iwd -d '*netdev*'"
+  ];
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "26.05";
 }
