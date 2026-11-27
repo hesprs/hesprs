@@ -138,7 +138,7 @@
           data-testid="lang-progress"
           x="0"
           y="0"
-          width="201.94"
+          width="201.95"
           height="8"
           fill="#3178c6"
         />
@@ -146,7 +146,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="201.94"
+          x="201.95"
           y="0"
           width="23.24"
           height="8"
@@ -156,7 +156,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="225.18"
+          x="225.19"
           y="0"
           width="17.759999999999998"
           height="8"
@@ -166,7 +166,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="232.94"
+          x="232.95"
           y="0"
           width="16.89"
           height="8"
@@ -176,7 +176,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="239.82999999999998"
+          x="239.83999999999997"
           y="0"
           width="14.04"
           height="8"
@@ -186,7 +186,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="243.86999999999998"
+          x="243.87999999999997"
           y="0"
           width="13.21"
           height="8"
@@ -196,7 +196,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="247.07999999999998"
+          x="247.08999999999997"
           y="0"
           width="11.620000000000001"
           height="8"
@@ -206,7 +206,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="248.7"
+          x="248.70999999999998"
           y="0"
           width="11.3"
           height="8"
@@ -226,7 +226,7 @@
     <g class="stagger" style="animation-delay: 600ms">
       <circle cx="5" cy="6" r="5" fill="#41b883" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Vue 9.30%
+        Vue 9.29%
       </text>
     </g>
   </g><g transform="translate(0, 50)">
