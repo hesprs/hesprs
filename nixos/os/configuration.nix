@@ -87,7 +87,7 @@
     gradia # image editor
     wordcraft # office suite
     gh # GitHub CLI
-    agent-browser # agentic browser control
+    agent-browser# agentic browser control
     cua-driver # agentic computer control
     fastfetch
     pi-coding-agent

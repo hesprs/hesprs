@@ -23,7 +23,10 @@
     };
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 5173 ];
+      allowedTCPPorts = [
+        5173
+        5005
+      ];
     };
     # interfaces.wlan0.macAddress = "";
   };

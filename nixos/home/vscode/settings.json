@@ -56,6 +56,7 @@
 		"DFS",
 		"DOI",
 		"enneagram",
+		"erotesis",
 		"excalidraw",
 		"explainers",
 		"frontmatter",
@@ -140,7 +141,7 @@
 		"webdav",
 		"whistleblower",
 		"worktree",
-		"Yandex",
+		"Yandex"
 	],
 	"workbench.settings.showAISearchToggle": false,
 	"terminal.integrated.fontWeight": 500,
@@ -153,7 +154,7 @@
 		"vscode",
 		"vscode-insiders",
 		"/home/hesprs/Documents/Sync%20Engine/packages/plugin/src/fs/wrappers/context.ts",
-		"/home/hesprs/Documents/Sync%20Engine/packages/plugin/src/fs/wrappers/asymmetric-storage.ts",
+		"/home/hesprs/Documents/Sync%20Engine/packages/plugin/src/fs/wrappers/asymmetric-storage.ts"
 	],
 	"git.enableSmartCommit": true,
 	"git.confirmSync": false,
@@ -171,7 +172,7 @@
 		"https://schemastore.azurewebsites.net/": true,
 		"https://turborepo.dev": true,
 		"https://www.schemastore.org/": true,
-		"https://pi.dev/schemas/": true,
+		"https://pi.dev/schemas/": true
 	},
 	"git.autofetch": true,
 	"js/ts.tsserver.experimental.enableProjectDiagnostics": true,
@@ -185,4 +186,5 @@
 	"nix.hiddenLanguageServerErrors": ["textDocument/formatting", "textDocument/definition"],
 	"workbench.colorTheme": "7. NVIMㅤㅤ(Lynx Theme)",
 	"workbench.experimental.modernUI": true,
+	"files.associations": { "*.toml": "ini" }
 }

@@ -55,6 +55,7 @@
                   snowluma = final.callPackage ./packages/snowluma.nix { };
                   teleagent = final.callPackage ./packages/teleagent.nix { };
                   cua-driver = final.callPackage ./packages/cua-driver.nix { };
+                  agent-browser = (final.callPackage ./packages/agent-browser.nix { });
                   cua-hyprland-plugin = final.callPackage ./packages/cua-hyprland-plugin.nix {
                     withInput = true;
                   };
@@ -63,7 +64,6 @@
                 (import ./packages/obsidian.nix)
                 # (import ./packages/vscodium)
                 (import ./packages/pi.nix)
-                (import ./packages/agent-browser.nix)
               ];
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };
